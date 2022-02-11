@@ -1,49 +1,32 @@
-import 'dart:convert';
-
-import 'package:fhir/r4/r4.dart';
 import 'package:shelf/shelf.dart';
 import 'package:shelf_router/shelf_router.dart';
 
-import 'post_request.dart';
-import 'put_request.dart';
+import 'utils/path_from_payload.dart';
+import 'post_request/post_request.dart';
 
 class ListeningController {
-  // Define our getter for our handler
+  ///Define our getter for our handler
   Handler get handler {
     final router = Router();
 
-    // main post route (acts the same as put)
+    /// main post route (acts the same as put), first gets the resource info
+    /// for the new Resource. As long as that is valid, get the past from the
+    /// URL, and as long as that exists, pass it onto the post function
     router.post('/', (Request request) async {
       final requestString = await request.readAsString();
       final path = pathFromPayload(requestString);
-      if (path != null) {}
-      return Response.notFound('Post Request');
+      if (path.isNotEmpty && path.length == 2) {
+        return await postRequest(path);
+      }
+      return Response.notFound('Post Request made, but payload incorrect');
     });
 
-    // You can catch all verbs and use a URL-parameter with a regular expression
-    // that matches everything to catch app.
+    ///You can catch all verbs and use a URL-parameter with a regular expression
+    ///that matches everything to catch app.
     router.all('/<ignored|.*>', (Request request) {
       return Response.notFound('Page not found');
     });
 
     return router;
   }
-}
-
-String? pathFromPayload(String requestString) {
-  if (requestString.isNotEmpty) {
-    final payloadData = jsonDecode(requestString)?['message']?['data'];
-    if (payloadData != null) {
-      final data = utf8.fuse(base64).decode(payloadData);
-      final dataList = data.split('/');
-      if (dataList.length > 1) {
-        final shouldBeAType = dataList[dataList.length - 2];
-        if (ResourceUtils.resourceTypeFromStringMap.keys
-            .contains(shouldBeAType)) {
-          return '$shouldBeAType/${dataList.last}';
-        }
-      }
-    }
-  }
-  return null;
 }

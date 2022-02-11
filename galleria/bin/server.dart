@@ -10,7 +10,7 @@ void main() async {
   var portEnv = envVars['PORT'];
   var PORT = portEnv == null ? 7777 : int.parse(portEnv);
 
-  /// Instantiate Home Controller
+  /// Instantiate Controller to Listen
   final listeningController = ListeningController();
 
   /// Create server
