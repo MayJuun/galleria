@@ -1,0 +1,2576 @@
+{
+    "resourceType": "Questionnaire",
+    "id": "e4e88be5-dae1-4966-9c8c-9e927813f22a",
+    "url": "chop.edu/ghip/needs_assessment",
+    "name": "needs_assessment",
+    "title": "Needs Assessment",
+    "status": "unknown",
+    "item": [
+        {
+            "linkId": "/needs_assessment/race",
+            "text": "Please select your race  (You may select more than 1 answer)",
+            "_text": {
+                "extension": []
+            },
+            "type": "choice",
+            "repeats": true,
+            "answerOption": [
+                {
+                    "valueCoding": {
+                        "code": "1002-5",
+                        "display": "American Indian or Alaska Native",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2028-9",
+                        "display": "Asian",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2054-5",
+                        "display": "Black or African American",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2076-8",
+                        "display": "Native Hawaiian or Other Pacific Islander",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2106-3",
+                        "display": "White",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2131-1",
+                        "display": "Other Race",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "linkId": "/needs_assessment/race_american_indian_or_alaska_native",
+            "text": "Specify American Indian or Alaska Native",
+            "_text": {
+                "extension": []
+            },
+            "type": "choice",
+            "enableWhen": [
+                {
+                    "question": "/demographics/race",
+                    "operator": "=",
+                    "answerCoding": {
+                        "code": "1002-5",
+                        "display": "American Indian or Alaska Native"
+                    }
+                }
+            ],
+            "enableBehavior": "all",
+            "repeats": true,
+            "answerOption": [
+                {
+                    "valueCoding": {
+                        "code": "1004-1",
+                        "display": "American Indian",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "1735-0",
+                        "display": "Alaska Native",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "linkId": "/needs_assessment/race_asian",
+            "text": "Specify Asian",
+            "_text": {
+                "extension": []
+            },
+            "type": "choice",
+            "enableWhen": [
+                {
+                    "question": "/demographics/race",
+                    "operator": "=",
+                    "answerCoding": {
+                        "code": "2028-9",
+                        "display": "Asian"
+                    }
+                }
+            ],
+            "enableBehavior": "all",
+            "repeats": true,
+            "answerOption": [
+                {
+                    "valueCoding": {
+                        "code": "2029-7",
+                        "display": "Asian Indian",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2030-5",
+                        "display": "Bangladeshi",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2031-3",
+                        "display": "Bhutanese",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2032-1",
+                        "display": "Burmese",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2033-9",
+                        "display": "Cambodian",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2034-7",
+                        "display": "Chinese",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2035-4",
+                        "display": "Taiwanese",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2036-2",
+                        "display": "Filipino",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2037-0",
+                        "display": "Hmong",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2038-8",
+                        "display": "Indonesian",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2039-6",
+                        "display": "Japanese",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2040-4",
+                        "display": "Korean",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2041-2",
+                        "display": "Laotian",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2042-0",
+                        "display": "Malaysian",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2043-8",
+                        "display": "Okinawan",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2044-6",
+                        "display": "Pakistani",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2045-3",
+                        "display": "Sri Lankan",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2046-1",
+                        "display": "Thai",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2047-9",
+                        "display": "Vietnamese",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2048-7",
+                        "display": "Iwo Jiman",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2049-5",
+                        "display": "Maldivian",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2050-3",
+                        "display": "Nepalese",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2051-1",
+                        "display": "Singaporean",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2052-9",
+                        "display": "Madagascar",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "linkId": "/needs_assessment/race_black_or_african_american",
+            "text": "Specify Black or African American",
+            "_text": {
+                "extension": []
+            },
+            "type": "choice",
+            "enableWhen": [
+                {
+                    "question": "/demographics/race",
+                    "operator": "=",
+                    "answerCoding": {
+                        "code": "2054-5",
+                        "display": "Black or African American"
+                    }
+                }
+            ],
+            "enableBehavior": "all",
+            "repeats": true,
+            "answerOption": [
+                {
+                    "valueCoding": {
+                        "code": "2056-0",
+                        "display": "Black",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2058-6",
+                        "display": "African American",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2060-2",
+                        "display": "African",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2067-7",
+                        "display": "Bahamian",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2068-5",
+                        "display": "Barbadian",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2069-3",
+                        "display": "Dominican",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2070-1",
+                        "display": "Dominica Islander",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2071-9",
+                        "display": "Haitian",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2072-7",
+                        "display": "Jamaican",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2073-5",
+                        "display": "Tobagoan",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2074-3",
+                        "display": "Trinidadian",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2075-0",
+                        "display": "West Indian",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "linkId": "/needs_assessment/race_native_hawaiian_or_other_pacific_islander",
+            "text": "Specify Native Hawaiian or Other Pacific Islander",
+            "_text": {
+                "extension": []
+            },
+            "type": "choice",
+            "enableWhen": [
+                {
+                    "question": "/demographics/race",
+                    "operator": "=",
+                    "answerCoding": {
+                        "code": "2076-8",
+                        "display": "Native Hawaiian or Other Pacific Islander"
+                    }
+                }
+            ],
+            "enableBehavior": "all",
+            "repeats": true,
+            "answerOption": [
+                {
+                    "valueCoding": {
+                        "code": "2086-7",
+                        "display": "Guamanian or Chamorro",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2087-5",
+                        "display": "Guamanian",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2088-3",
+                        "display": "Chamorro",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2089-1",
+                        "display": "Mariana Islander",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2090-9",
+                        "display": "Marshallese",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2091-7",
+                        "display": "Palauan",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2092-5",
+                        "display": "Carolinian",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2093-3",
+                        "display": "Kosraean",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2094-1",
+                        "display": "Pohnpeian",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2095-8",
+                        "display": "Saipanese",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2096-6",
+                        "display": "Kiribati",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2097-4",
+                        "display": "Chuukese",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2098-2",
+                        "display": "Yapese",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "linkId": "/needs_assessment/race_white",
+            "text": "Specify White",
+            "_text": {
+                "extension": []
+            },
+            "type": "choice",
+            "enableWhen": [
+                {
+                    "question": "/demographics/race",
+                    "operator": "=",
+                    "answerCoding": {
+                        "code": "2106-3",
+                        "display": "White"
+                    }
+                }
+            ],
+            "enableBehavior": "all",
+            "repeats": true,
+            "answerOption": [
+                {
+                    "valueCoding": {
+                        "code": "2108-9",
+                        "display": "European",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2118-8",
+                        "display": "Middle Eastern or North African",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2129-5",
+                        "display": "Arab",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "linkId": "/needs_assessment/ethnicity",
+            "text": "Please select your ethnicity",
+            "_text": {
+                "extension": []
+            },
+            "type": "choice",
+            "answerOption": [
+                {
+                    "valueCoding": {
+                        "code": "2135-2",
+                        "display": "Hispanic or Latino",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2186-5",
+                        "display": "Not Hispanic or Latino",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "linkId": "/needs_assessment/ethnicity_hispanic_or_latino",
+            "text": "Specify Hispanic Or Latino",
+            "_text": {
+                "extension": []
+            },
+            "type": "choice",
+            "enableWhen": [
+                {
+                    "question": "/demographics/ethnicity",
+                    "operator": "=",
+                    "answerCoding": {
+                        "code": "2135-2",
+                        "display": "Hispanic or Latino"
+                    }
+                }
+            ],
+            "enableBehavior": "all",
+            "repeats": true,
+            "answerOption": [
+                {
+                    "valueCoding": {
+                        "code": "2137-8",
+                        "display": "Spaniard",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2148-5",
+                        "display": "Mexican",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2155-0",
+                        "display": "Central American",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2165-9",
+                        "display": "South American",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2178-2",
+                        "display": "Latin American",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2180-8",
+                        "display": "Puerto Rican",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2182-4",
+                        "display": "Cuban",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2184-0",
+                        "display": "Dominican",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "linkId": "/needs_assessment/ethnicity_hispanic_or_latino_spaniard",
+            "text": "Specify Spaniard",
+            "_text": {
+                "extension": []
+            },
+            "type": "choice",
+            "enableWhen": [
+                {
+                    "question": "/demographics/ethnicity_hispanic_or_latino",
+                    "operator": "=",
+                    "answerCoding": {
+                        "code": "2137-8",
+                        "display": "Spaniard"
+                    }
+                }
+            ],
+            "enableBehavior": "all",
+            "repeats": true,
+            "answerOption": [
+                {
+                    "valueCoding": {
+                        "code": "2138-6",
+                        "display": "Andalusian",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2139-4",
+                        "display": "Asturian",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2140-2",
+                        "display": "Castillian",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2141-0",
+                        "display": "Catalonian",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2142-8",
+                        "display": "Belearic Islander",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2143-6",
+                        "display": "Gallego",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2144-4",
+                        "display": "Valencian",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2145-1",
+                        "display": "Canarian",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2146-9",
+                        "display": "Spanish Basque",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "linkId": "/needs_assessment/ethnicity_hispanic_or_latino_mexican",
+            "text": "Specify Mexican",
+            "_text": {
+                "extension": []
+            },
+            "type": "choice",
+            "enableWhen": [
+                {
+                    "question": "/demographics/ethnicity_hispanic_or_latino",
+                    "operator": "=",
+                    "answerCoding": {
+                        "code": "2148-5",
+                        "display": "Mexican"
+                    }
+                }
+            ],
+            "enableBehavior": "all",
+            "repeats": true,
+            "answerOption": [
+                {
+                    "valueCoding": {
+                        "code": "2149-3",
+                        "display": "Mexican American",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2150-1",
+                        "display": "Mexicano",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2151-9",
+                        "display": "Chicano",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2152-7",
+                        "display": "La Raza",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2153-5",
+                        "display": "Mexican American Indian",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "linkId": "/needs_assessment/ethnicity_hispanic_or_latino_central_american",
+            "text": "Specify Central American",
+            "_text": {
+                "extension": []
+            },
+            "type": "choice",
+            "enableWhen": [
+                {
+                    "question": "/demographics/ethnicity_hispanic_or_latino",
+                    "operator": "=",
+                    "answerCoding": {
+                        "code": "2155-0",
+                        "display": "Central American"
+                    }
+                }
+            ],
+            "enableBehavior": "all",
+            "repeats": true,
+            "answerOption": [
+                {
+                    "valueCoding": {
+                        "code": "2156-8",
+                        "display": "Costa Rican",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2157-6",
+                        "display": "Guatemalan",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2158-4",
+                        "display": "Honduran",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2159-2",
+                        "display": "Nicaraguan",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2160-0",
+                        "display": "Panamanian",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2161-8",
+                        "display": "Salvadoran",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2162-6",
+                        "display": "Central American Indian",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2163-4",
+                        "display": "Canal Zone",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "linkId": "/needs_assessment/ethnicity_hispanic_or_latino_south_american",
+            "text": "Specify Latino or South American",
+            "_text": {
+                "extension": []
+            },
+            "type": "choice",
+            "enableWhen": [
+                {
+                    "question": "/demographics/ethnicity_hispanic_or_latino",
+                    "operator": "=",
+                    "answerCoding": {
+                        "code": "2165-9",
+                        "display": "South American"
+                    }
+                }
+            ],
+            "enableBehavior": "all",
+            "repeats": true,
+            "answerOption": [
+                {
+                    "valueCoding": {
+                        "code": "2166-7",
+                        "display": "Argentinean",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2167-5",
+                        "display": "Bolivian",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2168-3",
+                        "display": "Chilean",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2169-1",
+                        "display": "Colombian",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2170-9",
+                        "display": "Ecuadorian",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2171-7",
+                        "display": "Paraguayan",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2172-5",
+                        "display": "Peruvian",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2173-3",
+                        "display": "Uruguayan",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2174-1",
+                        "display": "Venezuelan",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                },
+                {
+                    "valueCoding": {
+                        "code": "2175-8",
+                        "display": "South American Indian",
+                        "_display": {
+                            "extension": []
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "linkId": "/needs_assessment/birth_gender",
+            "text": "What is your assigned gender at birth?",
+            "_text": {
+                "extension": []
+            },
+            "type": "choice",
+            "enableWhen": [
+                {
+                    "question": "/demographics/ethnicity",
+                    "operator": "=",
+                    "answerString": "A gender assigned at birth not listed"
+                }
+            ],
+            "enableBehavior": "all",
+            "answerOption": [
+                {
+                    "valueString": "Female ('F')",
+                    "_valueString": {
+                        "extension": []
+                    }
+                },
+                {
+                    "valueString": "Male ('M')",
+                    "_valueString": {
+                        "extension": []
+                    }
+                },
+                {
+                    "valueString": "X ('X')",
+                    "_valueString": {
+                        "extension": []
+                    }
+                },
+                {
+                    "valueString": "Unsure",
+                    "_valueString": {
+                        "extension": []
+                    }
+                },
+                {
+                    "valueString": "I was not assigned a gender at birth",
+                    "_valueString": {
+                        "extension": []
+                    }
+                },
+                {
+                    "valueString": "A gender assigned at birth not listed",
+                    "_valueString": {
+                        "extension": []
+                    }
+                }
+            ]
+        },
+        {
+            "linkId": "/needs_assessment/birth_gender_other",
+            "text": "Please Specify Birth Gender",
+            "_text": {
+                "extension": []
+            },
+            "type": "string",
+            "enableWhen": [
+                {
+                    "question": "/demographics/birth_gender",
+                    "operator": "=",
+                    "answerString": "A gender assigned at birth not listed"
+                }
+            ],
+            "enableBehavior": "all"
+        },
+        {
+            "linkId": "/needs_assessment/gender_identity",
+            "text": "What is your gender identity? (Choose all that apply).",
+            "_text": {
+                "extension": []
+            },
+            "type": "choice",
+            "repeats": true,
+            "answerOption": [
+                {
+                    "valueString": "Female, Woman, or Girl",
+                    "_valueString": {
+                        "extension": []
+                    }
+                },
+                {
+                    "valueString": "Male, Man, or Boy",
+                    "_valueString": {
+                        "extension": []
+                    }
+                },
+                {
+                    "valueString": "Nonbinary",
+                    "_valueString": {
+                        "extension": []
+                    }
+                },
+                {
+                    "valueString": "Questioning",
+                    "_valueString": {
+                        "extension": []
+                    }
+                },
+                {
+                    "valueString": "A gender identity not listed",
+                    "_valueString": {
+                        "extension": []
+                    }
+                }
+            ]
+        },
+        {
+            "linkId": "/needs_assessment/gender_identity_other",
+            "text": "Please Specify Gender Identity",
+            "_text": {
+                "extension": []
+            },
+            "type": "string",
+            "enableWhen": [
+                {
+                    "question": "/demographics/gender_identity",
+                    "operator": "=",
+                    "answerString": "A gender identity not listed"
+                }
+            ],
+            "enableBehavior": "all"
+        },
+        {
+            "linkId": "/needs_assessment/sexual_orientation",
+            "text": "How would you describe your sexual orientation?",
+            "_text": {
+                "extension": []
+            },
+            "type": "choice",
+            "repeats": true,
+            "answerOption": [
+                {
+                    "valueString": "Heterosexual (Straight, Not Lesbian or Gay)",
+                    "_valueString": {
+                        "extension": []
+                    }
+                },
+                {
+                    "valueString": "Gay or Lesbian (Homosexual)",
+                    "_valueString": {
+                        "extension": []
+                    }
+                },
+                {
+                    "valueString": "Bisexual (Bi, Bi+) or Pansexual (Pan)",
+                    "_valueString": {
+                        "extension": []
+                    }
+                },
+                {
+                    "valueString": "Asexual or Asexual Spectrum",
+                    "_valueString": {
+                        "extension": []
+                    }
+                },
+                {
+                    "valueString": "Questioning",
+                    "_valueString": {
+                        "extension": []
+                    }
+                },
+                {
+                    "valueString": "A sexual orientation not listed",
+                    "_valueString": {
+                        "extension": []
+                    }
+                }
+            ]
+        },
+        {
+            "linkId": "/needs_assessment/sexual_orientation_other",
+            "text": "Please Specify Sexual Orientation",
+            "_text": {
+                "extension": []
+            },
+            "type": "string",
+            "enableWhen": [
+                {
+                    "question": "/demographics/sexual_orientation",
+                    "operator": "=",
+                    "answerString": "A sexual orientation not listed"
+                }
+            ],
+            "enableBehavior": "all"
+        },
+        {
+            "linkId": "/needs_assessment/computer_experiences",
+            "text": "Computer Experiences",
+            "_text": {
+                "extension": []
+            },
+            "type": "group",
+            "item": [
+                {
+                    "linkId": "/needs_assessment/computer_experiences/frequency_of_use",
+                    "text": "How frequently do you use a computer (choose one)?",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerOption": [
+                        {
+                            "valueString": "Daily",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "Weekly",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "Monthly",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "Rarely",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "Never",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        }
+                    ]
+                },
+                {
+                    "linkId": "/needs_assessment/computer_experiences/training",
+                    "text": "What training or experience with computers have you had? (check all that apply)",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "repeats": true,
+                    "answerOption": [
+                        {
+                            "valueString": "Formal course(s) in computer science or related field",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "Formal medical school training in computers",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "Formal residency or fellowship training in computers",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "Formal workshops or conferences on computers for which I received CME credit",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "Workshops or conferences on computers for which I did not receive CME credit",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "Self-guided learning about computers",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "None",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        }
+                    ]
+                },
+                {
+                    "linkId": "/needs_assessment/computer_experiences/sophistication",
+                    "text": "On the whole, how sophisticated a computer user do you consider yourself? (choose only one)",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerOption": [
+                        {
+                            "valueString": "Very sophisticated",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "Sophisticated",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "Neither sophisticated nor unsophisticated",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "Unsophisticated",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "Very unsophisticated",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        }
+                    ]
+                },
+                {
+                    "linkId": "/needs_assessment/computer_experiences/learning_computers",
+                    "text": "On the whole, how interested are you in learning more about computers? (choose only one)",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerOption": [
+                        {
+                            "valueString": "Eager to learn more",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "I’d like to learn more",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "I’ll learn more it I have to, to do my job",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "I’d just as soon avoid the subject.",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "I feel hostile when I hear the word “computer”.",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        }
+                    ]
+                },
+                {
+                    "linkId": "/needs_assessment/computer_experiences/learning_informatics",
+                    "text": "On the whole, how interested are you in learning more about the noncomputer aspects of medical informatics (e.g. evidence based medicine, Problem oriented medical record, etc.) (choose only one)",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerOption": [
+                        {
+                            "valueString": "Eager to learn more",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "I’d like to learn more",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "I’ll learn more it I have to, to do my job",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "I’d just as soon avoid the subject.",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "I feel hostile when I hear the words “medical informatics”",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        }
+                    ]
+                },
+                {
+                    "linkId": "/needs_assessment/computer_experiences/computer_use",
+                    "text": "To what extent do you personally use a computer for each of the following professional tasks? Please circle your answer.",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "group"
+                },
+                {
+                    "linkId": "/needs_assessment/computer_experiences/computer_use/documenting",
+                    "text": "Documenting patient information (e.g., history & physicals, progress notes)",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/d26d6cfd-e672-42c0-8ea0-855f055ffef6"
+                },
+                {
+                    "linkId": "/needs_assessment/computer_experiences/computer_use/accessing_data",
+                    "text": "Accessing clinical data (e.g., laboratory data, EKGs, radiology reports)",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/d26d6cfd-e672-42c0-8ea0-855f055ffef6"
+                },
+                {
+                    "linkId": "/needs_assessment/computer_experiences/computer_use/communicating",
+                    "text": "Communicating with colleagues",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/d26d6cfd-e672-42c0-8ea0-855f055ffef6"
+                },
+                {
+                    "linkId": "/needs_assessment/computer_experiences/computer_use/obtaining_advice",
+                    "text": "Obtaining advice on a specific patient's diagnosis or therapy",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/d26d6cfd-e672-42c0-8ea0-855f055ffef6"
+                },
+                {
+                    "linkId": "/needs_assessment/computer_experiences/computer_use/scheduling_patient",
+                    "text": "Scheduling patient appointments",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/d26d6cfd-e672-42c0-8ea0-855f055ffef6"
+                },
+                {
+                    "linkId": "/needs_assessment/computer_experiences/computer_use/writing",
+                    "text": "Writing (e.g., grants, research papers, teaching material)",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/d26d6cfd-e672-42c0-8ea0-855f055ffef6"
+                },
+                {
+                    "linkId": "/needs_assessment/computer_experiences/computer_use/prepping",
+                    "text": "Prepping presentation slides or overheads",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/d26d6cfd-e672-42c0-8ea0-855f055ffef6"
+                },
+                {
+                    "linkId": "/needs_assessment/computer_experiences/computer_use/performing",
+                    "text": "Performing statistical analysis on clinical or research data",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/d26d6cfd-e672-42c0-8ea0-855f055ffef6"
+                },
+                {
+                    "linkId": "/needs_assessment/computer_experiences/computer_use/searching",
+                    "text": "Searching the medical literature (e.g., MEDLINE)",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/d26d6cfd-e672-42c0-8ea0-855f055ffef6"
+                },
+                {
+                    "linkId": "/needs_assessment/computer_experiences/computer_use/teaching",
+                    "text": "Teaching students and residents",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/d26d6cfd-e672-42c0-8ea0-855f055ffef6"
+                },
+                {
+                    "linkId": "/needs_assessment/computer_experiences/computer_use/financial_tools",
+                    "text": "Financial tools: accounting and analysis",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/d26d6cfd-e672-42c0-8ea0-855f055ffef6"
+                },
+                {
+                    "linkId": "/needs_assessment/computer_experiences/computer_use/internet_search",
+                    "text": "Internet search and research on topic",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/d26d6cfd-e672-42c0-8ea0-855f055ffef6"
+                },
+                {
+                    "linkId": "/needs_assessment/computer_experiences/computer_use/email",
+                    "text": "E-mail",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/d26d6cfd-e672-42c0-8ea0-855f055ffef6"
+                },
+                {
+                    "linkId": "/needs_assessment/computer_experiences/computer_use/generating_reports",
+                    "text": "Generating reports from a database",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/d26d6cfd-e672-42c0-8ea0-855f055ffef6"
+                },
+                {
+                    "linkId": "/needs_assessment/computer_experiences/computer_use/patient_education",
+                    "text": "Patient education",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/d26d6cfd-e672-42c0-8ea0-855f055ffef6"
+                }
+            ]
+        },
+        {
+            "linkId": "/needs_assessment/data_management",
+            "text": "Below are descriptions of general data management tasks. For each, please indicate: the relevance of this task to your work and your current level of knowledge or expertise with this task ",
+            "_text": {
+                "extension": []
+            },
+            "type": "display"
+        },
+        {
+            "linkId": "/needs_assessment/metadata",
+            "text": "Capture and create metadata (descriptive information about your data, how it was collected, and other contextualizing information) ",
+            "_text": {
+                "extension": []
+            },
+            "type": "group",
+            "item": [
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-choiceOrientation",
+                            "valueCode": "horizontal"
+                        }
+                    ],
+                    "linkId": "/needs_assessment/metadata/relevance_to_your_work",
+                    "text": "Relevance to your work",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/a150599e-233e-4fb8-b7bb-bb3873b3e482"
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-choiceOrientation",
+                            "valueCode": "horizontal"
+                        }
+                    ],
+                    "linkId": "/needs_assessment/metadata/your_level_of_expertise",
+                    "text": "Your level of expertise",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/a150599e-233e-4fb8-b7bb-bb3873b3e482"
+                }
+            ]
+        },
+        {
+            "linkId": "/needs_assessment/common_data_elements",
+            "text": "Use common data elements, ontologies (formal models of concepts within a domain and their relationships), or other predefined terms for describing your data or variables",
+            "_text": {
+                "extension": []
+            },
+            "type": "group",
+            "item": [
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-choiceOrientation",
+                            "valueCode": "horizontal"
+                        }
+                    ],
+                    "linkId": "/needs_assessment/common_data_elements/relevance_to_your_work",
+                    "text": "Relevance to your work",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/a150599e-233e-4fb8-b7bb-bb3873b3e482"
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-choiceOrientation",
+                            "valueCode": "horizontal"
+                        }
+                    ],
+                    "linkId": "/needs_assessment/common_data_elements/your_level_of_expertise",
+                    "text": "Your level of expertise",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/a150599e-233e-4fb8-b7bb-bb3873b3e482"
+                }
+            ]
+        },
+        {
+            "linkId": "/needs_assessment/organize",
+            "text": "Organize, tag, and track data so multiple team members can work on the same dataset",
+            "_text": {
+                "extension": []
+            },
+            "type": "group",
+            "item": [
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-choiceOrientation",
+                            "valueCode": "horizontal"
+                        }
+                    ],
+                    "linkId": "/needs_assessment/organize/relevance_to_your_work",
+                    "text": "Relevance to your work",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/a150599e-233e-4fb8-b7bb-bb3873b3e482"
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-choiceOrientation",
+                            "valueCode": "horizontal"
+                        }
+                    ],
+                    "linkId": "/needs_assessment/organize/your_level_of_expertise",
+                    "text": "Your level of expertise",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/a150599e-233e-4fb8-b7bb-bb3873b3e482"
+                }
+            ]
+        },
+        {
+            "linkId": "/needs_assessment/data_mining",
+            "text": "Conduct research through data mining (using computational methods to discover patterns in large datasets) ",
+            "_text": {
+                "extension": []
+            },
+            "type": "group",
+            "item": [
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-choiceOrientation",
+                            "valueCode": "horizontal"
+                        }
+                    ],
+                    "linkId": "/needs_assessment/data_mining/relevance_to_your_work",
+                    "text": "Relevance to your work",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/a150599e-233e-4fb8-b7bb-bb3873b3e482"
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-choiceOrientation",
+                            "valueCode": "horizontal"
+                        }
+                    ],
+                    "linkId": "/needs_assessment/data_mining/your_level_of_expertise",
+                    "text": "Your level of expertise",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/a150599e-233e-4fb8-b7bb-bb3873b3e482"
+                }
+            ]
+        },
+        {
+            "linkId": "/needs_assessment/shared_data",
+            "text": "Locate and obtain other researchers’ shared data to use in your research, and clean or process it to meet your research needs",
+            "_text": {
+                "extension": []
+            },
+            "type": "group",
+            "item": [
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-choiceOrientation",
+                            "valueCode": "horizontal"
+                        }
+                    ],
+                    "linkId": "/needs_assessment/shared_data/relevance_to_your_work",
+                    "text": "Relevance to your work",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/a150599e-233e-4fb8-b7bb-bb3873b3e482"
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-choiceOrientation",
+                            "valueCode": "horizontal"
+                        }
+                    ],
+                    "linkId": "/needs_assessment/shared_data/your_level_of_expertise",
+                    "text": "Your level of expertise",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/a150599e-233e-4fb8-b7bb-bb3873b3e482"
+                }
+            ]
+        },
+        {
+            "linkId": "/needs_assessment/data_visualization",
+            "text": "Demonstrate, analyze, or communicate your research results through data visualization",
+            "_text": {
+                "extension": []
+            },
+            "type": "group",
+            "item": [
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-choiceOrientation",
+                            "valueCode": "horizontal"
+                        }
+                    ],
+                    "linkId": "/needs_assessment/data_visualization/relevance_to_your_work",
+                    "text": "Relevance to your work",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/a150599e-233e-4fb8-b7bb-bb3873b3e482"
+                }
+            ]
+        },
+        {
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-choiceOrientation",
+                    "valueCode": "horizontal"
+                }
+            ],
+            "linkId": "/needs_assessment/data_visualizationyour_level_of_expertise",
+            "text": "Your level of expertise",
+            "_text": {
+                "extension": []
+            },
+            "type": "choice",
+            "answerValueSet": "ValueSet/a150599e-233e-4fb8-b7bb-bb3873b3e482"
+        },
+        {
+            "linkId": "/needs_assessment/data_storage",
+            "text": "Create a plan for long-term storage and retention of your data",
+            "_text": {
+                "extension": []
+            },
+            "type": "group",
+            "item": [
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-choiceOrientation",
+                            "valueCode": "horizontal"
+                        }
+                    ],
+                    "linkId": "/needs_assessment/data_storage/relevance_to_your_work",
+                    "text": "Relevance to your work",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/a150599e-233e-4fb8-b7bb-bb3873b3e482"
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-choiceOrientation",
+                            "valueCode": "horizontal"
+                        }
+                    ],
+                    "linkId": "/needs_assessment/data_storage/your_level_of_expertise",
+                    "text": "Your level of expertise",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/a150599e-233e-4fb8-b7bb-bb3873b3e482"
+                }
+            ]
+        },
+        {
+            "linkId": "/needs_assessment/data_repository",
+            "text": "Publish and deposit data in a repository suited to your research field",
+            "_text": {
+                "extension": []
+            },
+            "type": "group",
+            "item": [
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-choiceOrientation",
+                            "valueCode": "horizontal"
+                        }
+                    ],
+                    "linkId": "/needs_assessment/data_repository/relevance_to_your_work",
+                    "text": "Relevance to your work",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/a150599e-233e-4fb8-b7bb-bb3873b3e482"
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-choiceOrientation",
+                            "valueCode": "horizontal"
+                        }
+                    ],
+                    "linkId": "/needs_assessment/data_repository/your_level_of_expertise",
+                    "text": "Your level of expertise",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/a150599e-233e-4fb8-b7bb-bb3873b3e482"
+                }
+            ]
+        },
+        {
+            "linkId": "/needs_assessment/data_management_plan",
+            "text": "Write a formal data management plan, including selecting file formats, choosing a standard for data description, and planning for storage and preservation",
+            "_text": {
+                "extension": []
+            },
+            "type": "group",
+            "item": [
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-choiceOrientation",
+                            "valueCode": "horizontal"
+                        }
+                    ],
+                    "linkId": "/needs_assessment/data_management_plan/relevance_to_your_work",
+                    "text": "Relevance to your work",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/a150599e-233e-4fb8-b7bb-bb3873b3e482"
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-choiceOrientation",
+                            "valueCode": "horizontal"
+                        }
+                    ],
+                    "linkId": "/needs_assessment/data_management_plan/your_level_of_expertise",
+                    "text": "Your level of expertise",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerValueSet": "ValueSet/a150599e-233e-4fb8-b7bb-bb3873b3e482"
+                }
+            ]
+        },
+        {
+            "linkId": "/needs_assessment/data_management_and_sharing",
+            "text": "Data management and sharing practices",
+            "_text": {
+                "extension": []
+            },
+            "type": "group",
+            "item": [
+                {
+                    "linkId": "/needs_assessment/data_management_and_sharing/instructions",
+                    "text": "Please answer the following questions about your data management and sharing practices.",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "display"
+                },
+                {
+                    "linkId": "/needs_assessment/data_management_and_sharing/data_management_training",
+                    "text": "Have you ever had any formal training in data management?",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerOption": [
+                        {
+                            "valueString": "Yes",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "No",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        }
+                    ]
+                },
+                {
+                    "linkId": "/needs_assessment/data_management_and_sharing/sponsorship",
+                    "text": "Do you currently use any NIH-sponsored (such as LiveLink) or commercial programs (such as Excel) for managing your data? ",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerOption": [
+                        {
+                            "valueString": "Yes, I use NIH-sponsored programs",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "Yes, I use commercial programs",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "Yes, I use both NIH-sponsored and commercial programs",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "No",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        }
+                    ]
+                },
+                {
+                    "linkId": "/needs_assessment/data_management_and_sharing/sponsorship_yes",
+                    "text": "If yes, please list the programs you use.",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "text"
+                },
+                {
+                    "linkId": "/needs_assessment/data_management_and_sharing/public_repository",
+                    "text": "Have you ever uploaded your data to a public repository?",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerOption": [
+                        {
+                            "valueString": "Yes",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "No",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        }
+                    ]
+                },
+                {
+                    "linkId": "/needs_assessment/data_management_and_sharing/public_repository_yes",
+                    "text": "If yes, please list the repository or repositories to which you have uploaded data. ",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "text"
+                },
+                {
+                    "linkId": "/needs_assessment/data_management_and_sharing/sharing_data",
+                    "text": "Have you ever shared data with another researcher, either informally or through a formal agreement, such as a material transfer agreement or data sharing agreement?",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerOption": [
+                        {
+                            "valueString": "Yes",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "No",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "linkId": "/needs_assessment/data_sharing",
+            "text": "Data Sharing",
+            "_text": {
+                "extension": []
+            },
+            "type": "group",
+            "item": [
+                {
+                    "linkId": "/needs_assessment/data_sharing/not_sharing",
+                    "text": "You have indicated that you have never shared your data nor uploaded to a repository. Please indicate the reason(s) for not sharing your data. Please check all that apply. ",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "repeats": true,
+                    "answerOption": [
+                        {
+                            "valueString": "I would be willing to share my data, but I haven’t had an opportunity to do so",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "My data contain personally identifiable information and sharing would compromise my subjects’ privacy",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "I am prohibited from sharing my data for some reason other than subject privacy",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "I don’t know any repositories that accept the kind of data I produce",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "It’s too difficult to prepare my data and documentation for sharing with others",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "I don’t know how to prepare my data and documentation for sharing with others",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "Repositories’ requirements for format or description of data are too difficult to meet",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "I don’t feel I would get credit for sharing my data",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "I put in a great deal of time and effort to gather my data, and I don’t want to give it away",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "I’m concerned that another researcher could beat me to publication if I share my data",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "My data has commercial value, so I don’t want to give it away for free",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "I don’t think anyone else would have any reason to use my data",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "It isn’t customary to share data in my research field",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "I’m concerned another researcher might find errors in my data",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "I’m concerned another researcher might misinterpret my data",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        }
+                    ]
+                },
+                {
+                    "linkId": "/needs_assessment/data_sharing/not_sharing_other",
+                    "text": "Other (please specify)",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "text"
+                },
+                {
+                    "linkId": "/needs_assessment/data_sharing/uploaded",
+                    "text": "Thinking about a recent time when you uploaded data to a repository or shared with another researcher, please answer the questions below. ",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "group"
+                },
+                {
+                    "linkId": "/needs_assessment/data_sharing/uploaded/motivation",
+                    "text": "What was your motivation for sharing your data? Please check all that apply.",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "repeats": true,
+                    "answerOption": [
+                        {
+                            "valueString": "To assist a known colleague",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "To assist a junior researcher",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "To advance science in a particular area",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "To collaborate with a researcher who requested the data",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "To enhance my professional standing",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "To comply with a requirement to share as a condition of my grant funding or employment",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        }
+                    ]
+                },
+                {
+                    "linkId": "/needs_assessment/data_sharing/uploaded/motivation_other",
+                    "text": "Other (please specify)",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "text"
+                },
+                {
+                    "linkId": "/needs_assessment/data_sharing/uploaded/time",
+                    "text": "How much time did you or your staff spend preparing your data so it would be ready to share or upload? ",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerOption": [
+                        {
+                            "valueString": "None, my data were already in a form that could be shared",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "None, my data were not in a form that another researcher would understand, but I made no changes",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "1–2 hours",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "3–5 hours",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "6–10 hours",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "More than 10 hours",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        }
+                    ]
+                },
+                {
+                    "linkId": "/needs_assessment/data_sharing/uploaded/additional_materials",
+                    "text": "Did you provide any additional materials or information besides the dataset? Please check all that apply. ",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "repeats": true,
+                    "answerOption": [
+                        {
+                            "valueString": "Software or program required to access or analyze the data",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "Code used with the data, such as R code",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "Codebook explaining variables",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "Contextualizing information about the data",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "Nothing, the data required no additional materials to be useful to the requester",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "Nothing, the data required additional materials to be useful to the requester, but I did not send them",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "Other (please specify)",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        }
+                    ]
+                },
+                {
+                    "linkId": "/needs_assessment/data_sharing/uploaded/additional_materials_other",
+                    "text": "Other (please specify)",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "text"
+                },
+                {
+                    "linkId": "/needs_assessment/data_sharing/uploaded/acknowledgement",
+                    "text": "If another researcher published or presented on results from your shared data, how were you acknowledged? ",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "choice",
+                    "answerOption": [
+                        {
+                            "valueString": "Coauthorship",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "Citation in bibliography",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "Recognition in the acknowledgment section of the publication",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "I received no acknowledgment",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "No publication arose from sharing data",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        },
+                        {
+                            "valueString": "Other (please specify)",
+                            "_valueString": {
+                                "extension": []
+                            }
+                        }
+                    ]
+                },
+                {
+                    "linkId": "/needs_assessment/data_sharing/uploaded/acknowledgement_other",
+                    "text": "Other (please specify)",
+                    "_text": {
+                        "extension": []
+                    },
+                    "type": "text"
+                }
+            ]
+        }
+    ]
+}
