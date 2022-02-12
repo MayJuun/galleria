@@ -1,6 +1,6 @@
 # galleria
 
-
+## [SMTP relay: Route outgoing non-Gmail messages through Google](https://support.google.com/a/answer/2956491?product_name=UnuFlow&visit_id=637802857783526539-1154184646&rd=1&src=supportwidget0)
 
 ## Example Message
 
