@@ -3,7 +3,7 @@ description: Simple Server to Listen and for FHIR Server Changes for ServiceRequ
 version: 0.0.1
 
 environment:
-  sdk: ">=2.15.0 <3.0.0"
+  sdk: ">=2.16.0 <3.0.0"
 
 dependencies:
   fhir: ^0.5.0-12

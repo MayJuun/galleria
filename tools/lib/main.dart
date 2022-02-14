@@ -6,8 +6,8 @@ import 'package:fhir/r4.dart';
 Future<void> main() async {
   final directory = Directory('./lib/fhir_resources');
   final fileList = await directory.list().map((event) => event.path).toList();
-  const url =
-      'https://healthcare.googleapis.com/v1/projects/demos-322021/locations/us-central1/datasets/stage/fhirStores/stage/fhir';
+  // const url =
+  //     'https://healthcare.googleapis.com/v1/projects/demos-322021/locations/us-central1/datasets/stage/fhirStores/stage/fhir';
   final bundle = Bundle(
     type: BundleType.transaction,
     entry: <BundleEntry>[],

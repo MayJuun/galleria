@@ -8,7 +8,7 @@ void main() async {
   /// Variable for PORT
   Map<String, String> envVars = Platform.environment;
   var portEnv = envVars['PORT'];
-  var PORT = portEnv == null ? 7777 : int.parse(portEnv);
+  var PORT = portEnv == null ? 8080 : int.parse(portEnv);
 
   /// Instantiate Controller to Listen
   final listeningController = ListeningController();
