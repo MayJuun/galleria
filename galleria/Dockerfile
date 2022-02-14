@@ -11,6 +11,7 @@ RUN dart compile exe bin/server.dart -o bin/server
 ########################
 FROM subfuzion/dart:slim
 COPY --from=0 /app/bin/server /app/bin/server
-COPY --from=0 /app/web /app/web
+COPY --from=0 /app/bin /app/bin
+COPY --from=0 /app/src /app/src
 EXPOSE 8080
 ENTRYPOINT ["/app/bin/server"]

@@ -16,15 +16,17 @@ class ListeningController {
       final requestString = await request.readAsString();
       final path = pathFromPayload(requestString);
       if (path.isNotEmpty && path.length == 2) {
-        return await postRequest(path);
+        await postRequest(path);
       }
-      return Response.notFound('Post Request made, but payload incorrect');
+      return Response.ok('Post Request made, but payload incorrect');
+      // return Response.notFound('Post Request made, but payload incorrect');
     });
 
     ///You can catch all verbs and use a URL-parameter with a regular expression
     ///that matches everything to catch app.
     router.all('/<ignored|.*>', (Request request) {
-      return Response.notFound('Page not found');
+      // return Response.notFound('Page not found');
+      return Response.ok('Page not found');
     });
 
     return router;
