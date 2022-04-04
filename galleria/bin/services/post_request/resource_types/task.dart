@@ -94,15 +94,24 @@ Future<Response> postRequestTask(String id) async {
         '${prettyJson(taskResponse.toJson())}');
   }
   final telecom = contactPoint![index];
+  print(telecom.toJson());
 
   if (telecom.system == ContactPointSystem.phone ||
       telecom.system == ContactPointSystem.sms) {
     if (telecom.value != null) {
-      return await sendViaTwilio(telecom.value!);
+      return await sendViaTwilio(
+        telecom.value!,
+        'MayJuun has assigned you a new Task, ID: ${taskResponse.id}. '
+        'This text was created at ${DateTime.now()}',
+      );
     }
   } else if (telecom.system == ContactPointSystem.email) {
     if (telecom.value != null) {
-      return await sendViaEmail(telecom.value!);
+      return await sendViaEmail(
+        telecom.value!,
+        'MayJuun has assigned you a new Task, ID: ${taskResponse.id}. '
+        'This text was created at ${DateTime.now()}',
+      );
     }
   }
 

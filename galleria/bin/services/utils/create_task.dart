@@ -43,6 +43,9 @@ Future<Resource> createTask(
     if (planDefinitionResponse is PlanDefinition) {
       /// Create a new task
       final task = Task(
+        /// helpful for keeping track of when it was created vs updated
+        authoredOn: FhirDateTime(DateTime.now()),
+
         /// The task is based on the ServiceRequest
         basedOn: [Reference(reference: serviceRequest.path())],
 
