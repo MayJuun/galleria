@@ -9,6 +9,7 @@ import '../../api.dart';
 import '../../../_internal/constants/scopes.dart';
 import '../../email/send_via_email.dart';
 import '../../twilio/send_via_twilio.dart';
+import '../../utils/name_to_string.dart';
 
 Future<Response> postRequestTask(String id) async {
   /// HTTP Client
@@ -109,6 +110,12 @@ Future<Response> postRequestTask(String id) async {
     if (telecom.value != null) {
       return await sendViaEmail(
         telecom.value!,
+        responsiblePersonResponse is Patient
+            ? fullNameFromHumanNameList(names: responsiblePersonResponse.name)
+            : responsiblePersonResponse is RelatedPerson
+                ? fullNameFromHumanNameList(
+                    names: responsiblePersonResponse.name)
+                : '',
         'MayJuun has assigned you a new Task, ID: ${taskResponse.id}. '
         'This email was created at ${DateTime.now()}',
       );

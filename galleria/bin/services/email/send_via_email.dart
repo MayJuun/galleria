@@ -6,7 +6,7 @@ import 'package:shelf/shelf.dart';
 
 import '../api.dart';
 
-Future<Response> sendViaEmail(String email, String text) async {
+Future<Response> sendViaEmail(String email, String name, String text) async {
   if (email.contains('@mayjuun.com')) {
     String _getBase64Email(String source) =>
         base64UrlEncode(utf8.encode(source));
@@ -18,7 +18,8 @@ Future<Response> sendViaEmail(String email, String text) async {
 
     final gmailApi = gMail.GmailApi(authClient);
 
-    String from = 'service.account@mayjuun.com';
+    String fromName = 'MayJuun';
+    String fromEmail = 'service.account@mayjuun.com';
     String to = email;
     String subject = 'Message from MayJuun';
     String contentType = 'text/html';
@@ -28,14 +29,14 @@ Future<Response> sendViaEmail(String email, String text) async {
 
     await gmailApi.users.messages.send(
         gMail.Message.fromJson({
-          'raw': _getBase64Email('From: $from\r\n'
+          'raw': _getBase64Email('From: $fromName$fromEmail\r\n'
               'To: $to\r\n'
               'Subject: $subject\r\n'
               'Content-Type: $contentType; charset=$charset\r\n'
               'Content-Transfer-Encoding: $contentTransferEncoding\r\n\r\n'
               '$emailContent'),
         }),
-        from);
+        fromEmail);
 
     return Response.ok('Message has been sent: ${DateTime.now()}');
   } else {
