@@ -110,7 +110,7 @@ Future<Response> postRequestTask(String id) async {
       return await sendViaEmail(
         telecom.value!,
         'MayJuun has assigned you a new Task, ID: ${taskResponse.id}. '
-        'This text was created at ${DateTime.now()}',
+        'This email was created at ${DateTime.now()}',
       );
     }
   }
