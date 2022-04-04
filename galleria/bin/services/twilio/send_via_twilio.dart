@@ -4,15 +4,20 @@ import '../../../src/twilio_flutter/twilio_flutter.dart';
 import 'api.dart';
 
 Future<Response> sendViaTwilio(String phoneNumber) async {
-  final TwilioFlutter _twilioFlutter = TwilioFlutter(
-    accountSid: Twilio.accountSid,
-    authToken: Twilio.authToken,
-    twilioNumber: Twilio.twilioNumber,
-  );
+  if (phoneNumber.startsWith('1555') || phoneNumber.startsWith('555')) {
+    return Response.forbidden(
+        'The number "$phoneNumber" is not a legitimate number');
+  } else {
+    final TwilioFlutter _twilioFlutter = TwilioFlutter(
+      accountSid: Twilio.accountSid,
+      authToken: Twilio.authToken,
+      twilioNumber: Twilio.twilioNumber,
+    );
 
-  final dateTime = DateTime.now().toIso8601String();
+    final dateTime = DateTime.now().toIso8601String();
 
-  await _twilioFlutter.sendSMS(
-      toNumber: phoneNumber, messageBody: 'Hello from MayJuun! $dateTime');
-  return Response.ok('Message has been sent: $dateTime');
+    await _twilioFlutter.sendSMS(
+        toNumber: phoneNumber, messageBody: 'Hello from MayJuun! $dateTime');
+    return Response.ok('Message has been sent: $dateTime');
+  }
 }

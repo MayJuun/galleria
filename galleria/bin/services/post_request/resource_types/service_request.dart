@@ -12,6 +12,7 @@ import '../../utils/create_task.dart';
 Future<Response> postRequestServiceRequest(String id) async {
   /// HTTP Client
   final client = http.Client();
+  print('posting a service request');
 
   /// Get credentials for service account, must pass account credentials,
   /// proper scopes (which is really just google cloud) and then the http client
