@@ -1,6 +1,6 @@
 name: galleria
 description: Simple Server to Listen and for FHIR Server Changes for ServiceRequests
-version: 0.0.7
+version: 0.0.8
 
 environment:
   sdk: ">=2.16.0 <3.0.0"
