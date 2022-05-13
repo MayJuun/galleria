@@ -10,6 +10,8 @@ Future<Response> postRequest(List<String> path) async {
       return postRequestTask(path[1]);
     case 'Observation':
       return postRequestObservation(path[1]);
+    case 'Condition':
+      return postRequestCondition(path[1]);
     default:
       return Response.notFound('The resource posted of type ${path[0]} '
           'is not currently supported.');
