@@ -1,23 +1,13 @@
 import 'package:fhir/r4.dart';
 import 'package:fhir_at_rest/r4.dart';
-import 'package:googleapis_auth/auth_io.dart';
-import 'package:http/http.dart' as http;
+
 import 'package:shelf/shelf.dart';
 
-import '../../../_internal/constants/pretty_json.dart';
+import '../../../galleria.dart';
 import '../../api.dart';
-import '../../../_internal/constants/scopes.dart';
-import '../../utils/create_task.dart';
 
 Future<Response> postRequestServiceRequest(String id) async {
-  /// HTTP Client
-  final client = http.Client();
-  print('posting a service request');
-
-  /// Get credentials for service account, must pass account credentials,
-  /// proper scopes (which is really just google cloud) and then the http client
-  final credentials = await obtainAccessCredentialsViaServiceAccount(
-      accountCredentials, scopes, client);
+  final credentials = await getCredentials();
 
   /// Create the search request
   final readServiceRequest = FhirRequest.read(

@@ -47,7 +47,7 @@ Future<Resource> createTask(
         authoredOn: FhirDateTime(DateTime.now()),
 
         /// The task is based on the ServiceRequest
-        basedOn: [Reference(reference: serviceRequest.path())],
+        basedOn: [Reference(reference: serviceRequest.path)],
 
         /// This is a reference to whom the Task is applied to
         for_: serviceRequest.subject,

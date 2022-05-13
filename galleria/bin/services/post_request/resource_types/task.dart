@@ -1,23 +1,12 @@
 import 'package:fhir/r4.dart';
 import 'package:fhir_at_rest/r4.dart';
-import 'package:googleapis_auth/auth_io.dart';
-import 'package:http/http.dart' as http;
 import 'package:shelf/shelf.dart';
 
-import '../../../_internal/constants/pretty_json.dart';
+import '../../../galleria.dart';
 import '../../api.dart';
-import '../../../_internal/constants/scopes.dart';
-import '../../email/send_via_email.dart';
-import '../../twilio/send_via_twilio.dart';
 
 Future<Response> postRequestTask(String id) async {
-  /// HTTP Client
-  final client = http.Client();
-
-  /// Get credentials for service account, must pass account credentials,
-  /// proper scopes (which is really just google cloud) and then the http client
-  final credentials = await obtainAccessCredentialsViaServiceAccount(
-      accountCredentials, scopes, client);
+  final credentials = await getCredentials();
 
   /// Create the search request for a Task
   var taskRequest = FhirRequest.read(
@@ -94,7 +83,6 @@ Future<Response> postRequestTask(String id) async {
         '${prettyJson(taskResponse.toJson())}');
   }
   final telecom = contactPoint![index];
-  print(telecom.toJson());
 
   if (telecom.system == ContactPointSystem.phone ||
       telecom.system == ContactPointSystem.sms) {

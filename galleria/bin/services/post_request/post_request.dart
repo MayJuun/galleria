@@ -1,7 +1,6 @@
 import 'package:shelf/shelf.dart';
 
-import 'resource_types/service_request.dart';
-import 'resource_types/task.dart';
+import '../../galleria.dart';
 
 Future<Response> postRequest(List<String> path) async {
   switch (path[0]) {
@@ -9,6 +8,8 @@ Future<Response> postRequest(List<String> path) async {
       return postRequestServiceRequest(path[1]);
     case 'Task':
       return postRequestTask(path[1]);
+    case 'Observation':
+      return postRequestObservation(path[1]);
     default:
       return Response.notFound('The resource posted of type ${path[0]} '
           'is not currently supported.');
