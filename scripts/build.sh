@@ -4,9 +4,9 @@
 #  gcloud config set project [project_id]
 #  gcloud auth login
 
-projectId="demos-322021"
-projectName="galleria-dev"
-version="0.0.8"
+projectId="acl-challenge"
+projectName="acl-challenge-staging-galleria"
+version="0.0.2"
 
 
 gcloud config set project $projectId

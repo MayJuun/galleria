@@ -1,5 +1,7 @@
 # galleria
 
+- Ensure that you have setup PubSub in your FHIR Datastore first
+
 ## [Setup for FHIR Pub/Sub](https://cloud.google.com/healthcare-api/docs/how-tos/pubsub)
 
 - Enable API
@@ -11,7 +13,7 @@
     - Select the above Topic
     - Delivery Type = push
     - Endpoint URL: the app url that will be receiving the updates
-    - Service Account
+    - Click Enable Authentication -> Service Account
         - Google APIs Service Agent
         - App Engine default service account
     - Acknowledgement deadline - 10 seconds 
