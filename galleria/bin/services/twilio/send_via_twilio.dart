@@ -1,7 +1,7 @@
 import 'package:shelf/shelf.dart';
 
 import '../../../src/twilio_flutter/twilio_flutter.dart';
-import '../twilio_api.dart';
+import '../../api/twilio_api.dart';
 
 Future<Response> sendViaTwilio(String phoneNumber, String text) async {
   if (phoneNumber.startsWith('1555') || phoneNumber.startsWith('555')) {

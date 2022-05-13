@@ -4,7 +4,6 @@ import 'package:fhir_at_rest/r4.dart';
 import 'package:shelf/shelf.dart';
 
 import '../../../galleria.dart';
-import '../../api.dart';
 
 Future<Response> postRequestServiceRequest(String id) async {
   final credentials = await getCredentials();
