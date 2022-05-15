@@ -48,23 +48,30 @@ Future<Response> postRequestObservation(String id) async {
       if (patientResponse is Patient) {
         final bundle = Bundle(
           type: BundleType.transaction,
-          entry: <BundleEntry>[],
-        );
-
-        for (var resource in [observationResponse, patientResponse]) {
-          bundle.entry!.add(
+          entry: <BundleEntry>[
             BundleEntry(
-              resource: resource,
-              fullUrl: resource.id == null
+              resource: observationResponse,
+              fullUrl: observationResponse.id == null
                   ? null
-                  : FhirUri('$fhirUrl/${resource.path}'),
+                  : FhirUri('$fhirUrl/${observationResponse.path}'),
               request: BundleRequest(
                 method: BundleRequestMethod.put,
-                url: FhirUri(resource.path),
+                url: FhirUri(observationResponse.path),
               ),
             ),
-          );
-        }
+            BundleEntry(
+              resource: patientResponse,
+              fullUrl: patientResponse.id == null
+                  ? null
+                  : FhirUri('$fhirUrl/${patientResponse.path}'),
+              request: BundleRequest(
+                method: BundleRequestMethod.put,
+                url: FhirUri(patientResponse.path),
+              ),
+            ),
+          ],
+        );
+
         return await sendViaEmail(
           'grey.faulkenberry@mayjuun.com',
           'Look at this beautiful bundle!\n'

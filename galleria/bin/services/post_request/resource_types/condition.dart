@@ -24,6 +24,8 @@ Future<Response> postRequestCondition(String id) async {
       headers: {'Authorization': 'Bearer ${credentials.accessToken.data}'});
 
   if (conditionResponse is Condition) {
+    print(prettyJson(conditionResponse.toJson()));
+
     /// get the subject of the condition
     final subject = conditionResponse.subject.reference;
 
@@ -46,44 +48,60 @@ Future<Response> postRequestCondition(String id) async {
           headers: {'Authorization': 'Bearer ${credentials.accessToken.data}'});
 
       if (patientResponse is Patient) {
+        print(prettyJson(patientResponse.toJson()));
         final bundle = Bundle(
           type: BundleType.transaction,
-          entry: <BundleEntry>[],
-        );
-
-        for (var resource in [conditionResponse, patientResponse]) {
-          bundle.entry!.add(
+          entry: <BundleEntry>[
             BundleEntry(
-              resource: resource,
-              fullUrl: resource.id == null
+              resource: conditionResponse,
+              fullUrl: conditionResponse.id == null
                   ? null
-                  : FhirUri('$fhirUrl/${resource.path}'),
+                  : FhirUri('$fhirUrl/${conditionResponse.path}'),
               request: BundleRequest(
                 method: BundleRequestMethod.put,
-                url: FhirUri(resource.path),
+                url: FhirUri(conditionResponse.path),
               ),
             ),
-          );
-        }
-        return await sendViaEmail(
+            BundleEntry(
+              resource: patientResponse,
+              fullUrl: patientResponse.id == null
+                  ? null
+                  : FhirUri('$fhirUrl/${patientResponse.path}'),
+              request: BundleRequest(
+                method: BundleRequestMethod.put,
+                url: FhirUri(patientResponse.path),
+              ),
+            ),
+          ],
+        );
+        print('about to send an email');
+        await sendViaEmail(
           'grey.faulkenberry@mayjuun.com',
           'Look at this beautiful bundle!\n'
               '${prettyJson(bundle.toJson())}'
               'This email was created at ${DateTime.now()}',
         );
+        return await sendViaEmail(
+          'sarah.zaporta@mayjuun.com',
+          'Look at this beautiful bundle!\n'
+              '${prettyJson(bundle.toJson())}'
+              'This email was created at ${DateTime.now()}',
+        );
       } else {
-        return Response.notFound(
-            'The Subject of Condition was ${conditionResponse.subject.reference}, '
-            'this was not found on the server:\n'
-            '${prettyJson(conditionResponse.toJson())}');
+        return Response.badRequest(
+            body:
+                'The Subject of Condition was ${conditionResponse.subject.reference}, '
+                'this was not found on the server:\n'
+                '${prettyJson(conditionResponse.toJson())}');
       }
     } else {
-      return Response.notFound(
-          'The Subject of Condition with ID: $id was not a Patient'
-          '${prettyJson(conditionResponse.toJson())}');
+      return Response.badRequest(
+          body: 'The Subject of Condition with ID: $id was not a Patient'
+              '${prettyJson(conditionResponse.toJson())}');
     }
   } else {
-    return Response.notFound('Condition with ID: $id was not found'
-        '${prettyJson(conditionResponse.toJson())}');
+    return Response.badRequest(
+        body: 'Condition with ID: $id was not found'
+            '${prettyJson(conditionResponse.toJson())}');
   }
 }

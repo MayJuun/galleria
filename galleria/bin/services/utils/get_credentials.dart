@@ -5,6 +5,20 @@ import '../../api/api.dart';
 
 /// Get credentials for service account, must pass account credentials,
 /// proper scopes (which is really just google cloud) and then the http client
-Future<AccessCredentials> getCredentials() async =>
-    await obtainAccessCredentialsViaServiceAccount(
-        accountCredentials, scopes, http.Client());
+Future<AccessCredentials> getCredentials([bool forEmail = false]) async {
+  final client = http.Client();
+  try {
+    AccessCredentials credentials =
+        await obtainAccessCredentialsViaServiceAccount(
+            forEmail ? emailAccountCredentials : accountCredentials,
+            scopes,
+            client);
+
+    client.close();
+    return credentials;
+  } catch (e, stack) {
+    print(e);
+    print(stack);
+    throw e;
+  }
+}

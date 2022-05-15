@@ -38,7 +38,8 @@
   final clientCredentials = ServiceAccountCredentials.fromJson(credentials,
       impersonatedUser: 'impersonated.user@mayjuun.com');
 ```
-- This service account can have access to the FHIR server, but it will need to be setup as a [domain-wide delegation for a client](https://support.google.com/a/answer/162106?product_name=UnuFlow&hl=en&visit_id=637803216817936373-460879578&rd=1&src=supportwidget0&hl=en#zippy=%2Cset-up-domain-wide-delegation-for-a-client)
+- Ensure the service account is an Editor of the FHIR Server
+- It will also need to be setup as a [domain-wide delegation for a client](https://support.google.com/a/answer/162106?product_name=UnuFlow&hl=en&visit_id=637803216817936373-460879578&rd=1&src=supportwidget0&hl=en#zippy=%2Cset-up-domain-wide-delegation-for-a-client)
 - The only necessary scope: ```https://www.googleapis.com/auth/gmail.send```    
 - Example function to send email (remember content need to be base64)
 ```dart

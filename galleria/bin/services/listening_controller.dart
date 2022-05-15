@@ -13,7 +13,6 @@ class ListeningController {
     /// for the new Resource. As long as that is valid, get the past from the
     /// URL, and as long as that exists, pass it onto the post function
     router.post('/', (Request request) async {
-      print('made it to here');
       final requestString = await request.readAsString();
       final path = pathFromPayload(requestString);
       if (path.isNotEmpty && path.length == 2) {
