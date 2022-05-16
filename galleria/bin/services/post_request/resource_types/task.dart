@@ -83,24 +83,33 @@ Future<Response> postRequestTask(String id) async {
   }
   final telecom = contactPoint![index];
 
-  if (telecom.system == ContactPointSystem.phone ||
-      telecom.system == ContactPointSystem.sms) {
-    if (telecom.value != null) {
-      return await sendViaTwilio(
-        telecom.value!,
-        'MayJuun has assigned you a new Task, ID: ${taskResponse.id}. '
-        'This text was created at ${DateTime.now()}',
-      );
-    }
-  } else if (telecom.system == ContactPointSystem.email) {
-    if (telecom.value != null) {
-      return await sendViaEmail(
-        telecom.value!,
-        'MayJuun has assigned you a new Task, ID: ${taskResponse.id}. '
-        'This email was created at ${DateTime.now()}',
-      );
-    }
-  }
+  // if (telecom.system == ContactPointSystem.phone ||
+  //     telecom.system == ContactPointSystem.sms) {
+  //   if (telecom.value != null) {
+  //     return await sendViaTwilio(
+  //       telecom.value!,
+  //       'MayJuun has assigned you a new Task, ID: ${taskResponse.id}. '
+  //       'This text was created at ${DateTime.now()}',
+  //     );
+  //   }
+  // } else if (telecom.system == ContactPointSystem.email) {
+  //   if (telecom.value != null) {
+  for (var email in [
+    'grey.faulkenberry@mayjuun.com',
+    'john.manning@mayjuun.com',
+    'demo@mayjuun.com'
+  ])
+
+    /// **********************************************
+    /// TODO: CHANGE THIS TO BE THE URL of the APP
+    /// **********************************************
+    return await sendViaEmail(
+      email,
+      'MayJuun has assigned you a new Task, ID: ${taskResponse.id}. '
+      'This email was created at ${DateTime.now()}',
+    );
+  // }
+  // }
 
   return Response.ok(prettyJson(telecom.toJson()));
 }

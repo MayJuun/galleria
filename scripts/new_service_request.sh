@@ -8,5 +8,5 @@ devUrl='https://healthcare.googleapis.com/v1/projects/demos-322021/locations/us-
 curl -X POST \
     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
     -H "Content-Type: application/fhir+json; charset=utf-8" \
-    --data @./"task.json" \
+    --data @./"fhir_resources/serviceRequest.json" \
         "$aclUrl" > uploadedBundle.json
