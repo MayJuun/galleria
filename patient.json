@@ -1,0 +1,110 @@
+{
+    "resourceType": "Bundle",
+    "type": "transaction",
+    "entry": [
+        {
+            "resource": {
+                "resourceType": "Patient",
+                "active": true,
+                "name": [
+                    {
+                        "use": "official",
+                        "family": "Thomson",
+                        "given": [
+                            "Jameson"
+                        ]
+                    }
+                ],
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "(555) 555-5555",
+                        "use": "home",
+                        "rank": 1
+                    },
+                    {
+                        "system": "email",
+                        "value": "demo@mayjuun.com",
+                        "use": "home",
+                        "rank": 2
+                    }
+                ],
+                "gender": "male",
+                "birthDate": "2011-01-18",
+                "deceasedBoolean": false,
+                "address": [
+                    {
+                        "use": "home",
+                        "type": "both",
+                        "text": "16 Chatham Ridge Dr, Freehold, NJ 07728, USA",
+                        "line": [
+                            "16 Chatham Ridge Dr"
+                        ],
+                        "city": "Freehold",
+                        "state": "NJ",
+                        "postalCode": "07728"
+                    }
+                ],
+                "contact": [
+                    {
+                        "relationship": [
+                            {
+                                "coding": [
+                                    {
+                                        "system": "http://snomed.info/sct",
+                                        "code": "17945006",
+                                        "display": "Natural grandmother"
+                                    },
+                                    {
+                                        "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+                                        "code": "N"
+                                    },
+                                    {
+                                        "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                                        "code": "GRMTH"
+                                    }
+                                ]
+                            }
+                        ],
+                        "name": {
+                            "use": "official",
+                            "family": "Thomson",
+                            "given": [
+                                "Ruth"
+                            ]
+                        },
+                        "telecom": [
+                            {
+                                "system": "phone",
+                                "value": "(555) 555-5555",
+                                "use": "home",
+                                "rank": 1
+                            },
+                            {
+                                "system": "email",
+                                "value": "demo@mayjuun.com",
+                                "use": "home",
+                                "rank": 2
+                            }
+                        ],
+                        "address": {
+                            "use": "home",
+                            "type": "both",
+                            "text": "16 Chatham Ridge Dr, Freehold, NJ 07728, USA",
+                            "line": [
+                                "16 Chatham Ridge Dr"
+                            ],
+                            "city": "Freehold",
+                            "state": "NJ",
+                            "postalCode": "07728"
+                        }
+                    }
+                ]
+            },
+            "request": {
+                "method": "POST",
+                "url": "Patient"
+            }
+        }
+    ]
+}
