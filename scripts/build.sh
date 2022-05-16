@@ -6,7 +6,7 @@
 
 projectId="acl-challenge"
 projectName="acl-challenge-staging-galleria"
-version="0.0.2"
+version="0.0.3"
 
 
 gcloud config set project $projectId

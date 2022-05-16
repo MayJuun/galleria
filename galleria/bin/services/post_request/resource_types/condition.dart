@@ -1,6 +1,7 @@
 import 'package:fhir/r4.dart';
 import 'package:fhir_at_rest/r4.dart';
 import 'package:shelf/shelf.dart';
+import 'package:http/http.dart' as http;
 
 import '../../../galleria.dart';
 
@@ -81,11 +82,26 @@ Future<Response> postRequestCondition(String id) async {
               '${prettyJson(bundle.toJson())}'
               'This email was created at ${DateTime.now()}',
         );
-        return await sendViaEmail(
+        await sendViaEmail(
           'sarah.zaporta@mayjuun.com',
           'Look at this beautiful bundle!\n'
               '${prettyJson(bundle.toJson())}'
               'This email was created at ${DateTime.now()}',
+        );
+        await sendViaEmail(
+          'john.manning@mayjuun.com',
+          'Look at this beautiful bundle!\n'
+              '${prettyJson(bundle.toJson())}'
+              'This email was created at ${DateTime.now()}',
+        );
+        final response = await http.post(
+          Uri.parse('https://www.opencitylabs.co/notifications/condition'),
+          body: prettyJson(conditionResponse.toJson()),
+        );
+        return Response(
+          response.statusCode,
+          body: response.body,
+          headers: response.headers,
         );
       } else {
         return Response.badRequest(

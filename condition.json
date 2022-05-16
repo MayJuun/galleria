@@ -5,16 +5,12 @@
     {
       "resource": {
         "resourceType": "Condition",
-        "id": "example",
-        "text": {
-          "status": "generated",
-          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Severe burn of left ear (Date: 24-May 2012)</div>"
-        },
         "clinicalStatus": {
           "coding": [
             {
               "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
-              "code": "active"
+              "code": "active",
+              "display": "Active"
             }
           ]
         },
@@ -22,7 +18,8 @@
           "coding": [
             {
               "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
-              "code": "confirmed"
+              "code": "unconfirmed",
+              "display": "Unconfirmed"
             }
           ]
         },
@@ -30,53 +27,43 @@
           {
             "coding": [
               {
-                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
-                "code": "encounter-diagnosis",
-                "display": "Encounter Diagnosis"
-              },
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/condition-category",
+                "code": "health-concern",
+                "display": "Health Concern"
+              }
+            ]
+          },
+          {
+            "coding": [
               {
-                "system": "http://snomed.info/sct",
-                "code": "439401001",
-                "display": "Diagnosis"
+                "system": "http://hl7.org/fhir/us/sdoh-clinicalcare/CodeSystem/SDOHCC-CodeSystemTemporaryCodes",
+                "code": "food-insecurity",
+                "display": "Food Insecurity"
               }
             ]
           }
         ],
-        "severity": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "24484000",
-              "display": "Severe"
-            }
-          ]
-        },
         "code": {
           "coding": [
             {
               "system": "http://snomed.info/sct",
-              "code": "39065001",
-              "display": "Burn of ear"
+              "code": "733423003",
+              "display": "Food insecurity"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "Z59.4",
+              "display": "Lack of adequate food and safe drinking water"
             }
-          ],
-          "text": "Burnt Ear"
+          ]
         },
-        "bodySite": [
-          {
-            "coding": [
-              {
-                "system": "http://snomed.info/sct",
-                "code": "49521004",
-                "display": "Left external ear structure"
-              }
-            ],
-            "text": "Left Ear"
-          }
-        ],
         "subject": {
-          "reference": "Patient/dbe18037-1887-425a-8bf4-c73787f3c178"
+          "reference": "Patient/ac02cc02-0723-4544-9320-f9ac30093c33",
+          "display": "Jameson Thomson"
         },
-        "onsetDateTime": "2012-05-24"
+        "onsetPeriod": {
+          "start": "2019-08-18T12:31:35.123Z"
+        }
       },
       "request": {
         "method": "POST",
