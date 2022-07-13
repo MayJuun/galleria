@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:fhir/r4.dart';
 import 'package:shelf/shelf.dart';
 import 'package:shelf_router/shelf_router.dart';
 
@@ -16,10 +19,32 @@ class ListeningController {
       final requestString = await request.readAsString();
       final path = pathFromPayload(requestString);
       if (path.isNotEmpty && path.length == 2) {
-        await postRequest(path);
+        return await postRequest(path);
       }
       return Response.ok('Post Request made, but payload incorrect');
       // return Response.notFound('Post Request made, but payload incorrect');
+    });
+
+    router.post('/fhir/', (Request request) async {
+      final requestString = await request.readAsString();
+      final resource = Resource.fromJson(jsonDecode(requestString));
+      final resourceType =
+          ResourceUtils.resourceTypeToStringMap[resource.resourceType];
+      if (resourceType != null) {
+        return await postRequest([resourceType], resource);
+      }
+      return Response.ok('Post Request made, but payload incorrect');
+    });
+
+    router.post('/fhir', (Request request) async {
+      final requestString = await request.readAsString();
+      final resource = Resource.fromJson(jsonDecode(requestString));
+      final resourceType =
+          ResourceUtils.resourceTypeToStringMap[resource.resourceType];
+      if (resourceType != null) {
+        return await postRequest([resourceType], resource);
+      }
+      return Response.ok('Post Request made, but payload incorrect');
     });
 
     ///You can catch all verbs and use a URL-parameter with a regular expression

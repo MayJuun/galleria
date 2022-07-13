@@ -1,6 +1,6 @@
 name: galleria
-description: Simple Server to Listen and for FHIR Server Changes for ServiceRequests
-version: 0.0.4
+description: Dart server to listen for Subscriptions from a FHIR server
+version: 0.0.6
 
 environment:
   sdk: ">=2.17.0 <3.0.0"

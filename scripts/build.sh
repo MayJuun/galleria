@@ -4,10 +4,13 @@
 #  gcloud config set project [project_id]
 #  gcloud auth login
 
-projectId="acl-challenge"
-projectName="acl-challenge-staging-galleria"
-version="0.0.4"
+projectId="demos-322021"
+projectName="gravity-connectathon"
+appDir="galleria/"
 
+fullVersion=$(yq eval '.version' $appDir"pubspec.yaml")
+# Take the last part of the version number, after the plus sign
+version=${fullVersion#*+}
 
 gcloud config set project $projectId
 
