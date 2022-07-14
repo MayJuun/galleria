@@ -22,4 +22,4 @@ doc/api/
 
 # Any files I don't want to check into git
 *api.dart
-*.sh
+# *.sh

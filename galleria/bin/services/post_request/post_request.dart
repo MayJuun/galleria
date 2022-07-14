@@ -1,14 +1,20 @@
+import 'package:fhir/r4.dart';
 import 'package:shelf/shelf.dart';
 
-import 'resource_types/service_request.dart';
-import 'resource_types/task.dart';
+import '../../galleria.dart';
 
-Future<Response> postRequest(List<String> path) async {
+Future<Response> postRequest(List<String> path, [Resource? resource]) async {
   switch (path[0]) {
     case 'ServiceRequest':
       return postRequestServiceRequest(path[1]);
     case 'Task':
       return postRequestTask(path[1]);
+    case 'Observation':
+      return postRequestObservation(path[1]);
+    case 'Condition':
+      return postRequestCondition(path[1]);
+    case 'Communication':
+      return postRequestCommunication(resource as Communication);
     default:
       return Response.notFound('The resource posted of type ${path[0]} '
           'is not currently supported.');

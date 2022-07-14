@@ -1,0 +1,75 @@
+{
+    "resourceType": "Bundle",
+    "type": "transaction",
+    "entry": [
+        {
+            "resource": {
+                "resourceType": "RelatedPerson",
+                "active": true,
+                "patient": {
+                    "reference": "Patient/ac02cc02-0723-4544-9320-f9ac30093c33"
+                },
+                "relationship": [
+                    {
+                        "coding": [
+                            {
+                                "code": "17945006",
+                                "display": "Natural grandmother",
+                                "system": "http://snomed.info/sct"
+                            },
+                            {
+                                "code": "N",
+                                "system": "http://terminology.hl7.org/CodeSystem/v2-0131"
+                            },
+                            {
+                                "code": "GRMTH",
+                                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode"
+                            }
+                        ]
+                    }
+                ],
+                "name": [
+                    {
+                        "family": "Thomson",
+                        "given": [
+                            "Ruth"
+                        ],
+                        "use": "official"
+                    }
+                ],
+                "telecom": [
+                    {
+                        "rank": 1,
+                        "system": "phone",
+                        "use": "home",
+                        "value": "(555) 555-5555"
+                    },
+                    {
+                        "rank": 2,
+                        "system": "email",
+                        "use": "home",
+                        "value": "demo@mayjuun.com"
+                    }
+                ],
+                "gender": "female",
+                "address": [
+                    {
+                        "city": "Freehold",
+                        "line": [
+                            "16 Chatham Ridge Dr"
+                        ],
+                        "postalCode": "07728",
+                        "state": "NJ",
+                        "text": "16 Chatham Ridge Dr, Freehold, NJ 07728, USA",
+                        "type": "both",
+                        "use": "home"
+                    }
+                ]
+            },
+            "request": {
+                "method": "POST",
+                "url": "RelatedPerson"
+            }
+        }
+    ]
+}

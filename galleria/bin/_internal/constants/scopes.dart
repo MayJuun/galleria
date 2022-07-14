@@ -1,6 +1,6 @@
-const scopes = [
-  'openid',
-  'profile',
-  'email',
+const scopes = <String>[
+  // 'openid',
+  // 'profile',
+  // 'email',
   'https://www.googleapis.com/auth/cloud-platform',
 ];

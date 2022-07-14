@@ -4,14 +4,14 @@ import 'package:googleapis/gmail/v1.dart' as gMail;
 import "package:googleapis_auth/auth_io.dart";
 import 'package:shelf/shelf.dart';
 
-import '../api.dart';
+import '../../api/export.dart';
 
 Future<Response> sendViaEmail(String email, String text) async {
   if (email.contains('@mayjuun.com')) {
     String _getBase64Email(String source) =>
         base64UrlEncode(utf8.encode(source));
 
-    final clientCredentials = emailCredentials;
+    final clientCredentials = emailAccountCredentials;
 
     final authClient = await clientViaServiceAccount(
         clientCredentials, ['https://www.googleapis.com/auth/gmail.send']);

@@ -1,0 +1,2622 @@
+{
+    "resourceType": "Bundle",
+    "type": "transaction",
+    "entry": [
+        {
+            "fullUrl": "https://healthcare.googleapis.com/v1/projects/acl-challenge/locations/us/datasets/staging/fhirStores/staging-fhirstore/fhir/Questionnaire/f892b6b0-b908-4fc2-b73f-9890b9c1c06a",
+            "resource": {
+                "resourceType": "Questionnaire",
+                "id": "f892b6b0-b908-4fc2-b73f-9890b9c1c06a",
+                "url": "mayjuun.com/fhir/Questionnaire/demographics",
+                "name": "demographics",
+                "title": "Demographic Questions",
+                "_title": {
+                    "extension": [
+                        {
+                            "extension": [
+                                {
+                                    "url": "lang",
+                                    "valueCode": "es"
+                                },
+                                {
+                                    "url": "content",
+                                    "valueCode": "Preguntas demográficas"
+                                }
+                            ],
+                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                        },
+                        {
+                            "extension": [
+                                {
+                                    "url": "lang",
+                                    "valueCode": "pt"
+                                },
+                                {
+                                    "url": "content",
+                                    "valueCode": "Perguntas demográficas"
+                                }
+                            ],
+                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                        },
+                        {
+                            "extension": [
+                                {
+                                    "url": "lang",
+                                    "valueCode": "ht"
+                                },
+                                {
+                                    "url": "content",
+                                    "valueCode": "Kesyon demografik"
+                                }
+                            ],
+                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                        }
+                    ]
+                },
+                "status": "active",
+                "item": [
+                    {
+                        "linkId": "/demographics/race",
+                        "text": "Please select your race (You may select more than 1 answer)",
+                        "_text": {
+                            "extension": [
+                                {
+                                    "extension": [
+                                        {
+                                            "url": "lang",
+                                            "valueCode": "es"
+                                        },
+                                        {
+                                            "url": "content",
+                                            "valueCode": "Selecciona tu raza (Puedes seleccionar más de 1 respuesta)"
+                                        }
+                                    ],
+                                    "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                },
+                                {
+                                    "extension": [
+                                        {
+                                            "url": "lang",
+                                            "valueCode": "pt"
+                                        },
+                                        {
+                                            "url": "content",
+                                            "valueCode": "Selecione sua raça (pode selecionar mais de uma)"
+                                        }
+                                    ],
+                                    "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                },
+                                {
+                                    "extension": [
+                                        {
+                                            "url": "lang",
+                                            "valueCode": "ht"
+                                        },
+                                        {
+                                            "url": "content",
+                                            "valueCode": "Tanpri chwazi ras ou (ou ka chwazi plis pase 1 repons)"
+                                        }
+                                    ],
+                                    "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                }
+                            ]
+                        },
+                        "type": "choice",
+                        "repeats": true,
+                        "answerOption": [
+                            {
+                                "valueCoding": {
+                                    "extension": [
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                                            "valueDecimal": 1
+                                        }
+                                    ],
+                                    "code": "White",
+                                    "display": "White",
+                                    "_display": {
+                                        "extension": [
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "es"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Blanca"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "pt"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Branca"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "ht"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Blan"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "extension": [
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                                            "valueDecimal": 2
+                                        }
+                                    ],
+                                    "code": "Black or African American",
+                                    "display": "Black or African American",
+                                    "_display": {
+                                        "extension": [
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "es"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Negra o afroamericana"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "pt"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Preta ou afro-americana"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "ht"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Moun Nwa oswa Afriken-Ameriken"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "extension": [
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                                            "valueDecimal": 3
+                                        }
+                                    ],
+                                    "code": "American Indian or Alaskan Native",
+                                    "display": "American Indian or Alaskan Native",
+                                    "_display": {
+                                        "extension": [
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "es"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "India americana o nativa de Alaska"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "pt"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Indígena americana ou nativa do Alasca"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "ht"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Amerendyen oswa Natifnatal Alaska"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "extension": [
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                                            "valueDecimal": 4
+                                        }
+                                    ],
+                                    "code": "Asian Indian",
+                                    "display": "Asian Indian",
+                                    "_display": {
+                                        "extension": [
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "es"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "India asiática"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "pt"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Indiana asiática"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "ht"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Azyatik-Endyen"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "extension": [
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                                            "valueDecimal": 5
+                                        }
+                                    ],
+                                    "code": "Chinese",
+                                    "display": "Chinese",
+                                    "_display": {
+                                        "extension": [
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "es"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "China"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "pt"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Chinesa"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "ht"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Chinwa"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "extension": [
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                                            "valueDecimal": 6
+                                        }
+                                    ],
+                                    "code": "Filipino",
+                                    "display": "Filipino",
+                                    "_display": {
+                                        "extension": [
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "es"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Filipina"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "pt"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Filipina"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "ht"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Filipen"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "extension": [
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                                            "valueDecimal": 7
+                                        }
+                                    ],
+                                    "code": "Japanese",
+                                    "display": "Japanese",
+                                    "_display": {
+                                        "extension": [
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "es"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Japonesa"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "pt"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Japonesa"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "ht"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Japonè"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "extension": [
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                                            "valueDecimal": 8
+                                        }
+                                    ],
+                                    "code": "Korean",
+                                    "display": "Korean",
+                                    "_display": {
+                                        "extension": [
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "es"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Coreana"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "pt"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Coreana"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "ht"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Koreyen"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "extension": [
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                                            "valueDecimal": 9
+                                        }
+                                    ],
+                                    "code": "Vietnamese",
+                                    "display": "Vietnamese",
+                                    "_display": {
+                                        "extension": [
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "es"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Vietnamita"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "pt"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Vietnamita"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "ht"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Vyetnamyen"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "extension": [
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                                            "valueDecimal": 10
+                                        }
+                                    ],
+                                    "code": "Other Asian",
+                                    "display": "Other Asian",
+                                    "_display": {
+                                        "extension": [
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "es"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Otra asiática"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "pt"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Outras da Ásia"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "ht"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Lòt Azyatik"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "extension": [
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                                            "valueDecimal": 11
+                                        }
+                                    ],
+                                    "code": "Asian Unknown",
+                                    "display": "Asian Unknown",
+                                    "_display": {
+                                        "extension": [
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "es"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Asiática desconocida"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "pt"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Asiática desconhecida"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "ht"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Azyatik Enkoni"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "extension": [
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                                            "valueDecimal": 12
+                                        }
+                                    ],
+                                    "code": "Native Hawaiian",
+                                    "display": "Native Hawaiian",
+                                    "_display": {
+                                        "extension": [
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "es"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Nativa de Hawái"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "pt"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Nativa do Havaí"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "ht"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Natifnatal Hawaii"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "extension": [
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                                            "valueDecimal": 13
+                                        }
+                                    ],
+                                    "code": "Guamanian or Chamorro",
+                                    "display": "Guamanian or Chamorro",
+                                    "_display": {
+                                        "extension": [
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "es"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Guameña o chamorra"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "pt"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Nativa de Guam ou Chamorro"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "ht"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Gwamyen oswa Chamowo"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "extension": [
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                                            "valueDecimal": 14
+                                        }
+                                    ],
+                                    "code": "Samoan",
+                                    "display": "Samoan",
+                                    "_display": {
+                                        "extension": [
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "es"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Samoana"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "pt"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Samoana"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "ht"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Samowan"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "extension": [
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                                            "valueDecimal": 15
+                                        }
+                                    ],
+                                    "code": "Other Pacific Island",
+                                    "display": "Other Pacific Island",
+                                    "_display": {
+                                        "extension": [
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "es"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Otra isla del Pacífico"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "pt"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Outra das ilhas do Pacífico"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "ht"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Lòt Zile Pasifik"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "extension": [
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                                            "valueDecimal": 16
+                                        }
+                                    ],
+                                    "code": "Native Hawaiian or Other Pacific Islander Unknown",
+                                    "display": "Native Hawaiian or Other Pacific Islander Unknown",
+                                    "_display": {
+                                        "extension": [
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "es"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Nativa de Hawái u otra isla del Pacífico desconocida"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "pt"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Nativa do Havaí ou outra ilha do Pacífico desconhecida"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "ht"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Natifnatal Zile Hawaii oswa Lòt Moun Enkoni ki Fèt nan Zile Pasifik"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "extension": [
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                                            "valueDecimal": 17
+                                        }
+                                    ],
+                                    "code": "Unspecified",
+                                    "display": "Unspecified",
+                                    "_display": {
+                                        "extension": [
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "es"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "No especificada"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "pt"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Não especificada"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "ht"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Ki Pa Presize"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "linkId": "/demographics/ethnicity",
+                        "text": "Please select your ethnicity (You may select more than 1 answer)",
+                        "_text": {
+                            "extension": [
+                                {
+                                    "extension": [
+                                        {
+                                            "url": "lang",
+                                            "valueCode": "es"
+                                        },
+                                        {
+                                            "url": "content",
+                                            "valueCode": "Selecciona tu origen étnico (Puedes seleccionar más de 1 respuesta)"
+                                        }
+                                    ],
+                                    "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                },
+                                {
+                                    "extension": [
+                                        {
+                                            "url": "lang",
+                                            "valueCode": "pt"
+                                        },
+                                        {
+                                            "url": "content",
+                                            "valueCode": "Selecione sua etnia (pode selecionar mais de uma)"
+                                        }
+                                    ],
+                                    "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                },
+                                {
+                                    "extension": [
+                                        {
+                                            "url": "lang",
+                                            "valueCode": "ht"
+                                        },
+                                        {
+                                            "url": "content",
+                                            "valueCode": "Tanpri chwazi Gwoup Etnik ou (ou ka chwazi plis pase 1 repons)"
+                                        }
+                                    ],
+                                    "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                }
+                            ]
+                        },
+                        "type": "choice",
+                        "repeats": true,
+                        "answerOption": [
+                            {
+                                "valueCoding": {
+                                    "extension": [
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                                            "valueDecimal": 0
+                                        }
+                                    ],
+                                    "code": "Not of Hispanic, Latino/a, or Spanish origin",
+                                    "display": "Not of Hispanic, Latino/a, or Spanish origin",
+                                    "_display": {
+                                        "extension": [
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "es"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "No de origen hispano, latino o español"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "pt"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Origem não hispânica, latina ou espanhola"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "ht"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Pa Ispanik, Latino /a, oswa orijin Panyòl"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "extension": [
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                                            "valueDecimal": 1
+                                        }
+                                    ],
+                                    "code": "Mexican, Mexican American, Chicano/a",
+                                    "display": "Mexican, Mexican American, Chicano/a",
+                                    "_display": {
+                                        "extension": [
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "es"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Mexicano, mexicano americano, chicano"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "pt"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Mexicana, mexicana-americana, chicana"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "ht"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Meksiken, Meksiken-Ameriken, Chikano/a"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "extension": [
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                                            "valueDecimal": 2
+                                        }
+                                    ],
+                                    "code": "Puerto Rican",
+                                    "display": "Puerto Rican",
+                                    "_display": {
+                                        "extension": [
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "es"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Puertorriqueño"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "pt"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Porto-riquenha"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "ht"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Pòtoriken"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "extension": [
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                                            "valueDecimal": 3
+                                        }
+                                    ],
+                                    "code": "Cuban",
+                                    "display": "Cuban",
+                                    "_display": {
+                                        "extension": [
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "es"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Cubano"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "pt"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Cubana"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "ht"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Kiben"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "extension": [
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                                            "valueDecimal": 4
+                                        }
+                                    ],
+                                    "code": "Another Hispanic, Latino, or Spanish origin",
+                                    "display": "Another Hispanic, Latino, or Spanish origin",
+                                    "_display": {
+                                        "extension": [
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "es"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Otro origen hispano, latino o español"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "pt"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Outra origem hispânica, latina ou espanhola"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "ht"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Lòt Ispanik, Latino, oswa orijin Panyòl"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "extension": [
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                                            "valueDecimal": 5
+                                        }
+                                    ],
+                                    "code": "Hispanic or Latino Unknown",
+                                    "display": "Hispanic or Latino Unknown",
+                                    "_display": {
+                                        "extension": [
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "es"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Hispano o latino desconocido"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "pt"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "hispânico ou latino desconhecido"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "ht"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Panyòl oswa Latino enkoni"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "extension": [
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                                            "valueDecimal": 6
+                                        }
+                                    ],
+                                    "code": "Ethnicity Unspecified",
+                                    "display": "Ethnicity Unspecified",
+                                    "_display": {
+                                        "extension": [
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "es"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Origen étnico no especificado"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "pt"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Etnia não especificada"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "ht"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Gwoup Etnik ki pa Endike"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "linkId": "/demographics/parents_born_outside_us",
+                        "text": "One or both of the child's parents were born outside of the United States",
+                        "_text": {
+                            "extension": [
+                                {
+                                    "extension": [
+                                        {
+                                            "url": "lang",
+                                            "valueCode": "es"
+                                        },
+                                        {
+                                            "url": "content",
+                                            "valueCode": "Uno o ambos padres del niño nacieron fuera de los Estados Unidos."
+                                        }
+                                    ],
+                                    "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                },
+                                {
+                                    "extension": [
+                                        {
+                                            "url": "lang",
+                                            "valueCode": "pt"
+                                        },
+                                        {
+                                            "url": "content",
+                                            "valueCode": "Um ou ambos os pais da criança nasceram fora dos Estados Unidos"
+                                        }
+                                    ],
+                                    "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                },
+                                {
+                                    "extension": [
+                                        {
+                                            "url": "lang",
+                                            "valueCode": "ht"
+                                        },
+                                        {
+                                            "url": "content",
+                                            "valueCode": "Pitit yon on paran oswa toulède paran ki te fèt deyò Etazini"
+                                        }
+                                    ],
+                                    "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                }
+                            ]
+                        },
+                        "type": "choice",
+                        "answerOption": [
+                            {
+                                "valueCoding": {
+                                    "extension": [
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                                            "valueDecimal": 1
+                                        }
+                                    ],
+                                    "code": "Yes",
+                                    "display": "Yes",
+                                    "_display": {
+                                        "extension": [
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "es"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Si"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "pt"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Sim"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "ht"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Wi"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "extension": [
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                                            "valueDecimal": 0
+                                        }
+                                    ],
+                                    "code": "No",
+                                    "display": "No",
+                                    "_display": {
+                                        "extension": [
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "es"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "No"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "pt"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Não"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "ht"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Non"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "linkId": "/demographics/other_than_english_at_home",
+                        "text": "A language other than English is spoken at home",
+                        "_text": {
+                            "extension": [
+                                {
+                                    "extension": [
+                                        {
+                                            "url": "lang",
+                                            "valueCode": "es"
+                                        },
+                                        {
+                                            "url": "content",
+                                            "valueCode": "En casa se habla un idioma diferente al inglés."
+                                        }
+                                    ],
+                                    "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                },
+                                {
+                                    "extension": [
+                                        {
+                                            "url": "lang",
+                                            "valueCode": "pt"
+                                        },
+                                        {
+                                            "url": "content",
+                                            "valueCode": "Um idioma diferente do inglês é falado em casa"
+                                        }
+                                    ],
+                                    "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                },
+                                {
+                                    "extension": [
+                                        {
+                                            "url": "lang",
+                                            "valueCode": "ht"
+                                        },
+                                        {
+                                            "url": "content",
+                                            "valueCode": "Yon lang yo pale nan kay ki pa lang Anglè"
+                                        }
+                                    ],
+                                    "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                }
+                            ]
+                        },
+                        "type": "choice",
+                        "answerOption": [
+                            {
+                                "valueCoding": {
+                                    "extension": [
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                                            "valueDecimal": 1
+                                        }
+                                    ],
+                                    "code": "Yes",
+                                    "display": "Yes",
+                                    "_display": {
+                                        "extension": [
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "es"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Si"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "pt"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Sim"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "ht"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Wi"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "valueCoding": {
+                                    "extension": [
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                                            "valueDecimal": 0
+                                        }
+                                    ],
+                                    "code": "No",
+                                    "display": "No",
+                                    "_display": {
+                                        "extension": [
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "es"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "No"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "pt"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Não"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            },
+                                            {
+                                                "extension": [
+                                                    {
+                                                        "url": "lang",
+                                                        "valueCode": "ht"
+                                                    },
+                                                    {
+                                                        "url": "content",
+                                                        "valueCode": "Non"
+                                                    }
+                                                ],
+                                                "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "linkId": "/demographics/other_languages_spoken",
+                        "text": "What other languages are spoken? (You may select more than 1 answer)",
+                        "_text": {
+                            "extension": [
+                                {
+                                    "extension": [
+                                        {
+                                            "url": "lang",
+                                            "valueCode": "es"
+                                        },
+                                        {
+                                            "url": "content",
+                                            "valueCode": "Qué otros idiomas se hablan (Puedes seleccionar más de 1 respuesta)"
+                                        }
+                                    ],
+                                    "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                },
+                                {
+                                    "extension": [
+                                        {
+                                            "url": "lang",
+                                            "valueCode": "pt"
+                                        },
+                                        {
+                                            "url": "content",
+                                            "valueCode": "Quais outros idiomas são falados (pode selecionar mais de um)"
+                                        }
+                                    ],
+                                    "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                },
+                                {
+                                    "extension": [
+                                        {
+                                            "url": "lang",
+                                            "valueCode": "ht"
+                                        },
+                                        {
+                                            "url": "content",
+                                            "valueCode": "Ki lòt lang ou pale (ou ka chwazi plis pase 1 repons)"
+                                        }
+                                    ],
+                                    "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                }
+                            ]
+                        },
+                        "type": "choice",
+                        "enableWhen": [
+                            {
+                                "question": "/demographics/other_than_english_at_home",
+                                "operator": "=",
+                                "answerCoding": {
+                                    "extension": [
+                                        {
+                                            "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                                            "valueDecimal": 1
+                                        }
+                                    ],
+                                    "code": "Yes",
+                                    "display": "Yes"
+                                }
+                            }
+                        ],
+                        "enableBehavior": "all",
+                        "repeats": true,
+                        "answerOption": [
+                            {
+                                "valueString": "Spanish",
+                                "_valueString": {
+                                    "extension": [
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "es"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Español"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "pt"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Espanhol"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "ht"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Panyòl"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "valueString": "Portuguese",
+                                "_valueString": {
+                                    "extension": [
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "es"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Portugués"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "pt"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Português"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "ht"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Pòtigè"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "valueString": "Haitian Creole",
+                                "_valueString": {
+                                    "extension": [
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "es"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Haitiano criollo"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "pt"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Haitian criole"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "ht"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Kreyòl Ayisyen"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "valueString": "Italian",
+                                "_valueString": {
+                                    "extension": [
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "es"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Italiano"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "pt"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Italiano"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "ht"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Italyen"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "valueString": "Russian",
+                                "_valueString": {
+                                    "extension": [
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "es"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Ruso"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "pt"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Russo"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "ht"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Ris"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "valueString": "Mandarin",
+                                "_valueString": {
+                                    "extension": [
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "es"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Mandarín"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "pt"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Mandarim"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "ht"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Mandaren"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "valueString": "Cantonese",
+                                "_valueString": {
+                                    "extension": [
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "es"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Cantonés"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "pt"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Cantonês"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "ht"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Kantonè"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "valueString": "Tagalog",
+                                "_valueString": {
+                                    "extension": [
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "es"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Tagalo"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "pt"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Tagalog"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "ht"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Tagalog"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "valueString": "Yiddish",
+                                "_valueString": {
+                                    "extension": [
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "es"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Yiddish"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "pt"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Yiddish"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "ht"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Yiddish"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "valueString": "Hebrew",
+                                "_valueString": {
+                                    "extension": [
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "es"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Hebreo"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "pt"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Hebraico"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "ht"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Ebre"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "valueString": "Gujarati",
+                                "_valueString": {
+                                    "extension": [
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "es"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Gujarati"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "pt"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Gujarati"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "ht"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Gujarati"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "valueString": "Hindi",
+                                "_valueString": {
+                                    "extension": [
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "es"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Hindi"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "pt"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Hindi"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "ht"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Hindi"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "valueString": "German",
+                                "_valueString": {
+                                    "extension": [
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "es"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Alemán"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "pt"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Alemão"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "ht"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Alman"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "valueString": "Polish",
+                                "_valueString": {
+                                    "extension": [
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "es"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Polaco"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "pt"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Polonês"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "ht"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Polonè"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "valueString": "Other",
+                                "_valueString": {
+                                    "extension": [
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "es"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Otros"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "pt"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Outro"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        },
+                                        {
+                                            "extension": [
+                                                {
+                                                    "url": "lang",
+                                                    "valueCode": "ht"
+                                                },
+                                                {
+                                                    "url": "content",
+                                                    "valueCode": "Lòt"
+                                                }
+                                            ],
+                                            "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "linkId": "/demographics/other_other_languages",
+                        "text": "Other languages spoken:",
+                        "_text": {
+                            "extension": [
+                                {
+                                    "extension": [
+                                        {
+                                            "url": "lang",
+                                            "valueCode": "es"
+                                        },
+                                        {
+                                            "url": "content",
+                                            "valueCode": "Otros idiomas hablados:"
+                                        }
+                                    ],
+                                    "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                },
+                                {
+                                    "extension": [
+                                        {
+                                            "url": "lang",
+                                            "valueCode": "pt"
+                                        },
+                                        {
+                                            "url": "content",
+                                            "valueCode": "Outras línguas faladas:"
+                                        }
+                                    ],
+                                    "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                },
+                                {
+                                    "extension": [
+                                        {
+                                            "url": "lang",
+                                            "valueCode": "ht"
+                                        },
+                                        {
+                                            "url": "content",
+                                            "valueCode": "Lòt lang yo pale:"
+                                        }
+                                    ],
+                                    "url": "http://hl7.org/fhir/StructureDefinition/translation"
+                                }
+                            ]
+                        },
+                        "type": "string",
+                        "enableWhen": [
+                            {
+                                "question": "/demographics/other_languages_spoken",
+                                "operator": "=",
+                                "answerString": "Other"
+                            }
+                        ],
+                        "enableBehavior": "all"
+                    }
+                ]
+            },
+            "request": {
+                "method": "POST",
+                "url": "Questionnaire/f892b6b0-b908-4fc2-b73f-9890b9c1c06a"
+            }
+        }
+    ]
+}

@@ -2,7 +2,7 @@ import 'package:fhir/r4.dart';
 import 'package:fhir_at_rest/r4.dart';
 import 'package:googleapis_auth/googleapis_auth.dart';
 
-import '../api.dart';
+import '../../api/api.dart';
 import 'operation_outcome.dart';
 import 'types.dart';
 
@@ -42,12 +42,12 @@ Future<Resource> createTask(
     /// If it's a PlanDefinition (as it should be, otherwise it's an error)
     if (planDefinitionResponse is PlanDefinition) {
       /// Create a new task
-      final task = Task(
+      var task = Task(
         /// helpful for keeping track of when it was created vs updated
         authoredOn: FhirDateTime(DateTime.now()),
 
         /// The task is based on the ServiceRequest
-        basedOn: [Reference(reference: serviceRequest.path())],
+        basedOn: [Reference(reference: serviceRequest.path)],
 
         /// This is a reference to whom the Task is applied to
         for_: serviceRequest.subject,
@@ -71,16 +71,20 @@ Future<Resource> createTask(
       /// For each action in the PlanDefinition, add it to an input for Task
       for (var action
           in planDefinitionResponse.action ?? <PlanDefinitionAction>[]) {
-        task.input!.add(
-          TaskInput(
-            type: action.definitionUri.toString().contains('Questionnaire')
-                ? questionnaireType
-                : action.definitionUri.toString().contains('Measure')
-                    ? measureType
-                    : valueSetType,
-            valueUri: action.definitionUri,
-          ),
+        task = task.copyWith(
+          input: [
+            if (task.input != null) ...task.input!,
+            TaskInput(
+              type: action.definitionUri.toString().contains('Questionnaire')
+                  ? questionnaireType
+                  : action.definitionUri.toString().contains('Measure')
+                      ? measureType
+                      : valueSetType,
+              valueUri: action.definitionUri,
+            ),
+          ],
         );
+        // task.input!.add();
       }
 
       /// Create the Task Request
