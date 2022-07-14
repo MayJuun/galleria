@@ -5,7 +5,7 @@
 #  gcloud auth login
 
 projectId="demos-322021"
-projectName="gravity-connectathon"
+projectName="gravity-connectathon-galleria"
 appDir="galleria/"
 
 fullVersion=$(yq eval '.version' $appDir"pubspec.yaml")
