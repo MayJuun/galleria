@@ -2,7 +2,7 @@ import 'package:fhir/r4.dart';
 import 'package:fhir_at_rest/r4.dart';
 import 'package:googleapis_auth/googleapis_auth.dart';
 
-import '../../api/api.dart';
+import '../../assets/assets.dart';
 import 'operation_outcome.dart';
 import 'types.dart';
 
