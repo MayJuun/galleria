@@ -1,5 +1,4 @@
 import 'package:fhir/r4.dart';
-import 'package:fhir_at_rest/r4.dart';
 import 'package:shelf/shelf.dart';
 
 import '../../../galleria.dart';
@@ -22,15 +21,17 @@ Future<Response> postRequestCommunication(Communication communication) async {
   if (email != null) {
     emailResponse = await sendViaEmail(
       email,
-      'MayJuun has assigned you a new Task, ID. '
-      'This email was created at ${DateTime.now()}',
+      communication.payload?.join('\n\n') ??
+          'MayJuun has a new communication to you, but '
+              'it has no words. Created at ${DateTime.now()}',
     );
   }
   if (phone != null) {
     smsResponse = await sendViaTwilio(
       phone,
-      'MayJuun has assigned you a new Task. '
-      'This text was created at ${DateTime.now()}',
+      communication.payload?.join('\n\n') ??
+          'MayJuun has a new communication to you, but '
+              'it has no words. Created at ${DateTime.now()}',
     );
   }
 

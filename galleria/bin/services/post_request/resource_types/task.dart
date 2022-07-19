@@ -16,7 +16,7 @@ Future<Response> postRequestTask(String id) async {
     type: R4ResourceType.Task,
 
     /// ID from URL request
-    id: Id(id),
+    id: id,
   );
 
   /// make the request for the Task
@@ -47,7 +47,7 @@ Future<Response> postRequestTask(String id) async {
     type: R4ResourceType.Patient,
 
     /// ID from URL request
-    id: Id(reference.split('/').last),
+    id: reference.split('/').last,
   );
 
   /// get the response

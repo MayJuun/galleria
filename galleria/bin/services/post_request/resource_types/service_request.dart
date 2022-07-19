@@ -17,7 +17,7 @@ Future<Response> postRequestServiceRequest(String id) async {
     type: R4ResourceType.ServiceRequest,
 
     /// ID from URL request
-    id: Id(id),
+    id: id,
   );
 
   /// get the response

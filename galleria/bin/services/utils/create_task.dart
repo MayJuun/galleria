@@ -33,7 +33,7 @@ Future<Resource> createTask(
     final planDefinitionRequest = FhirRequest.read(
         base: Uri.parse(fhirUrl),
         type: R4ResourceType.PlanDefinition,
-        id: Id(planDefinitionUri.split('/').last));
+        id: planDefinitionUri.split('/').last);
 
     /// Request the PlanDefinition
     final planDefinitionResponse = await planDefinitionRequest.request(
@@ -61,10 +61,10 @@ Future<Resource> createTask(
         requester: serviceRequest.requester,
 
         /// It's an order
-        intent: TaskIntent.order,
+        intent: Code('order'),
 
         /// We are making the task, so it has been requested, but is not yet in-progress
-        status: TaskStatus.requested,
+        status: Code('requested'),
         input: [],
       );
 

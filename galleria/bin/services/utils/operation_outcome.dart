@@ -4,8 +4,8 @@ OperationOutcome operationOutcome(String issue, {String? diagnostics}) =>
     OperationOutcome(
       issue: [
         OperationOutcomeIssue(
-          severity: OperationOutcomeIssueSeverity.error,
-          code: OperationOutcomeIssueCode.value,
+          severity: Code('error'),
+          code: Code('value'),
           details: CodeableConcept(text: issue),
           diagnostics: diagnostics,
         ),
