@@ -18,10 +18,13 @@ Future<Response> postRequestCommunication(Communication communication) async {
   Response? emailResponse;
   Response? smsResponse;
 
+  final message =
+      communication.payload?.map((e) => e.contentString).toList().join('\n\n');
+
   if (email != null) {
     emailResponse = await sendViaEmail(
       email,
-      communication.payload?.join('\n\n') ??
+      message ??
           'MayJuun has a new communication to you, but '
               'it has no words. Created at ${DateTime.now()}',
     );
@@ -29,7 +32,7 @@ Future<Response> postRequestCommunication(Communication communication) async {
   if (phone != null) {
     smsResponse = await sendViaTwilio(
       phone,
-      communication.payload?.join('\n\n') ??
+      message ??
           'MayJuun has a new communication to you, but '
               'it has no words. Created at ${DateTime.now()}',
     );
