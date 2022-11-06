@@ -14,7 +14,7 @@ Future<Response> postRequest(List<String> path, [Resource? resource]) async {
     case 'Condition':
       return postRequestCondition(path[1]);
     case 'CommunicationRequest':
-      return postRequestCommunicationRequest(resource as CommunicationRequest);
+      return postRequestCommunicationRequest(path[1]);
     default:
       return Response.notFound('The resource posted of type ${path[0]} '
           'is not currently supported.');
