@@ -35,7 +35,7 @@
                     "display": "email"
                 }
             ],
-            "text": "email: "
+            "text": "#email_address"
         },
         {
             "coding": [
@@ -45,7 +45,7 @@
                     "display": "SMS message"
                 }
             ],
-            "text": "sms message: "
+            "text": "#phone_number"
         }
     ],
     "payload": [
