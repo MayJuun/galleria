@@ -34,10 +34,8 @@ Future<Response> postRequestCommunicationRequest(String id) async {
     final String? phone = _phoneNumber(communicationRequest.medium);
 
     /// Pull the actual message to send
-    final message = communicationRequest.payload
-        ?.map((e) => e.contentString)
-        .toList()
-        .join('\n\n');
+    final message =
+        'Requested at: ${DateTime.now()} ${communicationRequest.payload?.map((e) => e.contentString).toList().join('\n\n')}';
 
     /// Responses that we plan to get
     Response? emailResponse;
