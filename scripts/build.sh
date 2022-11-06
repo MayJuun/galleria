@@ -1,19 +1,16 @@
 #!/bin/bash
 
-#  Because I always forget this
-#  gcloud config set project [project_id]
-#  gcloud auth login
-
 location="us-east4"
 repository="containers"
 projectId="demos-322021"
-projectName="galleria-amia"
+projectName="galleria-dev"
 appDir="galleria"
 
 fullVersion=$(yq eval '.version' $appDir"/pubspec.yaml")
 # Take the last part of the version number, after the plus sign
 version=${fullVersion#*+}
 
+#  Because I always forget this
 gcloud config set project $projectId
 # only needed the first time
 # gcloud auth login
