@@ -1,0 +1,75 @@
+{
+    "resourceType": "CommunicationRequest",
+    "basedOn": [
+        {
+            "reference": "Task/12345",
+            "type": "Task"
+        }
+    ],
+    "status": "active",
+    "category": [
+        {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/communication-category",
+                    "code": "notification"
+                }
+            ]
+        },
+        {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/communication-category",
+                    "code": "reminder"
+                }
+            ]
+        }
+    ],
+    "priority": "routine",
+    "medium": [
+        {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationMode",
+                    "code": "EMAILWRIT",
+                    "display": "email"
+                }
+            ],
+            "text": "email: "
+        },
+        {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationMode",
+                    "code": "SMSWRIT",
+                    "display": "SMS message"
+                }
+            ],
+            "text": "sms message: "
+        }
+    ],
+    "payload": [
+        {
+            "contentString": "Message to be sent to patient"
+        }
+    ],
+    "occurrenceDateTime": "2016-06-10T11:01:10-08:00",
+    "authoredOn": "2016-06-10T11:01:10-08:00",
+    "requester": {
+        "reference": "Practitioner/12345",
+        "type": "Practitioner",
+        "display": "Practitioner's name"
+    },
+    "recipient": [
+        {
+            "reference": "Patient/12345",
+            "type": "Patient",
+            "display": "Patient's name"
+        }
+    ],
+    "sender": {
+        "reference": "Organization/8e1108ed-9a9f-4378-a9dd-765878cf52e8",
+        "type": "Organization",
+        "display": "MayJuun"
+    }
+}
