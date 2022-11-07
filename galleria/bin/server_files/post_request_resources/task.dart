@@ -91,66 +91,67 @@ Future<Response> postRequestTask(String id) async {
   }
 
   /// Get the phone number
-  final phoneNumber = contactPoint![phoneIndex!].value;
-  final emailAddress = contactPoint[emailIndex!].value;
+  final phoneNumber = phoneIndex != null && phoneIndex != -1
+      ? contactPoint![phoneIndex].value
+      : null;
+  final emailAddress = emailIndex != null && emailIndex != -1
+      ? contactPoint![emailIndex].value
+      : null;
 
   final communicationRequest = CommunicationRequest(
-    basedOn: [taskResponse.thisReference],
-    status: Code('active'),
-    category: [
-      CodeableConcept(coding: [
-        Coding(
-            code: Code('notification'),
-            system: FhirUri(
-                'http://terminology.hl7.org/CodeSystem/communication-category'))
-      ])
-    ],
-    priority: Code('routine'),
-    payload: [
-      CommunicationRequestPayload(
-          contentString:
-              'MayJuun has assigned you a new Task, ID: ${taskResponse.id}. '
-              'This email was created at ${DateTime.now()}'),
-    ],
-    occurrenceDateTime: FhirDateTime(DateTime.now()),
-    authoredOn: FhirDateTime(DateTime.now()),
-    requester: taskResponse.requester,
-    recipient: [
-      responsiblePersonResponse.thisReference,
-    ],
-    sender: Reference(
-        display: 'MayJuun',
-        type: FhirUri('Organization'),
-        reference: 'Organization/8e1108ed-9a9f-4378-a9dd-765878cf52e8'),
-    medium: phoneNumber != null || emailAddress != null
-        ? [
-            if (phoneNumber != null)
-              CodeableConcept(
-                coding: [
-                  Coding(
-                    system: FhirUri(
-                        'http://terminology.hl7.org/CodeSystem/v3-ParticipationMode'),
-                    code: Code('EMAILWRIT'),
-                    display: 'email',
-                  )
-                ],
-                text: phoneNumber,
+      basedOn: [taskResponse.thisReference],
+      status: Code('active'),
+      category: [
+        CodeableConcept(coding: [
+          Coding(
+              code: Code('notification'),
+              system: FhirUri(
+                  'http://terminology.hl7.org/CodeSystem/communication-category'))
+        ])
+      ],
+      priority: Code('routine'),
+      payload: [
+        CommunicationRequestPayload(
+            contentString:
+                'MayJuun has assigned you a new Task, ID: ${taskResponse.id}. '
+                'This email was created at ${DateTime.now()}'),
+      ],
+      occurrenceDateTime: FhirDateTime(DateTime.now()),
+      authoredOn: FhirDateTime(DateTime.now()),
+      requester: taskResponse.requester,
+      recipient: [
+        responsiblePersonResponse.thisReference,
+      ],
+      sender: Reference(
+          display: 'MayJuun',
+          type: FhirUri('Organization'),
+          reference: 'Organization/8e1108ed-9a9f-4378-a9dd-765878cf52e8'),
+      medium: [
+        if (emailAddress != null)
+          CodeableConcept(
+            coding: [
+              Coding(
+                system: FhirUri(
+                    'http://terminology.hl7.org/CodeSystem/v3-ParticipationMode'),
+                code: Code('EMAILWRIT'),
+                display: 'email',
+              )
+            ],
+            text: emailAddress,
+          ),
+        if (phoneNumber != null)
+          CodeableConcept(
+            coding: [
+              Coding(
+                system: FhirUri(
+                    'http://terminology.hl7.org/CodeSystem/v3-ParticipationMode'),
+                code: Code('SMSWRIT'),
+                display: 'SMS message',
               ),
-            if (emailAddress != null)
-              CodeableConcept(
-                coding: [
-                  Coding(
-                    system: FhirUri(
-                        'http://terminology.hl7.org/CodeSystem/v3-ParticipationMode'),
-                    code: Code('SMSWRIT'),
-                    display: 'SMS message',
-                  ),
-                ],
-                text: emailAddress,
-              ),
-          ]
-        : null,
-  );
+            ],
+            text: phoneNumber,
+          ),
+      ]);
 
   /// Create the search request for a Patient
   final communicationRequestRequest = FhirRequest.create(
