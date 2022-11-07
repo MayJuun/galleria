@@ -1,5 +1,7 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:fhir/r4.dart';
 import 'package:fhir_at_rest/r4.dart';
+import 'package:phone_numbers_parser/phone_numbers_parser.dart' as phone;
 import 'package:shelf/shelf.dart';
 
 import '../../galleria.dart';
@@ -28,10 +30,23 @@ Future<Response> postRequestCommunicationRequest(String id) async {
         'No CommunicationRequest was found with the given ID');
   } else {
     /// Get Email Address - if available
-    final String? email = _emailAddress(communicationRequest.medium);
+    String? emailAddress = _emailAddress(communicationRequest.medium);
+
+    /// If we found something but it's not valid
+    if (emailAddress != null && !EmailValidator.validate(emailAddress)) {
+      /// Put emailAddress back to null
+      emailAddress = null;
+    }
 
     /// Get Phone Number - if available
-    final String? phone = _phoneNumber(communicationRequest.medium);
+    String? phoneNumber = _phoneNumber(communicationRequest.medium);
+
+    /// If we found something but it's not valid
+    if (phoneNumber != null &&
+        !phone.PhoneNumber.parse(phoneNumber).isValid()) {
+      /// Put phoneNumber back to null
+      emailAddress = null;
+    }
 
     /// Pull the actual message to send
     final message =
@@ -41,26 +56,26 @@ Future<Response> postRequestCommunicationRequest(String id) async {
     Response? emailResponse;
     Response? smsResponse;
 
-    /// Try multiple time if needed
-    for (var i = 0; i < _numberOfTries; i++) {
+    /// Try multiple times if needed
+    for (var i = 0; i < numberOfTries; i++) {
       /// as long as email exists AND the status code is not successful
-      if (email != null && (emailResponse?.statusCode ?? 300) > 299) {
+      if (emailAddress != null && (emailResponse?.statusCode ?? 300) > 299) {
         /// try and send the email again
-        emailResponse = await _emailResponse(email, message);
+        emailResponse = await _emailResponse(emailAddress, message);
       }
 
-      /// as long as phone exists AND the status code is not successful
-      if (phone != null && (smsResponse?.statusCode ?? 300) > 299) {
+      /// as long as phoneNumber exists AND the status code is not successful
+      if (phoneNumber != null && (smsResponse?.statusCode ?? 300) > 299) {
         /// try and send the SMS message again
         // TODO: turn this back on when ready
-        // smsResponse = await _smsResponse(phone, message);
+        // smsResponse = await _smsResponse(phoneNumber, message);
       }
 
-      /// If either phone or email exists and is still not successful
-      if ((email != null && (emailResponse?.statusCode ?? 300) > 299) ||
-          (phone != null && (smsResponse?.statusCode ?? 300) > 299)) {
+      /// If either phoneNumber or email exists and is still not successful
+      if ((emailAddress != null && (emailResponse?.statusCode ?? 300) > 299) ||
+          (phoneNumber != null && (smsResponse?.statusCode ?? 300) > 299)) {
         /// We wait for a specified amount of time and then try again
-        await _timeoutDelay(i);
+        await timeoutDelay(i);
       } else {
         break;
       }
@@ -70,8 +85,8 @@ Future<Response> postRequestCommunicationRequest(String id) async {
     /// either is successful (more parentheses than needed, but it exactly
     /// mirrors above this way)
     Communication? communication;
-    if (!((email != null && (emailResponse?.statusCode ?? 300) > 299) ||
-        (phone != null && (smsResponse?.statusCode ?? 300) > 299))) {
+    if (!((emailAddress != null && (emailResponse?.statusCode ?? 300) > 299) ||
+        (phoneNumber != null && (smsResponse?.statusCode ?? 300) > 299))) {
       /// As long as one is, we consider it a success, and create the communication
       communication = _communicationFromRequest(communicationRequest, true);
     } else {
@@ -147,23 +162,6 @@ Future<Response> _smsResponse(String phone, String? message) async =>
           'MayJuun has a new communication to you, but '
               'it has no words. Created at ${DateTime.now()}',
     );
-
-const _numberOfTries = 8;
-Future<void> _timeoutDelay(int i) async {
-  await Future.delayed(Duration(milliseconds: _timeout[i]));
-}
-
-const _timeout = [
-  200,
-  400,
-  800,
-  1600,
-  3200,
-  6400,
-  12800,
-  25600,
-  51200,
-];
 
 Communication _communicationFromRequest(
         CommunicationRequest communicationRequest, bool successful) =>

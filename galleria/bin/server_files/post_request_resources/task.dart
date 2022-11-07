@@ -71,45 +71,108 @@ Future<Response> postRequestTask(String id) async {
     contactPoint = responsiblePersonResponse.telecom;
   }
 
-  var index = contactPoint?.indexWhere((element) => element.rank?.value == 1);
-  index = (index == null || index == -1) && (contactPoint?.length ?? -1) > 0
-      ? 0
-      : index;
-
-  if (index == null || index == -1) {
-    return Response.notFound('The Responsible Person with Id: '
-        '${reference.split("/").last} '
-        '${prettyJson(taskResponse.toJson())}');
+  /// See if there is phone number to send an SMS
+  var phoneIndex = contactPoint
+      ?.indexWhere((element) => element.system == ContactPointSystem.sms);
+  if (phoneIndex == null || phoneIndex == -1) {
+    phoneIndex = contactPoint
+        ?.indexWhere((element) => element.system == ContactPointSystem.sms);
   }
-  final telecom = contactPoint![index];
 
-  // if (telecom.system == ContactPointSystem.phone ||
-  //     telecom.system == ContactPointSystem.sms) {
-  //   if (telecom.value != null) {
-  //     return await sendViaTwilio(
-  //       telecom.value!,
-  //       'MayJuun has assigned you a new Task, ID: ${taskResponse.id}. '
-  //       'This text was created at ${DateTime.now()}',
-  //     );
-  //   }
-  // } else if (telecom.system == ContactPointSystem.email) {
-  //   if (telecom.value != null) {
-  for (var email in [
-    'grey.faulkenberry@mayjuun.com',
-    'john.manning@mayjuun.com',
-    'demo@mayjuun.com'
-  ])
+  /// See if there's an address to send an email
+  final emailIndex = contactPoint
+      ?.indexWhere((element) => element.system == ContactPointSystem.email);
 
-    /// **********************************************
-    /// TODO: CHANGE THIS TO BE THE URL of the APP
-    /// **********************************************
-    return await sendViaEmail(
-      email,
-      'MayJuun has assigned you a new Task, ID: ${taskResponse.id}. '
-      'This email was created at ${DateTime.now()}',
-    );
-  // }
-  // }
+  /// If there's neither, we return a not found response
+  if ((phoneIndex == null || phoneIndex == -1) &&
+      (emailIndex == null || emailIndex == -1)) {
+    return Response.notFound('No ability to communication with the person'
+        'responsible (id: ${reference.split("/").last}) for Task $id');
+  }
 
-  return Response.ok(prettyJson(telecom.toJson()));
+  /// Get the phone number
+  final phoneNumber = contactPoint![phoneIndex!].value;
+  final emailAddress = contactPoint[emailIndex!].value;
+
+  final communicationRequest = CommunicationRequest(
+    basedOn: [taskResponse.thisReference],
+    status: Code('active'),
+    category: [
+      CodeableConcept(coding: [
+        Coding(
+            code: Code('notification'),
+            system: FhirUri(
+                'http://terminology.hl7.org/CodeSystem/communication-category'))
+      ])
+    ],
+    priority: Code('routine'),
+    payload: [
+      CommunicationRequestPayload(
+          contentString:
+              'MayJuun has assigned you a new Task, ID: ${taskResponse.id}. '
+              'This email was created at ${DateTime.now()}'),
+    ],
+    occurrenceDateTime: FhirDateTime(DateTime.now()),
+    authoredOn: FhirDateTime(DateTime.now()),
+    requester: taskResponse.requester,
+    recipient: [
+      responsiblePersonResponse.thisReference,
+    ],
+    sender: Reference(
+        display: 'MayJuun',
+        type: FhirUri('Organization'),
+        reference: 'Organization/8e1108ed-9a9f-4378-a9dd-765878cf52e8'),
+    medium: phoneNumber != null || emailAddress != null
+        ? [
+            if (phoneNumber != null)
+              CodeableConcept(
+                coding: [
+                  Coding(
+                    system: FhirUri(
+                        'http://terminology.hl7.org/CodeSystem/v3-ParticipationMode'),
+                    code: Code('EMAILWRIT'),
+                    display: 'email',
+                  )
+                ],
+                text: phoneNumber,
+              ),
+            if (emailAddress != null)
+              CodeableConcept(
+                coding: [
+                  Coding(
+                    system: FhirUri(
+                        'http://terminology.hl7.org/CodeSystem/v3-ParticipationMode'),
+                    code: Code('SMSWRIT'),
+                    display: 'SMS message',
+                  ),
+                ],
+                text: emailAddress,
+              ),
+          ]
+        : null,
+  );
+
+  /// Create the search request for a Patient
+  final communicationRequestRequest = FhirRequest.create(
+    /// base fhir url
+    base: Uri.parse(fhirUrl),
+
+    /// resource
+    resource: communicationRequest,
+  );
+
+  final communicationRequestResponse = await communicationRequestRequest
+      .request(
+          headers: {'Authorization': 'Bearer ${credentials.accessToken.data}'});
+
+  if (communicationRequestResponse is CommunicationRequest) {
+    return Response.ok(
+        'Successfully created CommunicationRequest for Task/$id');
+  } else if (communicationRequestResponse is OperationOutcome) {
+    return Response.internalServerError(
+        body: 'Unable to create CommunicationRequest for Task/$id');
+  } else {
+    return Response.internalServerError(
+        body: 'Unable to create CommunicationRequest for Task/$id');
+  }
 }

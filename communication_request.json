@@ -1,0 +1,51 @@
+{
+    "resourceType": "Bundle",
+    "type": "transaction",
+    "entry": [
+        {
+            "resource": {
+                "resourceType": "CommunicationRequest",
+                "status": "active",
+                "priority": "routine",
+                "medium": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationMode",
+                                "code": "EMAILWRIT",
+                                "display": "email"
+                            }
+                        ],
+                        "text": "grey.faulkenberry@mayjuun.com"
+                    }
+                ],
+                "payload": [
+                    {
+                        "contentString": "This is a CommunicationRequest sent to the server"
+                    }
+                ],
+                "requester": {
+                    "reference": "Practitioner/91e7b1cc-2f07-4b6e-853a-c792d82ec0f6",
+                    "type": "Practitioner",
+                    "display": "Grey Faulkenberry"
+                },
+                "recipient": [
+                    {
+                        "reference": "Patient/bdda5a47-84a9-4dac-ac0e-d885d9f6f4b0",
+                        "type": "Patient",
+                        "display": "Grey Faulkenberry"
+                    }
+                ],
+                "sender": {
+                    "reference": "Organization/8e1108ed-9a9f-4378-a9dd-765878cf52e8",
+                    "type": "Organization",
+                    "display": "MayJuun"
+                }
+            },
+            "request": {
+                "method": "POST",
+                "url": "CommunicationRequest"
+            }
+        }
+    ]
+}
