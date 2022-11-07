@@ -1,10 +1,45 @@
 import 'package:fhir/r4.dart';
 import 'package:fhir_at_rest/r4.dart';
 import 'package:googleapis_auth/googleapis_auth.dart';
+import 'package:shelf/shelf.dart';
 
-import '../../assets/assets.dart';
-import 'operation_outcome.dart';
-import 'types.dart';
+import '../../galleria.dart';
+
+Future<Response> postRequestServiceRequest(String id) async {
+  final credentials = await getCredentials();
+
+  /// Create the search request
+  final readServiceRequest = FhirRequest.read(
+    /// base fhir url
+    base: Uri.parse(fhirUrl),
+
+    /// resource type
+    type: R4ResourceType.ServiceRequest,
+
+    /// ID from URL request
+    id: id,
+  );
+
+  /// get the response
+  final response = await readServiceRequest.request(
+      headers: {'Authorization': 'Bearer ${credentials.accessToken.data}'});
+
+  if (response is ServiceRequest) {
+    if (response.instantiatesCanonical == null ||
+        response.instantiatesCanonical!.isEmpty ||
+        response.instantiatesUri == null ||
+        response.instantiatesUri!.isEmpty) {
+      return Response.ok('The ServiceRequest with ID: $id does not '
+          'instantiate anything');
+    } else {
+      final task = await createTask(response, credentials);
+      return Response.ok(prettyJson(task.toJson()));
+    }
+  } else {
+    return Response.notFound('The ServiceRequest with ID: $id was not found'
+        '${prettyJson(response.toJson())}');
+  }
+}
 
 Future<Resource> createTask(
   ServiceRequest serviceRequest,

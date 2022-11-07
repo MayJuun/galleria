@@ -1,7 +1,7 @@
 import 'package:fhir/r4.dart';
 import 'package:shelf/shelf.dart';
 
-import '../../galleria.dart';
+import '../galleria.dart';
 
 Future<Response> postRequest(List<String> path, [Resource? resource]) async {
   switch (path[0]) {

@@ -3,7 +3,7 @@ import 'package:fhir_at_rest/r4.dart';
 import 'package:shelf/shelf.dart';
 import 'package:http/http.dart' as http;
 
-import '../../../galleria.dart';
+import '../../galleria.dart';
 
 Future<Response> postRequestCondition(String id) async {
   final credentials = await getCredentials();
