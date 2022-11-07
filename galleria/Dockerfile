@@ -20,9 +20,6 @@ FROM scratch
 COPY --from=build /runtime/ /
 COPY --from=build /app/bin/server /app/bin/
 
-# Include files in the /public directory to enable static asset handling
-COPY --from=build /app/web/ /web
-
 # Start server.
 EXPOSE 8080
 CMD ["/app/bin/server"]
