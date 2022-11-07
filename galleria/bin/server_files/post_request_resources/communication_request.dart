@@ -43,9 +43,10 @@ Future<Response> postRequestCommunicationRequest(String id) async {
 
     /// If we found something but it's not valid
     if (phoneNumber != null &&
-        !phone.PhoneNumber.parse(phoneNumber).isValid()) {
+        !phone.PhoneNumber.parse(phoneNumber, callerCountry: phone.IsoCode.US)
+            .isValid()) {
       /// Put phoneNumber back to null
-      emailAddress = null;
+      phoneNumber = null;
     }
 
     /// Pull the actual message to send
