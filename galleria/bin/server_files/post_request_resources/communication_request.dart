@@ -1,7 +1,6 @@
-import 'package:email_validator/email_validator.dart';
 import 'package:fhir/r4.dart';
 import 'package:fhir_at_rest/r4.dart';
-import 'package:phone_numbers_parser/phone_numbers_parser.dart' as phone;
+import 'package:form_validator/form_validator.dart';
 import 'package:shelf/shelf.dart';
 
 import '../../galleria.dart';
@@ -31,27 +30,27 @@ Future<Response> postRequestCommunicationRequest(String id) async {
   } else {
     /// Get Email Address - if available
     String? emailAddress = _emailAddress(communicationRequest.medium);
+    final emailValidator = ValidationBuilder().email().build();
 
     /// If we found something but it's not valid
-    if (emailAddress != null && !EmailValidator.validate(emailAddress)) {
+    if (emailAddress != null && emailValidator(emailAddress) != null) {
       /// Put emailAddress back to null
       emailAddress = null;
     }
 
     /// Get Phone Number - if available
     String? phoneNumber = _phoneNumber(communicationRequest.medium);
+    final numberValidator = ValidationBuilder().phone().build();
 
     /// If we found something but it's not valid
-    if (phoneNumber != null &&
-        !phone.PhoneNumber.parse(phoneNumber, callerCountry: phone.IsoCode.US)
-            .isValid()) {
+    if (phoneNumber != null && numberValidator(phoneNumber) != null) {
       /// Put phoneNumber back to null
       phoneNumber = null;
     }
 
     /// Pull the actual message to send
-    final message =
-        'Requested at: ${DateTime.now()} ${communicationRequest.payload?.map((e) => e.contentString).toList().join('\n\n')}';
+    final message = 'Requested at: '
+        '${DateTime.now()} ${communicationRequest.payload?.map((e) => e.contentString).toList().join('\n\n')}';
 
     /// Responses that we plan to get
     Response? emailResponse;

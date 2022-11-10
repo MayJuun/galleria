@@ -25,7 +25,7 @@ Future<Response> postRequestTask(String id) async {
 
   /// Return an error if the Task isn't found
   if (taskResponse is! Task) {
-    return Response.notFound('The Task with ID: $id was not found'
+    return Response.ok('The Task with ID: $id was not found'
         '${prettyJson(taskResponse.toJson())}');
   }
 
@@ -34,7 +34,7 @@ Future<Response> postRequestTask(String id) async {
 
   /// If there isn't one, return an error
   if (reference == null) {
-    return Response.notFound('The Task with ID: $id did not have an owner'
+    return Response.ok('The Task with ID: $id did not have an owner'
         '${prettyJson(taskResponse.toJson())}');
   }
 
@@ -57,7 +57,7 @@ Future<Response> postRequestTask(String id) async {
   /// If there is no responsible person, then return an error
   if (responsiblePersonResponse is! Patient &&
       responsiblePersonResponse is! RelatedPerson) {
-    return Response.notFound('The Responsible Person with Id: '
+    return Response.ok('The Responsible Person with Id: '
         '${reference.split("/").last} was not found '
         '${prettyJson(taskResponse.toJson())}');
   }
@@ -86,7 +86,7 @@ Future<Response> postRequestTask(String id) async {
   /// If there's neither, we return a not found response
   if ((phoneIndex == null || phoneIndex == -1) &&
       (emailIndex == null || emailIndex == -1)) {
-    return Response.notFound('No ability to communication with the person'
+    return Response.ok('No ability to communication with the person'
         'responsible (id: ${reference.split("/").last}) for Task $id');
   }
 
@@ -169,11 +169,7 @@ Future<Response> postRequestTask(String id) async {
   if (communicationRequestResponse is CommunicationRequest) {
     return Response.ok(
         'Successfully created CommunicationRequest for Task/$id');
-  } else if (communicationRequestResponse is OperationOutcome) {
-    return Response.internalServerError(
-        body: 'Unable to create CommunicationRequest for Task/$id');
   } else {
-    return Response.internalServerError(
-        body: 'Unable to create CommunicationRequest for Task/$id');
+    return Response.ok('Unable to create CommunicationRequest for Task/$id');
   }
 }
