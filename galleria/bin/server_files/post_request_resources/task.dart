@@ -89,7 +89,7 @@ Future<Response> postRequestTask(String id) async {
   /// If there's neither, we return a not found response
   if ((phoneIndex == null || phoneIndex == -1) &&
       (emailIndex == null || emailIndex == -1)) {
-    return Response.notFound('No ability to communication with the person'
+    return Response.ok('No ability to communication with the person'
         'responsible (id: ${reference.split("/").last}) for Task $id');
   }
 
@@ -172,8 +172,6 @@ Future<Response> postRequestTask(String id) async {
   if (communicationRequestResponse is CommunicationRequest) {
     return Response.ok(
         'Successfully created CommunicationRequest for Task/$id');
-  } else if (communicationRequestResponse is OperationOutcome) {
-    return Response.ok('Unable to create CommunicationRequest for Task/$id');
   } else {
     return Response.ok('Unable to create CommunicationRequest for Task/$id');
   }
