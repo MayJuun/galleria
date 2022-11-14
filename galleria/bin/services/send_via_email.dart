@@ -39,6 +39,6 @@ Future<Response> sendViaEmail(String email, String text) async {
 
     return Response.ok('Message has been sent: ${DateTime.now()}');
   } else {
-    return Response.forbidden('$email is not within the MayJuun Domain');
+    return Response.ok('$email is not within the MayJuun Domain');
   }
 }

@@ -21,7 +21,6 @@ class ListeningController {
         return await postRequest(path);
       }
       return Response.ok('Post Request made, but payload incorrect');
-      // return Response.notFound('Post Request made, but payload incorrect');
     });
 
     router.post('/fhir/', (Request request) async {

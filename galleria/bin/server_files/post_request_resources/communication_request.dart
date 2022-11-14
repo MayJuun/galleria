@@ -26,8 +26,7 @@ Future<Response> postRequestCommunicationRequest(String id) async {
       headers: {'Authorization': 'Bearer ${credentials.accessToken.data}'});
 
   if (communicationRequest is! CommunicationRequest) {
-    return Response.notFound(
-        'No CommunicationRequest was found with the given ID');
+    return Response.ok('No CommunicationRequest was found with the given ID');
   } else {
     /// Get Email Address - if available
     String? emailAddress = _emailAddress(communicationRequest.medium);

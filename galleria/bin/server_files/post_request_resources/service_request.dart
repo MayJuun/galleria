@@ -36,7 +36,7 @@ Future<Response> postRequestServiceRequest(String id) async {
       return Response.ok(prettyJson(task.toJson()));
     }
   } else {
-    return Response.notFound('The ServiceRequest with ID: $id was not found'
+    return Response.ok('The ServiceRequest with ID: $id was not found'
         '${prettyJson(response.toJson())}');
   }
 }

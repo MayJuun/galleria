@@ -79,18 +79,18 @@ Future<Response> postRequestObservation(String id) async {
               'This email was created at ${DateTime.now()}',
         );
       } else {
-        return Response.notFound(
+        return Response.ok(
             'The Subject of Observation was ${observationResponse.subject?.reference}, '
             'this was not found on the server:\n'
             '${prettyJson(observationResponse.toJson())}');
       }
     } else {
-      return Response.notFound(
+      return Response.ok(
           'The Subject of Observation with ID: $id was not a Patient'
           '${prettyJson(observationResponse.toJson())}');
     }
   } else {
-    return Response.notFound('Observation with ID: $id was not found'
+    return Response.ok('Observation with ID: $id was not found'
         '${prettyJson(observationResponse.toJson())}');
   }
 }

@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:fhir/r4.dart';
 import 'package:fhir_at_rest/r4.dart';
+import 'package:http/http.dart' as http;
 import 'package:shelf/shelf.dart';
 
 import '../../galleria.dart';
@@ -25,7 +28,7 @@ Future<Response> postRequestTask(String id) async {
 
   /// Return an error if the Task isn't found
   if (taskResponse is! Task) {
-    return Response.notFound('The Task with ID: $id was not found'
+    return Response.ok('The Task with ID: $id was not found'
         '${prettyJson(taskResponse.toJson())}');
   }
 
@@ -34,7 +37,7 @@ Future<Response> postRequestTask(String id) async {
 
   /// If there isn't one, return an error
   if (reference == null) {
-    return Response.notFound('The Task with ID: $id did not have an owner'
+    return Response.ok('The Task with ID: $id did not have an owner'
         '${prettyJson(taskResponse.toJson())}');
   }
 
@@ -57,7 +60,7 @@ Future<Response> postRequestTask(String id) async {
   /// If there is no responsible person, then return an error
   if (responsiblePersonResponse is! Patient &&
       responsiblePersonResponse is! RelatedPerson) {
-    return Response.notFound('The Responsible Person with Id: '
+    return Response.ok('The Responsible Person with Id: '
         '${reference.split("/").last} was not found '
         '${prettyJson(taskResponse.toJson())}');
   }
@@ -170,10 +173,8 @@ Future<Response> postRequestTask(String id) async {
     return Response.ok(
         'Successfully created CommunicationRequest for Task/$id');
   } else if (communicationRequestResponse is OperationOutcome) {
-    return Response.internalServerError(
-        body: 'Unable to create CommunicationRequest for Task/$id');
+    return Response.ok('Unable to create CommunicationRequest for Task/$id');
   } else {
-    return Response.internalServerError(
-        body: 'Unable to create CommunicationRequest for Task/$id');
+    return Response.ok('Unable to create CommunicationRequest for Task/$id');
   }
 }

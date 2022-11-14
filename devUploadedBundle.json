@@ -1,0 +1,14 @@
+{
+  "entry": [
+    {
+      "response": {
+        "etag": "W/\"MTY2ODQ1MDI3NDUyMDgwMTAwMA\"",
+        "lastModified": "2022-11-14T18:24:34.520801+00:00",
+        "location": "https://healthcare.googleapis.com/v1/projects/demos-322021/locations/us-central1/datasets/mayjuun/fhirStores/dev/fhir/Task/0c60f077-fdc5-4cf0-8e9c-a5af32730d36/_history/MTY2ODQ1MDI3NDUyMDgwMTAwMA",
+        "status": "201 Created"
+      }
+    }
+  ],
+  "resourceType": "Bundle",
+  "type": "transaction-response"
+}
