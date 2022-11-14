@@ -116,8 +116,10 @@ Future<Response> postRequestTask(String id) async {
       payload: [
         CommunicationRequestPayload(
             contentString:
-                'MayJuun has assigned you a new Task, ID: ${taskResponse.id}. '
-                'This email was created at ${DateTime.now()}'),
+                'MayJuun has assigned you a new Task at ${DateTime.now()}, '
+                'click here to complete it: '
+                'https://cuestionario-dev-mctbmzb4uq-uk.a.run.app/'
+                'login/requestNumber=${taskResponse.id}.'),
       ],
       occurrenceDateTime: FhirDateTime(DateTime.now()),
       authoredOn: FhirDateTime(DateTime.now()),
