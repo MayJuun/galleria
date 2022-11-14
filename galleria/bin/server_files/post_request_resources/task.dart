@@ -118,8 +118,8 @@ Future<Response> postRequestTask(String id) async {
             contentString:
                 'MayJuun has assigned you a new Task at ${DateTime.now()}, '
                 'click here to complete it: '
-                'https://cuestionario-dev-mctbmzb4uq-uk.a.run.app/'
-                'login/requestNumber=${taskResponse.id}.'),
+                'https://cuestionario-dev-mctbmzb4uq-uk.a.run.app'
+                '?requestNumber=${taskResponse.id}.'),
       ],
       occurrenceDateTime: FhirDateTime(DateTime.now()),
       authoredOn: FhirDateTime(DateTime.now()),

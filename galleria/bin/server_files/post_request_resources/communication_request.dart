@@ -58,29 +58,29 @@ Future<Response> postRequestCommunicationRequest(String id) async {
     Response? smsResponse;
 
     /// Try multiple times if needed
-    for (var i = 0; i < numberOfTries; i++) {
-      /// as long as email exists AND the status code is not successful
-      if (emailAddress != null && (emailResponse?.statusCode ?? 300) > 299) {
-        /// try and send the email again
-        emailResponse = await _emailResponse(emailAddress, message);
-      }
-
-      /// as long as phoneNumber exists AND the status code is not successful
-      if (phoneNumber != null && (smsResponse?.statusCode ?? 300) > 299) {
-        /// try and send the SMS message again
-        // TODO: turn this back on when ready
-        // smsResponse = await _smsResponse(phoneNumber, message);
-      }
-
-      /// If either phoneNumber or email exists and is still not successful
-      if ((emailAddress != null && (emailResponse?.statusCode ?? 300) > 299) ||
-          (phoneNumber != null && (smsResponse?.statusCode ?? 300) > 299)) {
-        /// We wait for a specified amount of time and then try again
-        await timeoutDelay(i);
-      } else {
-        break;
-      }
+    // for (var i = 0; i < numberOfTries; i++) {
+    /// as long as email exists AND the status code is not successful
+    if (emailAddress != null && (emailResponse?.statusCode ?? 300) > 299) {
+      /// try and send the email again
+      emailResponse = await _emailResponse(emailAddress, message);
     }
+
+    /// as long as phoneNumber exists AND the status code is not successful
+    if (phoneNumber != null && (smsResponse?.statusCode ?? 300) > 299) {
+      /// try and send the SMS message again
+      // TODO: turn this back on when ready
+      // smsResponse = await _smsResponse(phoneNumber, message);
+    }
+
+    /// If either phoneNumber or email exists and is still not successful
+    // if ((emailAddress != null && (emailResponse?.statusCode ?? 300) > 299) ||
+    //     (phoneNumber != null && (smsResponse?.statusCode ?? 300) > 299)) {
+    //   /// We wait for a specified amount of time and then try again
+    //   await timeoutDelay(i);
+    // } else {
+    //   break;
+    // }
+    // }
 
     /// Check one more time to see if we're successful, except this time see if
     /// either is successful (more parentheses than needed, but it exactly
