@@ -1,5 +1,11 @@
-################
+# Official Dart image: https://hub.docker.com/_/dart
+# spec: https://github.com/dart-lang/samples/blob/master/server/simple/Dockerfile
+# Specify the Dart SDK base image version using dart:<version> (ex: dart:2.12)
+
+# This is the preferred way
 FROM dart:stable AS build
+# Sometimes it doesn't pull properly and you need to use this
+# FROM dart:2.18.0 AS build
 
 # Resolve app dependencies.
 WORKDIR /app
@@ -17,9 +23,7 @@ RUN dart compile exe bin/server.dart -o bin/server
 FROM scratch
 COPY --from=build /runtime/ /
 COPY --from=build /app/bin/server /app/bin/
-# COPY --from=build /app/bin /app/bin
-# COPY --from=build /app/src /app/src
 
-# Start server
+# Start server.
 EXPOSE 8080
-ENTRYPOINT ["/app/bin/server"]
+CMD ["/app/bin/server"]

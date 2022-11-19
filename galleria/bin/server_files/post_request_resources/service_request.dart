@@ -1,10 +1,45 @@
 import 'package:fhir/r4.dart';
 import 'package:fhir_at_rest/r4.dart';
 import 'package:googleapis_auth/googleapis_auth.dart';
+import 'package:shelf/shelf.dart';
 
-import '../../api/api.dart';
-import 'operation_outcome.dart';
-import 'types.dart';
+import '../../galleria.dart';
+
+Future<Response> postRequestServiceRequest(String id) async {
+  final credentials = await getCredentials();
+
+  /// Create the search request
+  final readServiceRequest = FhirRequest.read(
+    /// base fhir url
+    base: Uri.parse(fhirUrl),
+
+    /// resource type
+    type: R4ResourceType.ServiceRequest,
+
+    /// ID from URL request
+    id: id,
+  );
+
+  /// get the response
+  final response = await readServiceRequest.request(
+      headers: {'Authorization': 'Bearer ${credentials.accessToken.data}'});
+
+  if (response is ServiceRequest) {
+    if (response.instantiatesCanonical == null ||
+        response.instantiatesCanonical!.isEmpty ||
+        response.instantiatesUri == null ||
+        response.instantiatesUri!.isEmpty) {
+      return Response.ok('The ServiceRequest with ID: $id does not '
+          'instantiate anything');
+    } else {
+      final task = await createTask(response, credentials);
+      return Response.ok(prettyJson(task.toJson()));
+    }
+  } else {
+    return Response.ok('The ServiceRequest with ID: $id was not found'
+        '${prettyJson(response.toJson())}');
+  }
+}
 
 Future<Resource> createTask(
   ServiceRequest serviceRequest,
@@ -33,7 +68,7 @@ Future<Resource> createTask(
     final planDefinitionRequest = FhirRequest.read(
         base: Uri.parse(fhirUrl),
         type: R4ResourceType.PlanDefinition,
-        id: Id(planDefinitionUri.split('/').last));
+        id: planDefinitionUri.split('/').last);
 
     /// Request the PlanDefinition
     final planDefinitionResponse = await planDefinitionRequest.request(
@@ -61,10 +96,10 @@ Future<Resource> createTask(
         requester: serviceRequest.requester,
 
         /// It's an order
-        intent: TaskIntent.order,
+        intent: Code('order'),
 
         /// We are making the task, so it has been requested, but is not yet in-progress
-        status: TaskStatus.requested,
+        status: Code('requested'),
         input: [],
       );
 

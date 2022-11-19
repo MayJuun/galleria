@@ -4,8 +4,7 @@ import 'package:fhir/r4.dart';
 import 'package:shelf/shelf.dart';
 import 'package:shelf_router/shelf_router.dart';
 
-import 'utils/path_from_payload.dart';
-import 'post_request/post_request.dart';
+import '../galleria.dart';
 
 class ListeningController {
   ///Define our getter for our handler
@@ -22,7 +21,6 @@ class ListeningController {
         return await postRequest(path);
       }
       return Response.ok('Post Request made, but payload incorrect');
-      // return Response.notFound('Post Request made, but payload incorrect');
     });
 
     router.post('/fhir/', (Request request) async {

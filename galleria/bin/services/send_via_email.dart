@@ -4,7 +4,7 @@ import 'package:googleapis/gmail/v1.dart' as gMail;
 import "package:googleapis_auth/auth_io.dart";
 import 'package:shelf/shelf.dart';
 
-import '../../api/export.dart';
+import '../galleria.dart';
 
 Future<Response> sendViaEmail(String email, String text) async {
   if (email.contains('@mayjuun.com')) {
@@ -39,6 +39,6 @@ Future<Response> sendViaEmail(String email, String text) async {
 
     return Response.ok('Message has been sent: ${DateTime.now()}');
   } else {
-    return Response.forbidden('$email is not within the MayJuun Domain');
+    return Response.ok('$email is not within the MayJuun Domain');
   }
 }

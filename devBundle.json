@@ -1,0 +1,26 @@
+{
+    "resourceType": "Bundle",
+    "type": "transaction",
+    "entry": [
+        {
+            "resource": {
+                "resourceType": "Task",
+                "status": "draft",
+                "intent": "order",
+                "priority": "routine",
+                "for": {
+                    "reference": "Patient/bdda5a47-84a9-4dac-ac0e-d885d9f6f4b0",
+                    "type": "Patient"
+                },
+                "owner": {
+                    "reference": "Patient/bdda5a47-84a9-4dac-ac0e-d885d9f6f4b0",
+                    "type": "Patient"
+                }
+            },
+            "request": {
+                "method": "POST",
+                "url": "Task"
+            }
+        }
+    ]
+}

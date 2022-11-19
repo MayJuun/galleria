@@ -1,7 +1,7 @@
 import 'package:fhir/r4.dart';
 import 'package:shelf/shelf.dart';
 
-import '../../galleria.dart';
+import '../galleria.dart';
 
 Future<Response> postRequest(List<String> path, [Resource? resource]) async {
   switch (path[0]) {
@@ -13,10 +13,10 @@ Future<Response> postRequest(List<String> path, [Resource? resource]) async {
       return postRequestObservation(path[1]);
     case 'Condition':
       return postRequestCondition(path[1]);
-    case 'Communication':
-      return postRequestCommunication(resource as Communication);
+    case 'CommunicationRequest':
+      return postRequestCommunicationRequest(path[1]);
     default:
-      return Response.notFound('The resource posted of type ${path[0]} '
+      return Response.ok('The resource posted of type ${path[0]} '
           'is not currently supported.');
   }
 }
