@@ -11,7 +11,7 @@ Future<Response> postRequestCommunicationRequest(String id) async {
   /// Create the search request
   final readCommunicationRequest = FhirRequest.read(
     /// base fhir url
-    base: Uri.parse(fhirUrl),
+    base: Uri.parse(getFhirUrl()),
 
     /// resource type
     type: R4ResourceType.CommunicationRequest,
@@ -97,7 +97,7 @@ Future<Response> postRequestCommunicationRequest(String id) async {
     /// Create the Request for a new resource
     final serverCommunicationRequest = FhirRequest.create(
       /// base fhir url
-      base: Uri.parse(fhirUrl),
+      base: Uri.parse(getFhirUrl()),
 
       /// resource
       resource: communication,

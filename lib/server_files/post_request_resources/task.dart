@@ -1,8 +1,5 @@
-import 'dart:math';
-
 import 'package:fhir/r4.dart';
 import 'package:fhir_at_rest/r4.dart';
-import 'package:http/http.dart' as http;
 import 'package:shelf/shelf.dart';
 
 import '../../galleria.dart';
@@ -13,7 +10,7 @@ Future<Response> postRequestTask(String id) async {
   /// Create the search request for a Task
   var taskRequest = FhirRequest.read(
     /// base fhir url
-    base: Uri.parse(fhirUrl),
+    base: Uri.parse(getFhirUrl()),
 
     /// resource type
     type: R4ResourceType.Task,
@@ -44,7 +41,7 @@ Future<Response> postRequestTask(String id) async {
   /// Create the search request for a Patient
   final patientRequest = FhirRequest.read(
     /// base fhir url
-    base: Uri.parse(fhirUrl),
+    base: Uri.parse(getFhirUrl()),
 
     /// resource type
     type: R4ResourceType.Patient,
@@ -161,7 +158,7 @@ Future<Response> postRequestTask(String id) async {
   /// Create the search request for a Patient
   final communicationRequestRequest = FhirRequest.create(
     /// base fhir url
-    base: Uri.parse(fhirUrl),
+    base: Uri.parse(getFhirUrl()),
 
     /// resource
     resource: communicationRequest,

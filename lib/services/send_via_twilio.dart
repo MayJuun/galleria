@@ -1,6 +1,5 @@
 import 'package:shelf/shelf.dart';
 
-import '../../src/twilio_flutter/twilio_flutter.dart';
 import '../galleria.dart';
 
 Future<Response> sendViaTwilio(String phoneNumber, String text) async {
@@ -8,9 +7,9 @@ Future<Response> sendViaTwilio(String phoneNumber, String text) async {
     return Response.ok('The number "$phoneNumber" is not a legitimate number');
   } else {
     final TwilioFlutter _twilioFlutter = TwilioFlutter(
-      accountSid: Twilio.accountSid,
-      authToken: Twilio.authToken,
-      twilioNumber: Twilio.twilioNumber,
+      accountSid: clientAssets.twilio.accountSid,
+      authToken: clientAssets.twilio.authToken,
+      twilioNumber: clientAssets.twilio.twilioNumber,
     );
 
     final dateTime = DateTime.now().toIso8601String();

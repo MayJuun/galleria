@@ -10,7 +10,7 @@ Future<Response> postRequestObservation(String id) async {
   /// Create the search request
   final observationRequest = FhirRequest.read(
     /// base fhir url
-    base: Uri.parse(fhirUrl),
+    base: Uri.parse(getFhirUrl()),
 
     /// resource type
     type: R4ResourceType.Observation,
@@ -32,7 +32,7 @@ Future<Response> postRequestObservation(String id) async {
       /// Create a read request for the patient.
       final patientRequest = FhirRequest.read(
         /// base fhir url
-        base: Uri.parse(fhirUrl),
+        base: Uri.parse(getFhirUrl()),
 
         /// resource type
         type: R4ResourceType.Patient,
@@ -53,7 +53,7 @@ Future<Response> postRequestObservation(String id) async {
               resource: observationResponse,
               fullUrl: observationResponse.id == null
                   ? null
-                  : FhirUri('$fhirUrl/${observationResponse.path}'),
+                  : FhirUri('$getFhirUrl()/${observationResponse.path}'),
               request: BundleRequest(
                 method: Code('PUT'),
                 url: FhirUri(observationResponse.path),
@@ -63,7 +63,7 @@ Future<Response> postRequestObservation(String id) async {
               resource: patientResponse,
               fullUrl: patientResponse.id == null
                   ? null
-                  : FhirUri('$fhirUrl/${patientResponse.path}'),
+                  : FhirUri('$getFhirUrl()/${patientResponse.path}'),
               request: BundleRequest(
                 method: Code('PUT'),
                 url: FhirUri(patientResponse.path),

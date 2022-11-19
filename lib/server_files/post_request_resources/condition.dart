@@ -11,7 +11,7 @@ Future<Response> postRequestCondition(String id) async {
   /// Create the search request
   final conditionRequest = FhirRequest.read(
     /// base fhir url
-    base: Uri.parse(fhirUrl),
+    base: Uri.parse(getFhirUrl()),
 
     /// resource type
     type: R4ResourceType.Condition,
@@ -35,7 +35,7 @@ Future<Response> postRequestCondition(String id) async {
       /// Create a read request for the patient.
       final patientRequest = FhirRequest.read(
         /// base fhir url
-        base: Uri.parse(fhirUrl),
+        base: Uri.parse(getFhirUrl()),
 
         /// resource type
         type: R4ResourceType.Patient,
@@ -57,7 +57,7 @@ Future<Response> postRequestCondition(String id) async {
               resource: conditionResponse,
               fullUrl: conditionResponse.id == null
                   ? null
-                  : FhirUri('$fhirUrl/${conditionResponse.path}'),
+                  : FhirUri('$getFhirUrl()/${conditionResponse.path}'),
               request: BundleRequest(
                 method: Code('PUT'),
                 url: FhirUri(conditionResponse.path),
@@ -67,7 +67,7 @@ Future<Response> postRequestCondition(String id) async {
               resource: patientResponse,
               fullUrl: patientResponse.id == null
                   ? null
-                  : FhirUri('$fhirUrl/${patientResponse.path}'),
+                  : FhirUri('$getFhirUrl()/${patientResponse.path}'),
               request: BundleRequest(
                 method: Code('PUT'),
                 url: FhirUri(patientResponse.path),

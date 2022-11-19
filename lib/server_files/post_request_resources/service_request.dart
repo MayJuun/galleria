@@ -11,7 +11,7 @@ Future<Response> postRequestServiceRequest(String id) async {
   /// Create the search request
   final readServiceRequest = FhirRequest.read(
     /// base fhir url
-    base: Uri.parse(fhirUrl),
+    base: Uri.parse(getFhirUrl()),
 
     /// resource type
     type: R4ResourceType.ServiceRequest,
@@ -66,7 +66,7 @@ Future<Resource> createTask(
   if (planDefinitionUri != null) {
     /// Create the PlanDefinition Request
     final planDefinitionRequest = FhirRequest.read(
-        base: Uri.parse(fhirUrl),
+        base: Uri.parse(getFhirUrl()),
         type: R4ResourceType.PlanDefinition,
         id: planDefinitionUri.split('/').last);
 
@@ -124,7 +124,7 @@ Future<Resource> createTask(
 
       /// Create the Task Request
       final createRequest =
-          FhirRequest.create(base: Uri.parse(fhirUrl), resource: task);
+          FhirRequest.create(base: Uri.parse(getFhirUrl()), resource: task);
 
       /// Upload the Task
       final createResponse = await createRequest.request(
