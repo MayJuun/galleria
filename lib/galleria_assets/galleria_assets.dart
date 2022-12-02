@@ -9,14 +9,16 @@ class GalleriaAssets {
     required this.twilio,
   });
 
-  factory GalleriaAssets.fromJson(Map<String, dynamic> json) => GalleriaAssets(
-        fhirDevUrl: json['clientApis']['fhirDevUrl'],
-        fhirStageUrl: json['clientApis']['fhirStageUrl'],
-        fhirProdUrl: json['clientApis']['fhirProdUrl'],
-        devCredentials: json['galleria']['devCredentials'],
-        stageCredentials: json['galleria']['stageCredentials'],
-        prodCredentials: json['galleria']['prodCredentials'],
-        twilio: Twilio.fromJson(json['galleria']['twilio']),
+  factory GalleriaAssets.fromJson(
+          Map<String, dynamic> clientApis, Map<String, dynamic> galleria) =>
+      GalleriaAssets(
+        fhirDevUrl: clientApis['fhirDevUrl'],
+        fhirStageUrl: clientApis['fhirStageUrl'],
+        fhirProdUrl: clientApis['fhirProdUrl'],
+        devCredentials: galleria['devCredentials'],
+        stageCredentials: galleria['stageCredentials'],
+        prodCredentials: galleria['prodCredentials'],
+        twilio: Twilio.fromJson(galleria['twilio']),
       );
 
   Map<String, dynamic> toJson() => {
