@@ -51,6 +51,8 @@ final emailAccountCredentials = _getAccountCredentials(_getApiMode(), true);
 
 ServiceAccountCredentials _getAccountCredentials(_ApiMode mode,
     [bool email = false]) {
+  print('MOD: $mode');
+  print(clientAssets.devCredentials);
   switch (mode) {
     case _ApiMode.dev:
       return ServiceAccountCredentials.fromJson(
