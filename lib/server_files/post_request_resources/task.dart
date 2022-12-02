@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:fhir/r4.dart';
 import 'package:fhir_at_rest/r4.dart';
 import 'package:shelf/shelf.dart';
@@ -25,7 +27,7 @@ Future<Response> postRequestTask(String id) async {
 
   /// Return an error if the Task isn't found
   if (taskResponse is! Task) {
-    return Response.ok('The Task with ID: $id was not found'
+    return printResponseFirst('The Task with ID: $id was not found'
         '${prettyJson(taskResponse.toJson())}');
   } else {
     final pastCommunicationRequest = FhirRequest.search(
@@ -42,14 +44,15 @@ Future<Response> postRequestTask(String id) async {
     final pastCommunicationResponse = await pastCommunicationRequest.request();
 
     if (pastCommunicationResponse is! Bundle) {
-      return Response.ok('Tried to request past Communications about the Task '
+      return printResponseFirst(
+          'Tried to request past Communications about the Task '
           'with ID: $id, and didn\'t return a Bundle, this is wrong');
     }
 
     final firstCommunicationIndex = (pastCommunicationResponse.entry
         ?.indexWhere((element) => element.resource is Communication));
     if (firstCommunicationIndex != null && firstCommunicationIndex != -1) {
-      return Response.ok('Has already sent Communications');
+      return printResponseFirst('Has already sent Communications');
     }
 
     /// Who is responsible for completing the Task
@@ -57,7 +60,7 @@ Future<Response> postRequestTask(String id) async {
 
     /// If there isn't one, return an error
     if (reference == null) {
-      return Response.ok('The Task with ID: $id did not have an owner'
+      return printResponseFirst('The Task with ID: $id did not have an owner'
           '${prettyJson(taskResponse.toJson())}');
     }
 
@@ -80,7 +83,7 @@ Future<Response> postRequestTask(String id) async {
     /// If there is no responsible person, then return an error
     if (responsiblePersonResponse is! Patient &&
         responsiblePersonResponse is! RelatedPerson) {
-      return Response.ok('The Responsible Person with Id: '
+      return printResponseFirst('The Responsible Person with Id: '
           '${reference.split("/").last} was not found '
           '${prettyJson(taskResponse.toJson())}');
     }
@@ -109,7 +112,7 @@ Future<Response> postRequestTask(String id) async {
     /// If there's neither, we return a not found response
     if ((phoneIndex == null || phoneIndex == -1) &&
         (emailIndex == null || emailIndex == -1)) {
-      return Response.ok('No ability to communication with the person'
+      return printResponseFirst('No ability to communication with the person'
           'responsible (id: ${reference.split("/").last}) for Task $id');
     }
 
@@ -193,10 +196,16 @@ Future<Response> postRequestTask(String id) async {
     });
 
     if (communicationRequestResponse is CommunicationRequest) {
-      return Response.ok(
+      return printResponseFirst(
           'Successfully created CommunicationRequest for Task/$id');
     } else {
-      return Response.ok('Unable to create CommunicationRequest for Task/$id');
+      return printResponseFirst(
+          'Unable to create CommunicationRequest for Task/$id');
     }
   }
+}
+
+Response printResponseFirst(String text) {
+  log(text);
+  return Response.ok(text);
 }

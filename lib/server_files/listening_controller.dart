@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:fhir/r4.dart';
 import 'package:shelf/shelf.dart';
@@ -17,6 +18,7 @@ class ListeningController {
     router.post('/', (Request request) async {
       final requestString = await request.readAsString();
       final path = pathFromPayload(requestString);
+      log('post to "/", payload: $path');
       if (path.isNotEmpty && path.length == 2) {
         return await postRequest(path);
       }
@@ -28,6 +30,7 @@ class ListeningController {
       final resource = Resource.fromJson(jsonDecode(requestString));
       final resourceType =
           ResourceUtils.resourceTypeToStringMap[resource.resourceType];
+      log('post to "/fhir/, resourceType: $resourceType"');
       if (resourceType != null) {
         return await postRequest([resourceType], resource);
       }
@@ -39,6 +42,7 @@ class ListeningController {
       final resource = Resource.fromJson(jsonDecode(requestString));
       final resourceType =
           ResourceUtils.resourceTypeToStringMap[resource.resourceType];
+      log('post to "/fhir, resourceType: $resourceType"');
       if (resourceType != null) {
         return await postRequest([resourceType], resource);
       }
