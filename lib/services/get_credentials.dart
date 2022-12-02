@@ -8,11 +8,6 @@ import '../galleria.dart';
 Future<AccessCredentials> getCredentials([bool forEmail = false]) async {
   final client = http.Client();
   try {
-    print('here1');
-    print(emailAccountCredentials);
-    print('here2');
-    print(accountCredentials);
-    print('here3');
     AccessCredentials credentials =
         await obtainAccessCredentialsViaServiceAccount(
             forEmail ? emailAccountCredentials : accountCredentials,

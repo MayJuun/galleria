@@ -51,23 +51,26 @@ final emailAccountCredentials = _getAccountCredentials(_getApiMode(), true);
 
 ServiceAccountCredentials _getAccountCredentials(_ApiMode mode,
     [bool email = false]) {
-  print('MOD: $mode');
-  print(clientAssets.devCredentials);
-  switch (mode) {
-    case _ApiMode.dev:
-      return ServiceAccountCredentials.fromJson(
-        clientAssets.devCredentials,
-        impersonatedUser: email ? 'service.account@mayjuun.com' : null,
-      );
-    case _ApiMode.stage:
-      return ServiceAccountCredentials.fromJson(
-        clientAssets.stageCredentials,
-        impersonatedUser: email ? 'service.account@mayjuun.com' : null,
-      );
-    case _ApiMode.prod:
-      return ServiceAccountCredentials.fromJson(
-        clientAssets.prodCredentials,
-        impersonatedUser: email ? 'service.account@mayjuun.com' : null,
-      );
-  }
+  return ServiceAccountCredentials.fromJson(
+    clientAssets.devCredentials,
+    impersonatedUser: email ? 'service.account@mayjuun.com' : null,
+  );
+  // TODO(Dokotela): environment variables with Docker
+  // switch (mode) {
+  //   case _ApiMode.dev:
+  //     return ServiceAccountCredentials.fromJson(
+  //       clientAssets.devCredentials,
+  //       impersonatedUser: email ? 'service.account@mayjuun.com' : null,
+  //     );
+  //   case _ApiMode.stage:
+  //     return ServiceAccountCredentials.fromJson(
+  //       clientAssets.stageCredentials,
+  //       impersonatedUser: email ? 'service.account@mayjuun.com' : null,
+  //     );
+  //   case _ApiMode.prod:
+  //     return ServiceAccountCredentials.fromJson(
+  //       clientAssets.prodCredentials,
+  //       impersonatedUser: email ? 'service.account@mayjuun.com' : null,
+  //     );
+  // }
 }
