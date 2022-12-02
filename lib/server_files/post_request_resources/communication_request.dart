@@ -25,7 +25,8 @@ Future<Response> postRequestCommunicationRequest(String id) async {
       headers: {'Authorization': 'Bearer ${credentials.accessToken.data}'});
 
   if (communicationRequest is! CommunicationRequest) {
-    return Response.ok('No CommunicationRequest was found with the given ID');
+    return printResponseFirst(
+        'No CommunicationRequest was found with the given ID');
   } else {
     /// Get Email Address - if available
     String? emailAddress = _emailAddress(communicationRequest.medium);
@@ -115,17 +116,17 @@ Future<Response> postRequestCommunicationRequest(String id) async {
         return emailResponse;
       } else {
         /// Otherwise, return that SMS was successful but not email
-        return Response.ok(
+        return printResponseFirst(
             'Communication successfully sent via SMS but NOT via email.');
       }
     } else {
       /// check if SMS was successful as well
       if (smsResponse != null && smsResponse.statusCode > 299) {
         /// Return that email was successful but not SMS
-        return Response.ok(
+        return printResponseFirst(
             'Communication successfully sent via email but NOT via SMS.');
       } else {
-        return Response.ok(
+        return printResponseFirst(
             'Communication successfully sent via email and SMS.');
       }
     }

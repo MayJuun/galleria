@@ -104,18 +104,18 @@ Future<Response> postRequestCondition(String id) async {
           headers: response.headers,
         );
       } else {
-        return Response.ok(
+        return printResponseFirst(
             'The Subject of Condition was ${conditionResponse.subject.reference}, '
             'this was not found on the server:\n'
             '${prettyJson(conditionResponse.toJson())}');
       }
     } else {
-      return Response.ok(
+      return printResponseFirst(
           'The Subject of Condition with ID: $id was not a Patient'
           '${prettyJson(conditionResponse.toJson())}');
     }
   } else {
-    return Response.ok('Condition with ID: $id was not found'
+    return printResponseFirst('Condition with ID: $id was not found'
         '${prettyJson(conditionResponse.toJson())}');
   }
 }

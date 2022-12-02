@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:fhir/r4.dart';
 import 'package:fhir_at_rest/r4.dart';
 import 'package:shelf/shelf.dart';
@@ -204,9 +202,4 @@ Future<Response> postRequestTask(String id) async {
           'Unable to create CommunicationRequest for Task/$id');
     }
   }
-}
-
-Response printResponseFirst(String text) {
-  print(text);
-  return Response.ok(text);
 }

@@ -29,14 +29,14 @@ Future<Response> postRequestServiceRequest(String id) async {
         response.instantiatesCanonical!.isEmpty ||
         response.instantiatesUri == null ||
         response.instantiatesUri!.isEmpty) {
-      return Response.ok('The ServiceRequest with ID: $id does not '
+      return printResponseFirst('The ServiceRequest with ID: $id does not '
           'instantiate anything');
     } else {
       final task = await createTask(response, credentials);
-      return Response.ok(prettyJson(task.toJson()));
+      return printResponseFirst(prettyJson(task.toJson()));
     }
   } else {
-    return Response.ok('The ServiceRequest with ID: $id was not found'
+    return printResponseFirst('The ServiceRequest with ID: $id was not found'
         '${prettyJson(response.toJson())}');
   }
 }
