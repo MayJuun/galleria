@@ -206,6 +206,6 @@ Future<Response> postRequestTask(String id) async {
 }
 
 Response printResponseFirst(String text) {
-  log(text);
+  print(text);
   return Response.ok(text);
 }
