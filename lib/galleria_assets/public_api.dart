@@ -20,6 +20,8 @@ final _ApiMode apiMode = _getApiMode();
 
 _ApiMode _getApiMode() {
   _ApiMode response;
+  response = _ApiMode.dev;
+  return response;
   switch (EnvConfig.APP_SUFFIX) {
     case '.dev':
       response = _ApiMode.dev;
@@ -35,6 +37,7 @@ _ApiMode _getApiMode() {
 }
 
 String getFhirUrl() {
+  return clientAssets.fhirDevUrl;
   switch (_getApiMode()) {
     case _ApiMode.dev:
       return clientAssets.fhirDevUrl;
