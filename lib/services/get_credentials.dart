@@ -17,8 +17,8 @@ Future<AccessCredentials> getCredentials([bool forEmail = false]) async {
     client.close();
     return credentials;
   } catch (e, stack) {
-    print(e);
-    print(stack);
+    print('Error: $e');
+    print('Stack: $stack');
     throw e;
   }
 }

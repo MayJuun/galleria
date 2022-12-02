@@ -4,7 +4,7 @@ import 'package:shelf/shelf.dart';
 import '../galleria.dart';
 
 Future<Response> postRequest(List<String> path, [Resource? resource]) async {
-  print('postRequest\npath: $path\nresource: $resource');
+  print('postRequest -- path: $path -- resource: $resource');
   switch (path[0]) {
     case 'ServiceRequest':
       return postRequestServiceRequest(path[1]);
