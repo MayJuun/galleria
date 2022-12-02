@@ -41,7 +41,8 @@ Future<Response> postRequestTask(String id) async {
       parameters: ['based-on=${taskResponse.path}'],
     );
 
-    final pastCommunicationResponse = await pastCommunicationRequest.request();
+    final pastCommunicationResponse = await pastCommunicationRequest.request(
+        headers: {'Authorization': 'Bearer ${credentials.accessToken.data}'});
 
     if (pastCommunicationResponse is! Bundle) {
       return printResponseFirst(
