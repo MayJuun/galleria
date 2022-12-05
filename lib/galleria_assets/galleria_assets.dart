@@ -1,5 +1,6 @@
 class GalleriaAssets {
   GalleriaAssets({
+    required this.env,
     required this.fhirDevUrl,
     required this.fhirStageUrl,
     required this.fhirProdUrl,
@@ -12,6 +13,7 @@ class GalleriaAssets {
   factory GalleriaAssets.fromJson(
           Map<String, dynamic> clientApis, Map<String, dynamic> galleria) =>
       GalleriaAssets(
+        env: stringToEnv(galleria['env']),
         fhirDevUrl: clientApis['fhirDevUrl'],
         fhirStageUrl: clientApis['fhirStageUrl'],
         fhirProdUrl: clientApis['fhirProdUrl'],
@@ -28,13 +30,14 @@ class GalleriaAssets {
           'fhirProdUrl': this.fhirProdUrl,
         },
         'galleria': {
+          'env': envToString(this.env),
           'devCredentials': this.devCredentials,
           'stageCredentials': this.stageCredentials,
           'prodCredentials': this.prodCredentials,
           'twilio': this.twilio.toJson(),
         }
       };
-
+  final Env env;
   final String fhirDevUrl;
   final String fhirStageUrl;
   final String fhirProdUrl;
@@ -42,6 +45,25 @@ class GalleriaAssets {
   final Map<String, dynamic> stageCredentials;
   final Map<String, dynamic> prodCredentials;
   final Twilio twilio;
+}
+
+enum Env { dev, stage, prod }
+
+Env stringToEnv(String string) => string == 'prod'
+    ? Env.prod
+    : string == 'stage'
+        ? Env.stage
+        : Env.dev;
+
+String envToString(Env env) {
+  switch (env) {
+    case Env.dev:
+      return 'dev';
+    case Env.stage:
+      return 'stage';
+    case Env.prod:
+      return 'prod';
+  }
 }
 
 class Twilio {

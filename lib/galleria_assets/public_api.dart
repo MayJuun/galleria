@@ -10,34 +10,22 @@ import 'galleria_assets.dart';
 final _getIt = GetIt.instance;
 final clientAssets = _getIt<GalleriaAssets>();
 
-class EnvConfig {
-  static const APP_SUFFIX = String.fromEnvironment('APP_SUFFIX');
-}
-
 enum _ApiMode { dev, stage, prod }
 
 final _ApiMode apiMode = _getApiMode();
 
 _ApiMode _getApiMode() {
-  _ApiMode response;
-  response = _ApiMode.dev;
-  return response;
-  switch (EnvConfig.APP_SUFFIX) {
-    case '.dev':
-      response = _ApiMode.dev;
-      break;
-    case '.stage':
-      response = _ApiMode.stage;
-      break;
-    case '.prod':
+  switch (clientAssets.env) {
+    case Env.dev:
+      return _ApiMode.dev;
+    case Env.stage:
+      return _ApiMode.stage;
     default:
-      response = _ApiMode.prod;
+      return _ApiMode.prod;
   }
-  return response;
 }
 
 String getFhirUrl() {
-  return clientAssets.fhirDevUrl;
   switch (_getApiMode()) {
     case _ApiMode.dev:
       return clientAssets.fhirDevUrl;
@@ -54,26 +42,21 @@ final emailAccountCredentials = _getAccountCredentials(_getApiMode(), true);
 
 ServiceAccountCredentials _getAccountCredentials(_ApiMode mode,
     [bool email = false]) {
-  return ServiceAccountCredentials.fromJson(
-    clientAssets.devCredentials,
-    impersonatedUser: email ? 'service.account@mayjuun.com' : null,
-  );
-  // TODO(Dokotela): environment variables with Docker
-  // switch (mode) {
-  //   case _ApiMode.dev:
-  //     return ServiceAccountCredentials.fromJson(
-  //       clientAssets.devCredentials,
-  //       impersonatedUser: email ? 'service.account@mayjuun.com' : null,
-  //     );
-  //   case _ApiMode.stage:
-  //     return ServiceAccountCredentials.fromJson(
-  //       clientAssets.stageCredentials,
-  //       impersonatedUser: email ? 'service.account@mayjuun.com' : null,
-  //     );
-  //   case _ApiMode.prod:
-  //     return ServiceAccountCredentials.fromJson(
-  //       clientAssets.prodCredentials,
-  //       impersonatedUser: email ? 'service.account@mayjuun.com' : null,
-  //     );
-  // }
+  switch (mode) {
+    case _ApiMode.dev:
+      return ServiceAccountCredentials.fromJson(
+        clientAssets.devCredentials,
+        impersonatedUser: email ? 'service.account@mayjuun.com' : null,
+      );
+    case _ApiMode.stage:
+      return ServiceAccountCredentials.fromJson(
+        clientAssets.stageCredentials,
+        impersonatedUser: email ? 'service.account@mayjuun.com' : null,
+      );
+    case _ApiMode.prod:
+      return ServiceAccountCredentials.fromJson(
+        clientAssets.prodCredentials,
+        impersonatedUser: email ? 'service.account@mayjuun.com' : null,
+      );
+  }
 }
