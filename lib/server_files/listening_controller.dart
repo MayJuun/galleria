@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:fhir/r4.dart';
 import 'package:shelf/shelf.dart';
