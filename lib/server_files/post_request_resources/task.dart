@@ -26,7 +26,7 @@ Future<Response> postRequestTask(String id) async {
   /// Return an error if the Task isn't found
   if (taskResponse is! Task) {
     return printResponseFirst('The Task with ID: $id was not found'
-        '${prettyJson(taskResponse.toJson())}');
+        '${taskResponse.toJson()}');
   } else {
     final pastCommunicationRequest = FhirRequest.search(
       /// base fhir url
@@ -140,7 +140,7 @@ Future<Response> postRequestTask(String id) async {
               contentString:
                   'MayJuun has assigned you a new Task at ${DateTime.now()}, '
                   'click here to complete it: '
-                  'https://cuestionario-dev-mctbmzb4uq-uk.a.run.app'
+                  '${cuestionarioUrl()}'
                   '?requestNumber=${taskResponse.id}.'),
         ],
         occurrenceDateTime: FhirDateTime(DateTime.now()),
@@ -152,7 +152,7 @@ Future<Response> postRequestTask(String id) async {
         sender: Reference(
             display: 'MayJuun',
             type: FhirUri('Organization'),
-            reference: 'Organization/8e1108ed-9a9f-4378-a9dd-765878cf52e8'),
+            reference: 'Organization/${mayJuunId()}'),
         medium: [
           if (emailAddress != null)
             CodeableConcept(
@@ -193,6 +193,8 @@ Future<Response> postRequestTask(String id) async {
         .request(headers: {
       'Authorization': 'Bearer ${credentials.accessToken.data}'
     });
+
+    print(communicationRequestResponse.toJson());
 
     if (communicationRequestResponse is CommunicationRequest) {
       return printResponseFirst(

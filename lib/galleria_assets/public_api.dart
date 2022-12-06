@@ -36,6 +36,17 @@ String getFhirUrl() {
   }
 }
 
+String cuestionarioUrl() {
+  switch (_getApiMode()) {
+    case _ApiMode.dev:
+      return clientAssets.cuestionarioUrls.dev;
+    case _ApiMode.stage:
+      return clientAssets.cuestionarioUrls.stage;
+    case _ApiMode.prod:
+      return clientAssets.cuestionarioUrls.prod;
+  }
+}
+
 final accountCredentials = _getAccountCredentials(_getApiMode());
 
 final emailAccountCredentials = _getAccountCredentials(_getApiMode(), true);
@@ -58,5 +69,16 @@ ServiceAccountCredentials _getAccountCredentials(_ApiMode mode,
         clientAssets.prodCredentials,
         impersonatedUser: email ? 'service.account@mayjuun.com' : null,
       );
+  }
+}
+
+String mayJuunId() {
+  switch (_getApiMode()) {
+    case _ApiMode.dev:
+      return clientAssets.mayJuunIds.dev;
+    case _ApiMode.stage:
+      return clientAssets.mayJuunIds.stage;
+    case _ApiMode.prod:
+      return clientAssets.mayJuunIds.prod;
   }
 }

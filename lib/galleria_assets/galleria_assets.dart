@@ -7,6 +7,8 @@ class GalleriaAssets {
     required this.devCredentials,
     required this.stageCredentials,
     required this.prodCredentials,
+    required this.cuestionarioUrls,
+    required this.mayJuunIds,
     required this.twilio,
   });
 
@@ -20,6 +22,9 @@ class GalleriaAssets {
         devCredentials: galleria['devCredentials'],
         stageCredentials: galleria['stageCredentials'],
         prodCredentials: galleria['prodCredentials'],
+        cuestionarioUrls:
+            CuestionarioUrls.fromJson(clientApis['cuestionarioUrls']),
+        mayJuunIds: MayJuunIds.fromJson(clientApis['mayJuunIds']),
         twilio: Twilio.fromJson(galleria['twilio']),
       );
 
@@ -28,6 +33,7 @@ class GalleriaAssets {
           'fhirDevUrl': this.fhirDevUrl,
           'fhirStageUrl': this.fhirStageUrl,
           'fhirProdUrl': this.fhirProdUrl,
+          'cuestionarioUrls': cuestionarioUrls.toJson(),
         },
         'galleria': {
           'env': envToString(this.env),
@@ -44,6 +50,8 @@ class GalleriaAssets {
   final Map<String, dynamic> devCredentials;
   final Map<String, dynamic> stageCredentials;
   final Map<String, dynamic> prodCredentials;
+  final CuestionarioUrls cuestionarioUrls;
+  final MayJuunIds mayJuunIds;
   final Twilio twilio;
 }
 
@@ -64,6 +72,48 @@ String envToString(Env env) {
     case Env.prod:
       return 'prod';
   }
+}
+
+class MayJuunIds {
+  MayJuunIds({required this.dev, required this.stage, required this.prod});
+
+  factory MayJuunIds.fromJson(Map<String, dynamic> json) => MayJuunIds(
+        dev: json['dev'],
+        stage: json['stage'],
+        prod: json['prod'],
+      );
+
+  Map<String, dynamic> toJson() => {
+        'dev': this.dev,
+        'stage': this.stage,
+        'prod': this.prod,
+      };
+
+  final String dev;
+  final String stage;
+  final String prod;
+}
+
+class CuestionarioUrls {
+  CuestionarioUrls(
+      {required this.dev, required this.stage, required this.prod});
+
+  factory CuestionarioUrls.fromJson(Map<String, dynamic> json) =>
+      CuestionarioUrls(
+        dev: json['dev'],
+        stage: json['stage'],
+        prod: json['prod'],
+      );
+
+  Map<String, dynamic> toJson() => {
+        'dev': this.dev,
+        'stage': this.stage,
+        'prod': this.prod,
+      };
+
+  final String dev;
+  final String stage;
+  final String prod;
 }
 
 class Twilio {

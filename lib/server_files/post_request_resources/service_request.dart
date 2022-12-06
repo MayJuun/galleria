@@ -7,6 +7,7 @@ import '../../galleria.dart';
 
 Future<Response> postRequestServiceRequest(String id) async {
   final credentials = await getCredentials();
+  print(credentials.accessToken);
 
   /// Create the search request
   final readServiceRequest = FhirRequest.read(
