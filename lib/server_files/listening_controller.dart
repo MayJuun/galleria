@@ -17,8 +17,7 @@ class ListeningController {
     /// URL, and as long as that exists, pass it onto the post function
     router.post('/', (Request request) async {
       final requestString = await request.readAsString();
-      // final path = pathFromPayload(requestString);
-      final path = ['Task', 'c5701e34-c5eb-478d-bd20-c54698a559d4'];
+      final path = pathFromPayload(requestString);
       print('post to "/", payload: $path');
       if (path.isNotEmpty && path.length == 2) {
         return await postRequest(path);

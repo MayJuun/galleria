@@ -60,7 +60,7 @@ Future<Response> postRequestTask(String id) async {
     /// If there isn't one, return an error
     if (reference == null) {
       return printResponseFirst('The Task with ID: $id did not have an owner'
-          '${prettyJson(taskResponse.toJson())}');
+          '${taskResponse.toJson()}');
     }
 
     /// Create the search request for a Patient
@@ -84,7 +84,7 @@ Future<Response> postRequestTask(String id) async {
         responsiblePersonResponse is! RelatedPerson) {
       return printResponseFirst('The Responsible Person with Id: '
           '${reference.split("/").last} was not found '
-          '${prettyJson(taskResponse.toJson())}');
+          '${taskResponse.toJson()}');
     }
 
     List<ContactPoint>? contactPoint;

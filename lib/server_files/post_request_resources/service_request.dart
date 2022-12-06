@@ -7,7 +7,6 @@ import '../../galleria.dart';
 
 Future<Response> postRequestServiceRequest(String id) async {
   final credentials = await getCredentials();
-  print(credentials.accessToken);
 
   /// Create the search request
   final readServiceRequest = FhirRequest.read(
@@ -34,11 +33,11 @@ Future<Response> postRequestServiceRequest(String id) async {
           'instantiate anything');
     } else {
       final task = await createTask(response, credentials);
-      return printResponseFirst(prettyJson(task.toJson()));
+      return printResponseFirst(task.toJson().toString());
     }
   } else {
     return printResponseFirst('The ServiceRequest with ID: $id was not found'
-        '${prettyJson(response.toJson())}');
+        '${response.toJson()}');
   }
 }
 

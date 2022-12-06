@@ -25,8 +25,6 @@ Future<Response> postRequestCondition(String id) async {
       headers: {'Authorization': 'Bearer ${credentials.accessToken.data}'});
 
   if (conditionResponse is Condition) {
-    print(prettyJson(conditionResponse.toJson()));
-
     /// get the subject of the condition
     final subject = conditionResponse.subject.reference;
 
@@ -49,7 +47,6 @@ Future<Response> postRequestCondition(String id) async {
           headers: {'Authorization': 'Bearer ${credentials.accessToken.data}'});
 
       if (patientResponse is Patient) {
-        print(prettyJson(patientResponse.toJson()));
         final bundle = Bundle(
           type: Code('transaction'),
           entry: <BundleEntry>[
@@ -107,15 +104,15 @@ Future<Response> postRequestCondition(String id) async {
         return printResponseFirst(
             'The Subject of Condition was ${conditionResponse.subject.reference}, '
             'this was not found on the server:\n'
-            '${prettyJson(conditionResponse.toJson())}');
+            '${conditionResponse.toJson()}');
       }
     } else {
       return printResponseFirst(
           'The Subject of Condition with ID: $id was not a Patient'
-          '${prettyJson(conditionResponse.toJson())}');
+          '${conditionResponse.toJson()}');
     }
   } else {
     return printResponseFirst('Condition with ID: $id was not found'
-        '${prettyJson(conditionResponse.toJson())}');
+        '${conditionResponse.toJson()}');
   }
 }

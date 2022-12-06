@@ -82,15 +82,15 @@ Future<Response> postRequestObservation(String id) async {
         return printResponseFirst(
             'The Subject of Observation was ${observationResponse.subject?.reference}, '
             'this was not found on the server:\n'
-            '${prettyJson(observationResponse.toJson())}');
+            '${observationResponse.toJson()}');
       }
     } else {
       return printResponseFirst(
           'The Subject of Observation with ID: $id was not a Patient'
-          '${prettyJson(observationResponse.toJson())}');
+          '${observationResponse.toJson()}');
     }
   } else {
     return printResponseFirst('Observation with ID: $id was not found'
-        '${prettyJson(observationResponse.toJson())}');
+        '${observationResponse.toJson()}');
   }
 }
