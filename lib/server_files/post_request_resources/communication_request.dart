@@ -38,6 +38,8 @@ Future<Response> postRequestCommunicationRequest(String id) async {
       emailAddress = null;
     }
 
+    print(emailAddress);
+
     /// Get Phone Number - if available
     String? phoneNumber = _phoneNumber(communicationRequest.medium);
     final numberValidator = ValidationBuilder().phone().build();
@@ -65,6 +67,9 @@ Future<Response> postRequestCommunicationRequest(String id) async {
       /// try and send the email again
       emailResponse = await _emailResponse(emailAddress, message);
     }
+
+    print(emailResponse?.statusCode);
+    print(emailResponse?.headers);
 
     /// as long as phoneNumber exists AND the status code is not successful
     if (phoneNumber != null && (smsResponse?.statusCode ?? 300) > 299) {
