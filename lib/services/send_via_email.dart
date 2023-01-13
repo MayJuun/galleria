@@ -25,9 +25,7 @@ Future<Response> sendViaEmail(String email, String text) async {
   String contentTransferEncoding = 'base64';
   String emailContent = text;
 
-  print('To: $to');
-
-  final message = await gmailApi.users.messages.send(
+  await gmailApi.users.messages.send(
       gMail.Message.fromJson({
         'raw': _getBase64Email('From: $from\r\n'
             'To: $to\r\n'
@@ -37,8 +35,6 @@ Future<Response> sendViaEmail(String email, String text) async {
             '$emailContent'),
       }),
       from);
-
-  print('message: $message');
 
   return Response.ok('Message has been sent: ${DateTime.now()}');
   // } else {

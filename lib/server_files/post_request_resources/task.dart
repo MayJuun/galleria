@@ -194,8 +194,6 @@ Future<Response> postRequestTask(String id) async {
       'Authorization': 'Bearer ${credentials.accessToken.data}'
     });
 
-    print(communicationRequestResponse.toJson());
-
     if (communicationRequestResponse is CommunicationRequest) {
       return printResponseFirst(
           'Successfully created CommunicationRequest for Task/$id');

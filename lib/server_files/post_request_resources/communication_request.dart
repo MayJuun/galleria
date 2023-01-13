@@ -24,15 +24,13 @@ Future<Response> postRequestCommunicationRequest(String id) async {
   final communicationRequest = await readCommunicationRequest.request(
       headers: {'Authorization': 'Bearer ${credentials.accessToken.data}'});
 
-  print('CommunicationRequest: ${communicationRequest}');
-
   if (communicationRequest is! CommunicationRequest) {
     return printResponseFirst(
         'No CommunicationRequest was found with the given ID');
   } else {
     /// Get Email Address - if available
     String? emailAddress = _emailAddress(communicationRequest.medium);
-    print('Address: $emailAddress');
+
     final emailValidator = ValidationBuilder().email().build();
 
     /// If we found something but it's not valid
@@ -40,8 +38,6 @@ Future<Response> postRequestCommunicationRequest(String id) async {
       /// Put emailAddress back to null
       emailAddress = null;
     }
-
-    print('EmailAddress: $emailAddress');
 
     /// Get Phone Number - if available
     String? phoneNumber = _phoneNumber(communicationRequest.medium);
@@ -70,9 +66,6 @@ Future<Response> postRequestCommunicationRequest(String id) async {
       /// try and send the email again
       emailResponse = await _emailResponse(emailAddress, message);
     }
-
-    print(emailResponse?.statusCode);
-    print(emailResponse?.headers);
 
     /// as long as phoneNumber exists AND the status code is not successful
     if (phoneNumber != null && (smsResponse?.statusCode ?? 300) > 299) {
