@@ -24,3 +24,4 @@ doc/api/
 *api.dart
 # *.sh
 twilio.dart
+.DS_Store
