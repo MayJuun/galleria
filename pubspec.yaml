@@ -3,7 +3,7 @@ description: Dart server to listen for Subscriptions from a FHIR server
 version: 0.0.10
 
 environment:
-  sdk: ">=2.18.0 <3.0.0"
+  sdk: ">=2.19.0 <3.0.0"
 
 dependencies:
   fhir: ^0.9.3
