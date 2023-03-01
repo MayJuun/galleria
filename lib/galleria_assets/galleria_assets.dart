@@ -10,6 +10,7 @@ class GalleriaAssets {
     required this.cuestionarioUrls,
     required this.mayJuunIds,
     required this.twilio,
+    required this.communicationsOnly,
   });
 
   factory GalleriaAssets.fromJson(
@@ -26,6 +27,7 @@ class GalleriaAssets {
             CuestionarioUrls.fromJson(clientApis['cuestionarioUrls']),
         mayJuunIds: MayJuunIds.fromJson(clientApis['mayJuunIds']),
         twilio: Twilio.fromJson(galleria['twilio']),
+        communicationsOnly: galleria['communicationsOnly'] ?? false,
       );
 
   Map<String, dynamic> toJson() => {
@@ -41,6 +43,7 @@ class GalleriaAssets {
           'stageCredentials': this.stageCredentials,
           'prodCredentials': this.prodCredentials,
           'twilio': this.twilio.toJson(),
+          'communicationsOnly': communicationsOnly,
         }
       };
   final Env env;
@@ -53,6 +56,7 @@ class GalleriaAssets {
   final CuestionarioUrls cuestionarioUrls;
   final MayJuunIds mayJuunIds;
   final Twilio twilio;
+  final bool communicationsOnly;
 }
 
 enum Env { dev, stage, prod }

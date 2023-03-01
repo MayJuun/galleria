@@ -30,6 +30,7 @@ Future<Response> postRequestCommunicationRequest(String id) async {
   } else {
     /// Get Email Address - if available
     String? emailAddress = _emailAddress(communicationRequest.medium);
+
     final emailValidator = ValidationBuilder().email().build();
 
     /// If we found something but it's not valid
