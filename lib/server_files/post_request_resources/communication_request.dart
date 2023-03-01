@@ -70,7 +70,7 @@ Future<Response> postRequestCommunicationRequest(String id) async {
     /// as long as phoneNumber exists AND the status code is not successful
     if (phoneNumber != null && (smsResponse?.statusCode ?? 300) > 299) {
       /// try and send the SMS message again
-      // TODO: turn this back on when ready
+      // TODO(Dokotela): turn this back on when ready
       // smsResponse = await _smsResponse(phoneNumber, message);
     }
 
