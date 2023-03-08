@@ -141,7 +141,8 @@ Future<Response> postRequestTask(String id) async {
                   'MayJuun has assigned you a new Task at ${DateTime.now()}, '
                   'click here to complete it: '
                   '${cuestionarioUrl()}'
-                  '?requestNumber=${taskResponse.id}.'),
+                  '?requestNumber=${taskResponse.id}'
+                  '&id=$emailAddress.'),
         ],
         occurrenceDateTime: FhirDateTime(DateTime.now()),
         authoredOn: FhirDateTime(DateTime.now()),
@@ -149,10 +150,12 @@ Future<Response> postRequestTask(String id) async {
         recipient: [
           responsiblePersonResponse.thisReference,
         ],
-        sender: Reference(
-            display: 'MayJuun',
-            type: FhirUri('Organization'),
-            reference: 'Organization/${mayJuunId()}'),
+        sender: organizationId() == null
+            ? null
+            : Reference(
+                display: 'MayJuun',
+                type: FhirUri('Organization'),
+                reference: 'Organization/${organizationId()}'),
         medium: [
           if (emailAddress != null)
             CodeableConcept(
@@ -193,8 +196,6 @@ Future<Response> postRequestTask(String id) async {
         .request(headers: {
       'Authorization': 'Bearer ${credentials.accessToken.data}'
     });
-
-    print(communicationRequestResponse.toJson());
 
     if (communicationRequestResponse is CommunicationRequest) {
       return printResponseFirst(

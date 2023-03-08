@@ -6,8 +6,11 @@ import 'package:shelf/shelf.dart';
 
 import '../galleria.dart';
 
+/// Function for sending a message via email
 Future<Response> sendViaEmail(String email, String text) async {
-  if (email.contains('@mayjuun.com')) {
+  /// If it's communicationsOnly, we're assuming we allow any email to be
+  /// entered. Otherwise, for now, we're only allowing MayJuun emails
+  if (clientAssets.communicationsOnly || email.contains('@mayjuun.com')) {
     String _getBase64Email(String source) =>
         base64UrlEncode(utf8.encode(source));
 
@@ -39,6 +42,7 @@ Future<Response> sendViaEmail(String email, String text) async {
 
     return Response.ok('Message has been sent: ${DateTime.now()}');
   } else {
+    /// If it's not a MayJuun email, we return a response to that effect
     return Response.ok('$email is not within the MayJuun Domain');
   }
 }
