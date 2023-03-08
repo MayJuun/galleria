@@ -35,3 +35,7 @@ check_scoring*
 
 #  Allows me to have only one file for code generation locally 
 *generate_credentials.dart
+*api.dart
+# *.sh
+twilio.dart
+.DS_Store
