@@ -6,6 +6,7 @@ import 'package:shelf/shelf.dart';
 import '../../galleria.dart';
 
 Future<Response> postRequestCommunicationRequest(String id) async {
+  print('COMMUNICATIONS REQUEST');
   final credentials = await getCredentials();
 
   /// Create the search request

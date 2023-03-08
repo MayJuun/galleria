@@ -8,7 +8,7 @@ class GalleriaAssets {
     required this.stageCredentials,
     required this.prodCredentials,
     required this.cuestionarioUrls,
-    required this.mayJuunIds,
+    required this.organizationIds,
     required this.twilio,
     required this.communicationsOnly,
   });
@@ -25,7 +25,8 @@ class GalleriaAssets {
         prodCredentials: galleria['prodCredentials'],
         cuestionarioUrls:
             CuestionarioUrls.fromJson(clientApis['cuestionarioUrls']),
-        mayJuunIds: MayJuunIds.fromJson(clientApis['mayJuunIds']),
+        organizationIds:
+            OrganizationIds.fromJson(clientApis['organizationIds']),
         twilio: Twilio.fromJson(galleria['twilio']),
         communicationsOnly: galleria['communicationsOnly'] ?? false,
       );
@@ -54,7 +55,7 @@ class GalleriaAssets {
   final Map<String, dynamic> stageCredentials;
   final Map<String, dynamic> prodCredentials;
   final CuestionarioUrls cuestionarioUrls;
-  final MayJuunIds mayJuunIds;
+  final OrganizationIds organizationIds;
   final Twilio twilio;
   final bool communicationsOnly;
 }
@@ -78,10 +79,11 @@ String envToString(Env env) {
   }
 }
 
-class MayJuunIds {
-  MayJuunIds({required this.dev, required this.stage, required this.prod});
+class OrganizationIds {
+  OrganizationIds({required this.dev, required this.stage, required this.prod});
 
-  factory MayJuunIds.fromJson(Map<String, dynamic> json) => MayJuunIds(
+  factory OrganizationIds.fromJson(Map<String, dynamic> json) =>
+      OrganizationIds(
         dev: json['dev'],
         stage: json['stage'],
         prod: json['prod'],

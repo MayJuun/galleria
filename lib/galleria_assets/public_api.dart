@@ -72,13 +72,13 @@ ServiceAccountCredentials _getAccountCredentials(_ApiMode mode,
   }
 }
 
-String mayJuunId() {
+String? organizationId() {
   switch (_getApiMode()) {
     case _ApiMode.dev:
-      return clientAssets.mayJuunIds.dev;
+      return clientAssets.organizationIds.dev;
     case _ApiMode.stage:
-      return clientAssets.mayJuunIds.stage;
+      return clientAssets.organizationIds.stage;
     case _ApiMode.prod:
-      return clientAssets.mayJuunIds.prod;
+      return clientAssets.organizationIds.prod;
   }
 }

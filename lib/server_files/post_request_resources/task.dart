@@ -5,6 +5,7 @@ import 'package:shelf/shelf.dart';
 import '../../galleria.dart';
 
 Future<Response> postRequestTask(String id) async {
+  print('POST REQUEST TASK');
   final credentials = await getCredentials();
 
   /// Create the search request for a Task
@@ -150,10 +151,12 @@ Future<Response> postRequestTask(String id) async {
         recipient: [
           responsiblePersonResponse.thisReference,
         ],
-        sender: Reference(
-            display: 'MayJuun',
-            type: FhirUri('Organization'),
-            reference: 'Organization/${mayJuunId()}'),
+        sender: organizationId() == null
+            ? null
+            : Reference(
+                display: 'MayJuun',
+                type: FhirUri('Organization'),
+                reference: 'Organization/${organizationId()}'),
         medium: [
           if (emailAddress != null)
             CodeableConcept(
