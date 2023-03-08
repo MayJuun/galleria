@@ -5,7 +5,6 @@ import 'package:shelf/shelf.dart';
 import '../../galleria.dart';
 
 Future<Response> postRequestTask(String id) async {
-  print('POST REQUEST TASK');
   final credentials = await getCredentials();
 
   /// Create the search request for a Task
@@ -183,7 +182,6 @@ Future<Response> postRequestTask(String id) async {
               text: phoneNumber,
             ),
         ]);
-    print(communicationRequest.toJson());
 
     /// Create the search request for a Patient
     final communicationRequestRequest = FhirRequest.create(
@@ -198,8 +196,6 @@ Future<Response> postRequestTask(String id) async {
         .request(headers: {
       'Authorization': 'Bearer ${credentials.accessToken.data}'
     });
-
-    print(communicationRequestResponse.toJson());
 
     if (communicationRequestResponse is CommunicationRequest) {
       return printResponseFirst(
