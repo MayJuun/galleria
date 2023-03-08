@@ -7,6 +7,7 @@ build/
 # If you're building an application, you may want to check-in your pubspec.lock
 pubspec.lock
 
+
 # Directory created by dartdoc
 # If you don't generate documentation locally you can remove this line.
 doc/api/
@@ -19,8 +20,21 @@ doc/api/
 *.js_
 *.js.deps
 *.js.map
+njckdemo*.json
+*login.dart
+.vscode/
+*upload_bundle*
+check_scoring*
+*fixing*
+*.DS_Store
 
-# Any files I don't want to check into git
+# By default, ignore all .sh files, except for those in the scripts folder
+*.sh
+!scripts/*.sh
+*scripts/secret/*
+
+#  Allows me to have only one file for code generation locally 
+*generate_credentials.dart
 *api.dart
 # *.sh
 twilio.dart
