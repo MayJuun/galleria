@@ -6,143 +6,131 @@ import 'package:shelf/shelf.dart';
 import '../../galleria.dart';
 
 Future<Response> postRequestCommunicationRequest(String id) async {
-  print('COMMUNICATIONS REQUEST');
-  try {
-    final credentials = await getCredentials();
+  final credentials = await getCredentials();
 
-    print('GOT CREDENTIALS');
+  /// Create the search request
+  final readCommunicationRequest = FhirRequest.read(
+    /// base fhir url
+    base: Uri.parse(getFhirUrl()),
 
-    /// Create the search request
-    final readCommunicationRequest = FhirRequest.read(
+    /// resource type
+    type: R4ResourceType.CommunicationRequest,
+
+    /// ID from URL request
+    id: id,
+  );
+
+  /// get the response
+  final communicationRequest = await readCommunicationRequest.request(
+      headers: {'Authorization': 'Bearer ${credentials.accessToken.data}'});
+
+  if (communicationRequest is! CommunicationRequest) {
+    return printResponseFirst(
+        'No CommunicationRequest was found with the given ID');
+  } else {
+    /// Get Email Address - if available
+    String? emailAddress = _emailAddress(communicationRequest.medium);
+
+    final emailValidator = ValidationBuilder().email().build();
+
+    /// If we found something but it's not valid
+    if (emailAddress != null && emailValidator(emailAddress) != null) {
+      /// Put emailAddress back to null
+      emailAddress = null;
+    }
+
+    /// Get Phone Number - if available
+    String? phoneNumber = _phoneNumber(communicationRequest.medium);
+    final numberValidator = ValidationBuilder().phone().build();
+
+    /// If we found something but it's not valid
+    if (phoneNumber != null && numberValidator(phoneNumber) != null) {
+      /// Put phoneNumber back to null
+      phoneNumber = null;
+    }
+
+    /// Pull the actual message to send
+    final message = communicationRequest.payload
+        ?.map((e) => e.contentString)
+        .toList()
+        .join('\n\n');
+
+    /// Responses that we plan to get
+    Response? emailResponse;
+    Response? smsResponse;
+
+    /// Try multiple times if needed
+    // for (var i = 0; i < numberOfTries; i++) {
+    /// as long as email exists AND the status code is not successful
+    if (emailAddress != null && (emailResponse?.statusCode ?? 300) > 299) {
+      /// try and send the email again
+      emailResponse = await _emailResponse(emailAddress, message);
+    }
+
+    /// as long as phoneNumber exists AND the status code is not successful
+    if (phoneNumber != null && (smsResponse?.statusCode ?? 300) > 299) {
+      /// try and send the SMS message again
+      // TODO(Dokotela): turn this back on when ready
+      // smsResponse = await _smsResponse(phoneNumber, message);
+    }
+
+    /// If either phoneNumber or email exists and is still not successful
+    // if ((emailAddress != null && (emailResponse?.statusCode ?? 300) > 299) ||
+    //     (phoneNumber != null && (smsResponse?.statusCode ?? 300) > 299)) {
+    //   /// We wait for a specified amount of time and then try again
+    //   await timeoutDelay(i);
+    // } else {
+    //   break;
+    // }
+    // }
+
+    /// Check one more time to see if we're successful, except this time see if
+    /// either is successful (more parentheses than needed, but it exactly
+    /// mirrors above this way)
+    Communication? communication;
+    if (!((emailAddress != null && (emailResponse?.statusCode ?? 300) > 299) ||
+        (phoneNumber != null && (smsResponse?.statusCode ?? 300) > 299))) {
+      /// As long as one is, we consider it a success, and create the communication
+      communication = _communicationFromRequest(communicationRequest, true);
+    } else {
+      communication = _communicationFromRequest(communicationRequest, false);
+    }
+
+    /// Create the Request for a new resource
+    final serverCommunicationRequest = FhirRequest.create(
       /// base fhir url
       base: Uri.parse(getFhirUrl()),
 
-      /// resource type
-      type: R4ResourceType.CommunicationRequest,
-
-      /// ID from URL request
-      id: id,
+      /// resource
+      resource: communication,
     );
 
-    /// get the response
-    final communicationRequest = await readCommunicationRequest.request(
+    /// Upload the communication to the server
+    await serverCommunicationRequest.request(
         headers: {'Authorization': 'Bearer ${credentials.accessToken.data}'});
 
-    print(communicationRequest.toJson());
-
-    if (communicationRequest is! CommunicationRequest) {
-      return printResponseFirst(
-          'No CommunicationRequest was found with the given ID');
+    /// if emailResponse is unsuccessful
+    if (emailResponse != null && emailResponse.statusCode > 299) {
+      /// AND smsResponse is unsuccessful
+      if (smsResponse != null && smsResponse.statusCode > 299) {
+        /// return the emailResponse
+        return emailResponse;
+      } else {
+        /// Otherwise, return that SMS was successful but not email
+        return printResponseFirst(
+            'Communication successfully sent via SMS but NOT via email.');
+      }
     } else {
-      /// Get Email Address - if available
-      String? emailAddress = _emailAddress(communicationRequest.medium);
-
-      final emailValidator = ValidationBuilder().email().build();
-
-      /// If we found something but it's not valid
-      if (emailAddress != null && emailValidator(emailAddress) != null) {
-        /// Put emailAddress back to null
-        emailAddress = null;
-      }
-
-      /// Get Phone Number - if available
-      String? phoneNumber = _phoneNumber(communicationRequest.medium);
-      final numberValidator = ValidationBuilder().phone().build();
-
-      /// If we found something but it's not valid
-      if (phoneNumber != null && numberValidator(phoneNumber) != null) {
-        /// Put phoneNumber back to null
-        phoneNumber = null;
-      }
-
-      /// Pull the actual message to send
-      final message = communicationRequest.payload
-          ?.map((e) => e.contentString)
-          .toList()
-          .join('\n\n');
-
-      /// Responses that we plan to get
-      Response? emailResponse;
-      Response? smsResponse;
-
-      /// Try multiple times if needed
-      // for (var i = 0; i < numberOfTries; i++) {
-      /// as long as email exists AND the status code is not successful
-      if (emailAddress != null && (emailResponse?.statusCode ?? 300) > 299) {
-        /// try and send the email again
-        emailResponse = await _emailResponse(emailAddress, message);
-      }
-
-      /// as long as phoneNumber exists AND the status code is not successful
-      if (phoneNumber != null && (smsResponse?.statusCode ?? 300) > 299) {
-        /// try and send the SMS message again
-        // TODO(Dokotela): turn this back on when ready
-        // smsResponse = await _smsResponse(phoneNumber, message);
-      }
-
-      /// If either phoneNumber or email exists and is still not successful
-      // if ((emailAddress != null && (emailResponse?.statusCode ?? 300) > 299) ||
-      //     (phoneNumber != null && (smsResponse?.statusCode ?? 300) > 299)) {
-      //   /// We wait for a specified amount of time and then try again
-      //   await timeoutDelay(i);
-      // } else {
-      //   break;
-      // }
-      // }
-
-      /// Check one more time to see if we're successful, except this time see if
-      /// either is successful (more parentheses than needed, but it exactly
-      /// mirrors above this way)
-      Communication? communication;
-      if (!((emailAddress != null &&
-              (emailResponse?.statusCode ?? 300) > 299) ||
-          (phoneNumber != null && (smsResponse?.statusCode ?? 300) > 299))) {
-        /// As long as one is, we consider it a success, and create the communication
-        communication = _communicationFromRequest(communicationRequest, true);
+      /// check if SMS was successful as well
+      if (smsResponse != null && smsResponse.statusCode > 299) {
+        /// Return that email was successful but not SMS
+        return printResponseFirst(
+            'Communication successfully sent via email but NOT via SMS.');
       } else {
-        communication = _communicationFromRequest(communicationRequest, false);
-      }
-
-      /// Create the Request for a new resource
-      final serverCommunicationRequest = FhirRequest.create(
-        /// base fhir url
-        base: Uri.parse(getFhirUrl()),
-
-        /// resource
-        resource: communication,
-      );
-
-      /// Upload the communication to the server
-      await serverCommunicationRequest.request(
-          headers: {'Authorization': 'Bearer ${credentials.accessToken.data}'});
-
-      /// if emailResponse is unsuccessful
-      if (emailResponse != null && emailResponse.statusCode > 299) {
-        /// AND smsResponse is unsuccessful
-        if (smsResponse != null && smsResponse.statusCode > 299) {
-          /// return the emailResponse
-          return emailResponse;
-        } else {
-          /// Otherwise, return that SMS was successful but not email
-          return printResponseFirst(
-              'Communication successfully sent via SMS but NOT via email.');
-        }
-      } else {
-        /// check if SMS was successful as well
-        if (smsResponse != null && smsResponse.statusCode > 299) {
-          /// Return that email was successful but not SMS
-          return printResponseFirst(
-              'Communication successfully sent via email but NOT via SMS.');
-        } else {
-          return printResponseFirst(
-              'Communication successfully sent via email and SMS.');
-        }
+        return printResponseFirst(
+            'Communication successfully sent via email and SMS.');
       }
     }
-  } catch (e, stack) {
-    print(e);
-    print(stack);
-    rethrow;
   }
 }
 
