@@ -123,6 +123,19 @@ Future<Response> postRequestTask(String id) async {
         ? contactPoint![emailIndex].value
         : null;
 
+    print(cuestionarioUrl());
+    print(getFhirUrl());
+    print(getFhirUrl().contains("healthcare.googleapis.com"));
+    print(
+        '${getFhirUrl().contains("healthcare.googleapis.com") ? "google/" : ""}');
+    print('MayJuun has assigned you a new Task at ${DateTime.now()}, '
+        'click here to complete it: '
+        '${cuestionarioUrl()}'
+        '?requestNumber='
+        '${getFhirUrl().contains("healthcare.googleapis.com") ? "google/" : ""}'
+        '${taskResponse.id}'
+        '&id=$emailAddress.');
+
     final communicationRequest = CommunicationRequest(
         basedOn: [taskResponse.thisReference],
         status: Code('active'),
