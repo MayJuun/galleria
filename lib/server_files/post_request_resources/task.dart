@@ -141,7 +141,9 @@ Future<Response> postRequestTask(String id) async {
                   'MayJuun has assigned you a new Task at ${DateTime.now()}, '
                   'click here to complete it: '
                   '${cuestionarioUrl()}'
-                  '?requestNumber=${taskResponse.id}'
+                  '?requestNumber='
+                  '${cuestionarioUrl().contains("healthcare.googleapis.com") ? "google/" : ""}'
+                  '${taskResponse.id}'
                   '&id=$emailAddress.'),
         ],
         occurrenceDateTime: FhirDateTime(DateTime.now()),
