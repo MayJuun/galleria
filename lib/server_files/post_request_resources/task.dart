@@ -142,7 +142,7 @@ Future<Response> postRequestTask(String id) async {
                   'click here to complete it: '
                   '${cuestionarioUrl()}'
                   '?requestNumber='
-                  '${cuestionarioUrl().contains("healthcare.googleapis.com") ? "google/" : ""}'
+                  '${getFhirUrl().contains("healthcare.googleapis.com") ? "google/" : ""}'
                   '${taskResponse.id}'
                   '&id=$emailAddress.'),
         ],
