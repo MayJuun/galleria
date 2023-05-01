@@ -6,7 +6,7 @@ import 'package:shelf/shelf.dart';
 import '../../galleria.dart';
 
 Future<Response> postRequestCommunicationRequest(String id) async {
-  final credentials = await getCredentials();
+  final credentials = await getCredentials(true);
 
   /// Create the search request
   final readCommunicationRequest = FhirRequest.read(
