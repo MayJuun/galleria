@@ -25,6 +25,7 @@ Future<Response> postRequestCommunicationRequest(String id) async {
       headers: {'Authorization': 'Bearer ${credentials.accessToken.data}'});
 
   if (communicationRequest is! CommunicationRequest) {
+    print(communicationRequest.toJson());
     return printResponseFirst(
         'No CommunicationRequest was found with the given ID');
   } else {
