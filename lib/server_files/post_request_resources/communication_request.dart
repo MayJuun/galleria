@@ -6,7 +6,7 @@ import 'package:shelf/shelf.dart';
 import '../../galleria.dart';
 
 Future<Response> postRequestCommunicationRequest(String id) async {
-  final credentials = await getCredentials(true);
+  final credentials = await getCredentials();
 
   /// Create the search request
   final readCommunicationRequest = FhirRequest.read(
@@ -25,7 +25,6 @@ Future<Response> postRequestCommunicationRequest(String id) async {
       headers: {'Authorization': 'Bearer ${credentials.accessToken.data}'});
 
   if (communicationRequest is! CommunicationRequest) {
-    print(communicationRequest.toJson());
     return printResponseFirst(
         'No CommunicationRequest was found with the given ID');
   } else {
