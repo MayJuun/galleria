@@ -1,6 +1,7 @@
 name: galleria
 description: Dart server to listen for Subscriptions from a FHIR server
 version: 0.0.10
+publish_to: none
 
 environment:
   sdk: ">=2.19.0 <3.0.0"
