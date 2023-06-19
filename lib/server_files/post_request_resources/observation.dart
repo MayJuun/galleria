@@ -16,7 +16,7 @@ Future<Response> postRequestObservation(String id) async {
     type: R4ResourceType.Observation,
 
     /// ID from URL request
-    id: id,
+    fhirId: id,
   );
 
   /// get the response
@@ -38,7 +38,7 @@ Future<Response> postRequestObservation(String id) async {
         type: R4ResourceType.Patient,
 
         /// ID from subject
-        id: subject.split('/').last,
+        fhirId: subject.split('/').last,
       );
 
       /// Request the patient
@@ -47,25 +47,25 @@ Future<Response> postRequestObservation(String id) async {
 
       if (patientResponse is Patient) {
         final bundle = Bundle(
-          type: Code('transaction'),
+          type: FhirCode('transaction'),
           entry: <BundleEntry>[
             BundleEntry(
               resource: observationResponse,
-              fullUrl: observationResponse.id == null
+              fullUrl: observationResponse.fhirId == null
                   ? null
                   : FhirUri('$getFhirUrl()/${observationResponse.path}'),
               request: BundleRequest(
-                method: Code('PUT'),
+                method: FhirCode('PUT'),
                 url: FhirUri(observationResponse.path),
               ),
             ),
             BundleEntry(
               resource: patientResponse,
-              fullUrl: patientResponse.id == null
+              fullUrl: patientResponse.fhirId == null
                   ? null
                   : FhirUri('$getFhirUrl()/${patientResponse.path}'),
               request: BundleRequest(
-                method: Code('PUT'),
+                method: FhirCode('PUT'),
                 url: FhirUri(patientResponse.path),
               ),
             ),

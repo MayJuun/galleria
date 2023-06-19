@@ -16,7 +16,7 @@ Future<Response> postRequestTask(String id) async {
     type: R4ResourceType.Task,
 
     /// ID from URL request
-    id: id,
+    fhirId: id,
   );
 
   /// make the request for the Task
@@ -72,7 +72,7 @@ Future<Response> postRequestTask(String id) async {
       type: R4ResourceType.Patient,
 
       /// ID from URL request
-      id: reference.split('/').last,
+      fhirId: reference.split('/').last,
     );
 
     /// get the response
@@ -125,16 +125,16 @@ Future<Response> postRequestTask(String id) async {
 
     final communicationRequest = CommunicationRequest(
         basedOn: [taskResponse.thisReference],
-        status: Code('active'),
+        status: FhirCode('active'),
         category: [
           CodeableConcept(coding: [
             Coding(
-                code: Code('notification'),
+                code: FhirCode('notification'),
                 system: FhirUri(
                     'http://terminology.hl7.org/CodeSystem/communication-category'))
           ])
         ],
-        priority: Code('routine'),
+        priority: FhirCode('routine'),
         payload: [
           CommunicationRequestPayload(
               contentString:
@@ -143,7 +143,7 @@ Future<Response> postRequestTask(String id) async {
                   '${cuestionarioUrl()}'
                   '?requestNumber='
                   '${getFhirUrl().contains("healthcare.googleapis.com") ? "google/" : ""}'
-                  '${taskResponse.id}'
+                  '${taskResponse.fhirId}'
                   '&id=$emailAddress.'),
         ],
         occurrenceDateTime: FhirDateTime(DateTime.now()),
@@ -165,7 +165,7 @@ Future<Response> postRequestTask(String id) async {
                 Coding(
                   system: FhirUri(
                       'http://terminology.hl7.org/CodeSystem/v3-ParticipationMode'),
-                  code: Code('EMAILWRIT'),
+                  code: FhirCode('EMAILWRIT'),
                   display: 'email',
                 )
               ],
@@ -177,7 +177,7 @@ Future<Response> postRequestTask(String id) async {
                 Coding(
                   system: FhirUri(
                       'http://terminology.hl7.org/CodeSystem/v3-ParticipationMode'),
-                  code: Code('SMSWRIT'),
+                  code: FhirCode('SMSWRIT'),
                   display: 'SMS message',
                 ),
               ],

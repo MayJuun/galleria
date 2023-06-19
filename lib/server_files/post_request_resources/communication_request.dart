@@ -17,7 +17,7 @@ Future<Response> postRequestCommunicationRequest(String id) async {
     type: R4ResourceType.CommunicationRequest,
 
     /// ID from URL request
-    id: id,
+    fhirId: id,
   );
 
   /// get the response
@@ -170,7 +170,7 @@ Communication _communicationFromRequest(
         CommunicationRequest communicationRequest, bool successful) =>
     Communication(
       basedOn: communicationRequest.basedOn,
-      status: successful ? Code('in-progress') : Code('completed'),
+      status: successful ? FhirCode('in-progress') : FhirCode('completed'),
       category: communicationRequest.category,
       priority: communicationRequest.priority,
       medium: communicationRequest.medium,

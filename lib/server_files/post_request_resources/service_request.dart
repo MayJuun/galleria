@@ -17,7 +17,7 @@ Future<Response> postRequestServiceRequest(String id) async {
     type: R4ResourceType.ServiceRequest,
 
     /// ID from URL request
-    id: id,
+    fhirId: id,
   );
 
   /// get the response
@@ -68,7 +68,7 @@ Future<Resource> createTask(
     final planDefinitionRequest = FhirRequest.read(
         base: Uri.parse(getFhirUrl()),
         type: R4ResourceType.PlanDefinition,
-        id: planDefinitionUri.split('/').last);
+        fhirId: planDefinitionUri.split('/').last);
 
     /// Request the PlanDefinition
     final planDefinitionResponse = await planDefinitionRequest.request(
@@ -96,10 +96,10 @@ Future<Resource> createTask(
         requester: serviceRequest.requester,
 
         /// It's an order
-        intent: Code('order'),
+        intent: FhirCode('order'),
 
         /// We are making the task, so it has been requested, but is not yet in-progress
-        status: Code('requested'),
+        status: FhirCode('requested'),
         input: [],
       );
 
@@ -133,11 +133,11 @@ Future<Resource> createTask(
       return createResponse;
     } else {
       return operationOutcome('PlanDefinition was not returned from request\n'
-          'ServiceRequest ID: ${serviceRequest.id}\n'
+          'ServiceRequest ID: ${serviceRequest.fhirId}\n'
           'PlanDefinition ID: ${serviceRequest.instantiatesUri![0].toString().split('/').last}');
     }
   } else {
     return operationOutcome(
-        'No PlanDefinition present in ServiceRequest ${serviceRequest.id}');
+        'No PlanDefinition present in ServiceRequest ${serviceRequest.fhirId}');
   }
 }

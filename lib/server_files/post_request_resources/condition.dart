@@ -17,7 +17,7 @@ Future<Response> postRequestCondition(String id) async {
     type: R4ResourceType.Condition,
 
     /// ID from URL request
-    id: id,
+    fhirId: id,
   );
 
   /// get the response
@@ -39,7 +39,7 @@ Future<Response> postRequestCondition(String id) async {
         type: R4ResourceType.Patient,
 
         /// ID from subject
-        id: subject.split('/').last,
+        fhirId: subject.split('/').last,
       );
 
       /// Request the patient
@@ -48,25 +48,25 @@ Future<Response> postRequestCondition(String id) async {
 
       if (patientResponse is Patient) {
         final bundle = Bundle(
-          type: Code('transaction'),
+          type: FhirCode('transaction'),
           entry: <BundleEntry>[
             BundleEntry(
               resource: conditionResponse,
-              fullUrl: conditionResponse.id == null
+              fullUrl: conditionResponse.fhirId == null
                   ? null
                   : FhirUri('$getFhirUrl()/${conditionResponse.path}'),
               request: BundleRequest(
-                method: Code('PUT'),
+                method: FhirCode('PUT'),
                 url: FhirUri(conditionResponse.path),
               ),
             ),
             BundleEntry(
               resource: patientResponse,
-              fullUrl: patientResponse.id == null
+              fullUrl: patientResponse.fhirId == null
                   ? null
                   : FhirUri('$getFhirUrl()/${patientResponse.path}'),
               request: BundleRequest(
-                method: Code('PUT'),
+                method: FhirCode('PUT'),
                 url: FhirUri(patientResponse.path),
               ),
             ),

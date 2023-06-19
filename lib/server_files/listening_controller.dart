@@ -27,8 +27,7 @@ class ListeningController {
     router.post('/fhir/', (Request request) async {
       final requestString = await request.readAsString();
       final resource = Resource.fromJson(jsonDecode(requestString));
-      final resourceType =
-          ResourceUtils.resourceTypeToStringMap[resource.resourceType];
+      final resourceType = resourceTypeToStringMap[resource.resourceType];
       print('post to "/fhir/, resourceType: $resourceType"');
       if (resourceType != null) {
         return await postRequest([resourceType], resource);
@@ -39,8 +38,7 @@ class ListeningController {
     router.post('/fhir', (Request request) async {
       final requestString = await request.readAsString();
       final resource = Resource.fromJson(jsonDecode(requestString));
-      final resourceType =
-          ResourceUtils.resourceTypeToStringMap[resource.resourceType];
+      final resourceType = resourceTypeToStringMap[resource.resourceType];
       print('post to "/fhir, resourceType: $resourceType"');
       if (resourceType != null) {
         return await postRequest([resourceType], resource);

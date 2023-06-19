@@ -16,8 +16,7 @@ List<String> pathFromPayload(String requestString) {
       final dataList = data.split('/');
       if (dataList.length > 1) {
         final shouldBeAType = dataList[dataList.length - 2];
-        if (ResourceUtils.resourceTypeFromStringMap.keys
-            .contains(shouldBeAType)) {
+        if (resourceTypeFromStringMap.keys.contains(shouldBeAType)) {
           return [shouldBeAType, dataList.last];
         }
       }
